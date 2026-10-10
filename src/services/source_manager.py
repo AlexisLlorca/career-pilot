@@ -5,6 +5,7 @@ y permite al usuario añadir cualquier fuente manual personalizada (Webs corpora
 """
 
 import json
+import re
 from pathlib import Path
 from typing import Dict, Any, List, Optional
 from datetime import datetime
@@ -14,7 +15,7 @@ from bs4 import BeautifulSoup
 from google import genai
 from google.genai import types
 
-from src.core.config import DATA_DIR, console, get_gemini_api_key, DEFAULT_GEMINI_MODEL
+from src.core.config import DATA_DIR, console, get_gemini_api_key, DEFAULT_GEMINI_MODEL, SESSION_STATE_FILE
 from src.core.profile_manager import ProfileManager
 from src.services.job_matcher import JobMatcher
 
@@ -121,7 +122,13 @@ class SourceManager:
         if not target_source:
             return {"status": "error", "message": "Fuente no encontrada", "jobs_imported": 0}
 
-        url = target_source.get("url")
+        url = target_source.get("url", "")
+        name = target_source.get("name", "")
+
+        # Si es la Bolsa de Empleo de UNIR, usar el crawler autenticado por sesión
+        if source_id == "custom-006" or "unir" in url.lower() or "unir" in name.lower():
+            return self.scan_unir_authenticated(source_id=source_id)
+
         html_content = ""
 
         try:
@@ -218,3 +225,242 @@ class SourceManager:
         except Exception as e:
             console.print(f"[red]Error extrayendo con IA: {e}[/red]")
             return {"status": "error", "message": f"Error procesando con IA: {str(e)}", "jobs_imported": 0}
+
+    def _parse_salary_text(self, text: str):
+        """Parsea cadenas de salario de la bolsa de UNIR a números y moneda."""
+        if not text or "no remunerado" in text.lower():
+            return None, None, "EUR"
+        m = re.search(r"(\d+[\.\d]*)\s*([A-Z]{3}|€)?", text)
+        if m:
+            try:
+                num = int(float(m.group(1).replace(".", "")))
+                curr = "EUR"
+                if m.group(2) and m.group(2) in ["COP", "USD", "EUR"]:
+                    curr = m.group(2)
+                elif "€" in text:
+                    curr = "EUR"
+                return num, num, curr
+            except Exception:
+                pass
+        return None, None, "EUR"
+
+    def _extract_skills_from_text(self, text: str) -> List[str]:
+        """Detecta tecnologías y requerimientos técnicos en la oferta de UNIR."""
+        catalog = [
+            "Java", "Kotlin", "Python", "SQL", "PostgreSQL", "MySQL", "Oracle",
+            "Git", "Docker", "Linux", "Ciberseguridad", "SIEM", "Firewalls",
+            "Networking", "Redes", "Bases de datos", "Spring Boot", "Android",
+            "React", "API REST", "OWASP", "Cloud", "BPM", "ERP", "Ofimática", "Excel"
+        ]
+        found = []
+        text_lower = text.lower()
+        for skill in catalog:
+            if re.search(r"\b" + re.escape(skill.lower()) + r"\b", text_lower):
+                found.append(skill)
+        return found if found else ["Gestión de Sistemas", "Desarrollo de Software", "Bases de Datos"]
+
+    def scan_unir_authenticated(self, source_id: str = "custom-006", max_offers: int = 25) -> Dict[str, Any]:
+        """
+        Rastrea de forma autenticada la Bolsa Oficial de Empleo y Prácticas de UNIR (https://empleo.unir.net)
+        utilizando las cookies de sesión activas (Storage State) de Playwright.
+        """
+        if not SESSION_STATE_FILE.exists():
+            return {
+                "status": "error",
+                "message": f"No se encontró sesión activa de UNIR ({SESSION_STATE_FILE.name}).",
+                "jobs_imported": 0
+            }
+
+        try:
+            from playwright.sync_api import sync_playwright
+        except ImportError:
+            return {"status": "error", "message": "Playwright no está instalado en el entorno.", "jobs_imported": 0}
+
+        sources = self.get_sources()
+        target_source = next((s for s in sources if s.get("id") == source_id), None)
+        if not target_source:
+            target_source = {
+                "id": source_id,
+                "name": "Bolsa de Empleo UNIR",
+                "url": "https://empleo.unir.net"
+            }
+
+        console.print("[bold cyan]🎓 Conectando a la Bolsa de Empleo UNIR con sesión activa...[/bold cyan]")
+
+        try:
+            with sync_playwright() as p:
+                browser = p.chromium.launch(headless=True)
+                context = browser.new_context(
+                    storage_state=str(SESSION_STATE_FILE),
+                    viewport={"width": 1280, "height": 800},
+                    user_agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+                )
+                page = context.new_page()
+
+                # 1. Acceso y confirmación de login
+                page.goto("https://empleo.unir.net/home", timeout=25000)
+                page.wait_for_timeout(2000)
+                login_btn = page.query_selector("#login_submit")
+                if login_btn:
+                    login_btn.click()
+                    page.wait_for_timeout(5000)
+
+                # Persistir cookies renovadas
+                try:
+                    context.storage_state(path=str(SESSION_STATE_FILE))
+                except Exception:
+                    pass
+
+                # 2. Rastrear Secciones: Prácticas y Ofertas
+                sections = [
+                    ("https://empleo.unir.net/employment/offers-list/tfyPractices", "Prácticas / Beca"),
+                    ("https://empleo.unir.net/employment/offers-list/tfyJob", "Junior")
+                ]
+
+                raw_listings = []
+                for sec_url, default_exp in sections:
+                    try:
+                        page.goto(sec_url, timeout=20000)
+                        page.wait_for_timeout(3000)
+
+                        cards = page.eval_on_selector_all(".job-card", """elements => elements.slice(0, 10).map(card => {
+                            const jobLink = Array.from(card.querySelectorAll("a")).find(a => a.href && a.href.includes("/employment/job/"));
+                            const companyLink = Array.from(card.querySelectorAll("a")).find(a => a.href && a.href.includes("/company/"));
+                            return {
+                                title: jobLink ? jobLink.innerText.trim() : "",
+                                url: jobLink ? jobLink.href : "",
+                                company: companyLink ? companyLink.innerText.trim() : "",
+                                card_text: card.innerText.trim()
+                            };
+                        })""")
+
+                        for c in cards:
+                            if c.get("title") and c.get("url"):
+                                raw_listings.append({**c, "default_exp": default_exp})
+                    except Exception as e:
+                        console.print(f"[yellow]Aviso navegando a {sec_url}: {e}[/yellow]")
+
+                # 3. Cargar BD existente para no duplicar
+                jobs_db = []
+                if JOBS_FILE.exists():
+                    with open(JOBS_FILE, "r", encoding="utf-8") as f:
+                        jobs_db = json.load(f)
+
+                existing_urls = {j.get("url", "") for j in jobs_db if j.get("url")}
+                existing_titles = {j.get("title", "").lower().strip() for j in jobs_db}
+
+                count_new = 0
+
+                # 4. Visitar las ofertas para extraer detalle completo
+                for item in raw_listings[:max_offers]:
+                    job_url = item["url"]
+                    if job_url in existing_urls or item["title"].lower().strip() in existing_titles:
+                        continue
+
+                    try:
+                        det_page = context.new_page()
+                        det_page.goto(job_url, timeout=15000)
+                        det_page.wait_for_timeout(2000)
+                        body_text = det_page.inner_text("body")
+
+                        # Salario
+                        sal_match = re.search(r"Salario:\s*([^\n]+)", body_text)
+                        sal_text = sal_match.group(1).strip() if sal_match else ""
+                        sal_min, sal_max, currency = self._parse_salary_text(sal_text)
+
+                        # Experiencia
+                        exp_match = re.search(r"Experiencia requerida:\s*([^\n]+)", body_text)
+                        exp_text = exp_match.group(1).strip() if exp_match else item["default_exp"]
+
+                        # Modalidad
+                        body_lower = body_text.lower()
+                        if "teletrabajo" in body_lower or "remoto" in body_lower:
+                            modality = "Remoto"
+                        elif "híbrido" in body_lower or "hibrido" in body_lower:
+                            modality = "Híbrido"
+                        else:
+                            modality = "Presencial"
+
+                        # Ubicación
+                        loc_match = re.search(r"(Madrid|Barcelona|Remoto|Teletrabajo|Valencia|Sevilla|Bilbao|Bogotá[^\n,]*)", body_text)
+                        location = loc_match.group(1).strip() if loc_match else "España"
+
+                        # Descripción
+                        desc = ""
+                        if "Descripción" in body_text:
+                            desc_parts = body_text.split("Descripción", 1)[1]
+                            for ct in ["Competencias", "Condiciones laborales", "Aviso legal"]:
+                                if ct in desc_parts:
+                                    desc_parts = desc_parts.split(ct, 1)[0]
+                            desc = desc_parts.strip()[:600]
+
+                        if not desc or len(desc) < 30:
+                            desc = f"Oportunidad académica y profesional en {item['company']} dentro de la bolsa oficial de UNIR."
+
+                        # Skills detectadas
+                        detected_skills = self._extract_skills_from_text(body_text + " " + item["card_text"])
+
+                        new_job_id = f"job-{len(jobs_db) + 1:03d}"
+                        new_job = {
+                            "id": new_job_id,
+                            "title": item["title"],
+                            "company": item["company"] or "Empresa Colaboradora UNIR",
+                            "location": location,
+                            "modality": modality,
+                            "salary_min": sal_min,
+                            "salary_max": sal_max,
+                            "currency": currency,
+                            "experience_required": exp_text,
+                            "skills_required": detected_skills,
+                            "description": desc,
+                            "benefits": [
+                                "Convenio oficial UNIR",
+                                "Tutor de prácticas asignado",
+                                "Convalidación horas FFE / DAM"
+                            ],
+                            "source": "Bolsa de Empleo UNIR",
+                            "url": job_url,
+                            "date_posted": datetime.now().strftime("%Y-%m-%d"),
+                            "status": "new"
+                        }
+
+                        jobs_db.append(new_job)
+                        existing_urls.add(job_url)
+                        existing_titles.add(item["title"].lower().strip())
+                        count_new += 1
+
+                        det_page.close()
+                    except Exception as e:
+                        console.print(f"[yellow]Aviso detalle {item['title']}: {e}[/yellow]")
+
+                browser.close()
+
+            # Guardar en base de datos
+            if count_new > 0:
+                with open(JOBS_FILE, "w", encoding="utf-8") as f:
+                    json.dump(jobs_db, f, indent=2, ensure_ascii=False)
+
+            # Actualizar datos de la fuente
+            target_source["last_sync"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            target_source["jobs_count"] = target_source.get("jobs_count", 0) + count_new
+
+            for s in sources:
+                if s.get("id") == target_source.get("id"):
+                    s["last_sync"] = target_source["last_sync"]
+                    s["jobs_count"] = target_source["jobs_count"]
+                    break
+
+            with open(SOURCES_FILE, "w", encoding="utf-8") as f:
+                json.dump(sources, f, indent=2, ensure_ascii=False)
+
+            console.print(f"[bold green]✔ UNIR Sincronizado:[/bold green] {count_new} ofertas reales importadas de la Bolsa Oficial.")
+            return {
+                "status": "success",
+                "message": f"Escaneo de UNIR completado. Se han sincronizado {count_new} nuevas ofertas y prácticas oficiales.",
+                "jobs_imported": count_new
+            }
+
+        except Exception as e:
+            console.print(f"[red]Error rastreando portal UNIR: {e}[/red]")
+            return {"status": "error", "message": f"Error conectando a UNIR: {str(e)}", "jobs_imported": 0}
+

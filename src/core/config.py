@@ -16,15 +16,18 @@ load_dotenv(dotenv_path=ENV_FILE, override=True)
 
 console = Console()
 
-# Rutas de datos
+# Rutas de datos y autenticación
 DATA_DIR = BASE_DIR / "data"
 PROFILE_FILE = DATA_DIR / "profile.json"
 JOBS_FILE = DATA_DIR / "job_offers.json"
 MARKET_STATS_FILE = DATA_DIR / "market_stats.json"
 INTERVIEWS_FILE = DATA_DIR / "interview_history.json"
+AUTH_DIR = BASE_DIR / "auth"
+SESSION_STATE_FILE = AUTH_DIR / "session_state.json"
 
 # Crea carpetas si no existen
 DATA_DIR.mkdir(parents=True, exist_ok=True)
+AUTH_DIR.mkdir(parents=True, exist_ok=True)
 
 # Parámetros del servidor y Gemini
 DEFAULT_PORT = int(os.getenv("PORT", "8001"))

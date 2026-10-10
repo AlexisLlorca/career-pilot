@@ -124,5 +124,23 @@
     ],
     "total_jobs_in_db": 20,
     "status": "success"
+  },
+  {
+    "timestamp": "2026-10-10 23:22:01",
+    "new_jobs_found": 2,
+    "details": [
+      "2 ofertas de Bolsa de Empleo UNIR"
+    ],
+    "total_jobs_in_db": 49,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-10 23:22:42",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 49,
+    "status": "success"
   }
 ]

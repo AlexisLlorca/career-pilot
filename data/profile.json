@@ -13,9 +13,9 @@
   "skills": {
     "languages": ["Java", "Kotlin", "SQL", "JavaScript", "Python", "Bash", "HTML5", "CSS3"],
     "backend_frameworks": ["Spring Boot", "JPA / Hibernate", "JDBC", "REST APIs"],
-    "security": ["Security by Design", "OWASP Top 10", "Análisis de Vulnerabilidades", "Hardening", "Criptografía Básica", "Seguridad en Redes"],
+    "security": ["Security by Design", "OWASP Top 10", "Análisis de Vulnerabilidades", "Hardening", "Criptografía Básica", "Seguridad en Redes", "Ciberseguridad", "SIEM", "Firewalls", "Networking"],
     "mobile": ["Android", "Jetpack Compose", "Ciclo de vida Android", "Retrofit"],
-    "systems_tools": ["Linux (Debian/Arch/Ubuntu)", "Git & GitHub", "Docker (Básico)", "PostgreSQL", "MySQL"]
+    "systems_tools": ["Linux (Debian/Arch/Ubuntu)", "Git & GitHub", "Docker (Básico)", "PostgreSQL", "MySQL", "Bases de datos"]
   },
   "experience_level": "Junior / Mid",
   "education": [

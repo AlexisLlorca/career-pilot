@@ -548,5 +548,749 @@
     "source": "Arbeitnow Live API",
     "status": "new",
     "applied_date": null
+  },
+  {
+    "id": "job-021",
+    "title": "Commercial Director (m/w/d)",
+    "company": "Octopus Energy Group",
+    "location": "Munich (DE)",
+    "modality": "Híbrido",
+    "salary_min": 10000,
+    "salary_max": 13000,
+    "currency": "EUR",
+    "experience_required": "Prácticas / Beca",
+    "date_posted": "Hoy (Live API)",
+    "skills_required": [
+      "Commercial"
+    ],
+    "description": "<div><strong>Wer wir sind</strong><br>Octopus Energy ist eines der am schnellsten wachsenden Energieunternehmen Europas. In Deutschland versorgen wir über eine Million Kunden mit günstiger, grüner Energie und wachsen weiter. Wir denken Energie neu: tech-driven, kundenzentriert, a...",
+    "benefits": [
+      "Trabajo en remoto",
+      "Equipo internacional"
+    ],
+    "source": "Arbeitnow Live API",
+    "status": "new",
+    "applied_date": null
+  },
+  {
+    "id": "job-022",
+    "title": "Director Indirect Sales & Partnerships (x/f/m)",
+    "company": "Doctolib",
+    "location": "Berlin, Berlin",
+    "modality": "Híbrido",
+    "salary_min": 10000,
+    "salary_max": 13000,
+    "currency": "EUR",
+    "experience_required": "Prácticas / Beca",
+    "date_posted": "Hoy (Live API)",
+    "skills_required": [
+      "Strategy"
+    ],
+    "description": "&lt;h2&gt;Werde Teil unserer Mission, werde Teil von Doctolib!&lt;/h2&gt;\n&lt;p&gt;Wir suchen Dich als Director Indirect Sales &amp;amp; Partnerships&amp;nbsp; (x/f/m) als Unterstützung für unser Team in Berlin.&lt;/p&gt;\n&lt;p&gt;Als Director Indirect Sales &amp;amp; Partnership...",
+    "benefits": [
+      "Trabajo en remoto",
+      "Equipo internacional"
+    ],
+    "source": "Arbeitnow Live API",
+    "status": "new",
+    "applied_date": null
+  },
+  {
+    "id": "job-023",
+    "title": "Senior Product Designer (w/m/d)",
+    "company": "Skalar",
+    "location": "München",
+    "modality": "Híbrido",
+    "salary_min": 10000,
+    "salary_max": 13000,
+    "currency": "EUR",
+    "experience_required": "Prácticas / Beca",
+    "date_posted": "Hoy (Live API)",
+    "skills_required": [
+      "Engineering"
+    ],
+    "description": "<h2>SKALAR – Wir bauen die digitale Steuerkanzlei der Zukunft</h2><p style=\"min-height:1.5em\">Radikal einfach. Voll digital. 100% mandantenfokussiert.</p><p style=\"min-height:1.5em\">Wir denken Steuerberatung komplett neu: einfacher, schneller und transparenter für Mandanten und K...",
+    "benefits": [
+      "Trabajo en remoto",
+      "Equipo internacional"
+    ],
+    "source": "Arbeitnow Live API",
+    "status": "new",
+    "applied_date": null
+  },
+  {
+    "id": "job-024",
+    "title": "Senior HR People & Talent Partner (m/w/d)",
+    "company": "Pammys™ (dieseo GmbH)",
+    "location": "Hamburg",
+    "modality": "Híbrido",
+    "salary_min": 10000,
+    "salary_max": 13000,
+    "currency": "EUR",
+    "experience_required": "Prácticas / Beca",
+    "date_posted": "Hoy (Live API)",
+    "skills_required": [
+      "Java",
+      "Git",
+      "REST APIs"
+    ],
+    "description": "<br><strong>Stellenbeschreibung</strong><p><strong>Du gewinnst die richtigen Menschen und übernimmst Verantwortung für alles, was danach kommt?</strong><br>Pammys ist in wenigen Jahren auf über eine Million Kundinnen und Kunden gewachsen. Unsere Logistik sorgt täglich dafür, dass...",
+    "benefits": [
+      "Trabajo en remoto",
+      "Equipo internacional"
+    ],
+    "source": "Arbeitnow Live API",
+    "status": "new",
+    "applied_date": null
+  },
+  {
+    "id": "job-025",
+    "title": "Senior HR Manager – Recruiting & Employee Relations (m/w/d)",
+    "company": "Pammys™ (dieseo GmbH)",
+    "location": "Hamburg",
+    "modality": "Híbrido",
+    "salary_min": 10000,
+    "salary_max": 13000,
+    "currency": "EUR",
+    "experience_required": "Prácticas / Beca",
+    "date_posted": "Hoy (Live API)",
+    "skills_required": [
+      "Java",
+      "Git",
+      "REST APIs"
+    ],
+    "description": "<br><strong>Stellenbeschreibung</strong><p><span style=\"font-family:Arial, Helvetica, sans-serif;font-size:14px;\">Du gewinnst starke Mitarbeitende, treibst HR-Themen voran und übernimmst Verantwortung?</span><span style=\"font-family:Arial, Helvetica, sans-serif;font-size:14px;\">P...",
+    "benefits": [
+      "Trabajo en remoto",
+      "Equipo internacional"
+    ],
+    "source": "Arbeitnow Live API",
+    "status": "new",
+    "applied_date": null
+  },
+  {
+    "id": "job-026",
+    "title": "Senior Funnel Specialist (m/w/d)",
+    "company": "Pammys™ (dieseo GmbH)",
+    "location": "Hamburg",
+    "modality": "Híbrido",
+    "salary_min": 10000,
+    "salary_max": 13000,
+    "currency": "EUR",
+    "experience_required": "Prácticas / Beca",
+    "date_posted": "Hoy (Live API)",
+    "skills_required": [
+      "Copywriter",
+      "Marketing",
+      "Ecommerce",
+      "E-com",
+      "Manager",
+      "Funnel"
+    ],
+    "description": "<br><strong>Stellenbeschreibung</strong><p>Die meisten Copywriter schreiben Sätze, die gut klingen. Wir suchen jemanden, der Sätze schreibt, die verkaufen.<br><br>Wenn du eine Anzeige liest und sofort siehst, welcher Hook zieht, welcher Angle trägt und wo der Leser aussteigt, bev...",
+    "benefits": [
+      "Trabajo en remoto",
+      "Equipo internacional"
+    ],
+    "source": "Arbeitnow Live API",
+    "status": "new",
+    "applied_date": null
+  },
+  {
+    "id": "job-027",
+    "title": "(Senior) Marketing Controller (m/w/d)",
+    "company": "Pammys™ (dieseo GmbH)",
+    "location": "Hamburg",
+    "modality": "Híbrido",
+    "salary_min": 10000,
+    "salary_max": 13000,
+    "currency": "EUR",
+    "experience_required": "Prácticas / Beca",
+    "date_posted": "Hoy (Live API)",
+    "skills_required": [
+      "Java",
+      "Git",
+      "REST APIs"
+    ],
+    "description": "<br><strong>Stellenbeschreibung</strong><p><span style=\"font-family:Verdana, Geneva, sans-serif;font-size:14px;\">Du reportest nicht, was passiert ist. Du sorgst dafür, dass wir wissen, was als Nächstes passieren muss.</span><p><span style=\"font-family:Verdana, Geneva, sans-serif;...",
+    "benefits": [
+      "Trabajo en remoto",
+      "Equipo internacional"
+    ],
+    "source": "Arbeitnow Live API",
+    "status": "new",
+    "applied_date": null
+  },
+  {
+    "id": "job-028",
+    "title": "Prácticas Recursos Externos y Gestión de Proveedores",
+    "company": "Grupo hedima",
+    "location": "Madrid",
+    "modality": "Presencial",
+    "salary_min": 384,
+    "salary_max": 384,
+    "currency": "EUR",
+    "experience_required": "Sin Experiencia",
+    "skills_required": [
+      "Bases de datos",
+      "ERP",
+      "Ofimática",
+      "Excel"
+    ],
+    "description": "¿Te gustaría conocer cómo se coordina una red de formadores y proveedores desde dentro de un departamento de Recursos Externos?\n\n¿Qué aprenderás con nosotros?\n\nFormarás parte del departamento de Recursos Externos, donde, con el apoyo de un tutor, participarás en tareas como:\n\nGestión y actualización de información en el ERP corporativo.\nAlta y mantenimiento de datos de formadores y proveedores.\nElaboración y seguimiento de informes mediante Excel.\nRegistro y seguimiento de incidencias.\nApoyo en la búsqueda, homologación y gestión de proveedores y colaboradores.\nSegún tu perfil e intereses, pod",
+    "benefits": [
+      "Convenio oficial UNIR",
+      "Tutor de prácticas asignado",
+      "Convalidación horas FFE / DAM"
+    ],
+    "source": "Bolsa de Empleo UNIR",
+    "url": "https://empleo.unir.net/employment/job/157344/Pr%C3%A1cticas--Recursos-Externos-y-Gesti%C3%B3n-de-Proveedores",
+    "date_posted": "2026-10-10",
+    "status": "new"
+  },
+  {
+    "id": "job-029",
+    "title": "Becario/a para The Optimus Minds Consultora Educativa",
+    "company": "The optimus minds",
+    "location": "Teletrabajo",
+    "modality": "Remoto",
+    "salary_min": null,
+    "salary_max": null,
+    "currency": "EUR",
+    "experience_required": "Sin Experiencia",
+    "skills_required": [
+      "Bases de datos",
+      "Ofimática"
+    ],
+    "description": "La persona seleccionada se incorporará al equipo de consultoría, participando y dando soporte en proyectos vinculados principalmente al sector educativo y empresarial. Entre sus funciones estarán:\n\n- Apoyo en el desarrollo y seguimiento de proyectos de consultoría estratégica.\n\n-Recopilación, organización y análisis de información y datos para la elaboración de diagnósticos y recomendaciones.\n\n-Preparación de informes ejecutivos y presentaciones.\n\n-Apoyo en la elaboración y seguimiento de cuadros de mando, métricas e indicadores de negocio.\n\n-Apoyo en proyectos relacionados con estrategia, mar",
+    "benefits": [
+      "Convenio oficial UNIR",
+      "Tutor de prácticas asignado",
+      "Convalidación horas FFE / DAM"
+    ],
+    "source": "Bolsa de Empleo UNIR",
+    "url": "https://empleo.unir.net/employment/job/157685/Becario-a-para-The-Optimus-Minds-Consultora-Educativa",
+    "date_posted": "2026-10-10",
+    "status": "new"
+  },
+  {
+    "id": "job-030",
+    "title": "Apoyo a gestión y desarrollo del Programa Empieza por Educar",
+    "company": "Empieza Por Educar",
+    "location": "Teletrabajo",
+    "modality": "Remoto",
+    "salary_min": null,
+    "salary_max": null,
+    "currency": "EUR",
+    "experience_required": "2 años",
+    "skills_required": [
+      "Bases de datos",
+      "Cloud",
+      "Excel"
+    ],
+    "description": "En Empieza Por Educar (ExE) trabajamos para contribuir a reducir las desigualdades educativas y mejorar las oportunidades de aprendizaje de todo el alumnado. Para ello, desarrollamos un programa de formación y acompañamiento de profesionales que trabajan en centros educativos, con el objetivo de impulsar su capacidad para generar un impacto positivo en sus estudiantes y comunidades educativas.\n\nBuscamos una persona en prácticas que quiera conocer de cerca el funcionamiento de un programa educativo y contribuir a su desarrollo, dando apoyo transversal en diferentes proyectos y procesos del día ",
+    "benefits": [
+      "Convenio oficial UNIR",
+      "Tutor de prácticas asignado",
+      "Convalidación horas FFE / DAM"
+    ],
+    "source": "Bolsa de Empleo UNIR",
+    "url": "https://empleo.unir.net/employment/job/157751/Apoyo-a-gesti%C3%B3n-y-desarrollo-del-Programa-Empieza-por-Educar",
+    "date_posted": "2026-10-10",
+    "status": "new"
+  },
+  {
+    "id": "job-031",
+    "title": "Prácticas SDR · Desarrollo de negocio B2B · Remoto (2 plazas)",
+    "company": "The Optimal Flow",
+    "location": "Remoto",
+    "modality": "Remoto",
+    "salary_min": 600,
+    "salary_max": 600,
+    "currency": "EUR",
+    "experience_required": "Sin Experiencia",
+    "skills_required": [
+      "Gestión de Sistemas",
+      "Desarrollo de Software",
+      "Bases de Datos"
+    ],
+    "description": "En The Optimal Flow abrimos dos plazas de prácticas SDR (Sales Development Representative) para aprender venta consultiva B2B en una consultora de automatización e inteligencia artificial.\n\nCONDICIONES\n\n• Prácticas académicas externas mediante convenio con la universidad o centro de estudios.\n\n• Seis meses, 30 horas semanales y ayuda al estudio de 600 € brutos mensuales.\n\n• 100 % remoto. También es posible realizar las prácticas desde el extranjero si la universidad y el convenio lo permiten.\n\n• Incorporación lo antes posible, idealmente antes del 1 de noviembre, según disponibilidad y formali",
+    "benefits": [
+      "Convenio oficial UNIR",
+      "Tutor de prácticas asignado",
+      "Convalidación horas FFE / DAM"
+    ],
+    "source": "Bolsa de Empleo UNIR",
+    "url": "https://empleo.unir.net/employment/job/157805/Pr%C3%A1cticas-SDR-%C2%B7-Desarrollo-de-negocio-B2B-%C2%B7-Remoto-2-plazas",
+    "date_posted": "2026-10-10",
+    "status": "new"
+  },
+  {
+    "id": "job-032",
+    "title": "PRÁCTICAS EN LA COMISIÓN NACIONAL DEL MERCADO DE VALORES (CNMV)",
+    "company": "Comisión Nacional del Mercado de Valores",
+    "location": "Barcelona",
+    "modality": "Presencial",
+    "salary_min": 500,
+    "salary_max": 500,
+    "currency": "EUR",
+    "experience_required": "Sin Experiencia",
+    "skills_required": [
+      "Excel"
+    ],
+    "description": "La CNMV, Comisión Nacional del Mercado de Valores, es el organismo encargado de la supervisión e inspección de los mercados de valores españoles y de la actividad de cuantos intervienen en los mismos.\n\nSu objetivo es velar por la transparencia de los mercados de valores españoles y la correcta formación de precios, así como la protección de los inversores. La acción de la Comisión se proyecta principalmente sobre las sociedades que emiten y ofrecen valores para ser colocados de forma pública, sobre los mercados secundarios de valores, y sobre las empresas que prestan servicios de inversión e i",
+    "benefits": [
+      "Convenio oficial UNIR",
+      "Tutor de prácticas asignado",
+      "Convalidación horas FFE / DAM"
+    ],
+    "source": "Bolsa de Empleo UNIR",
+    "url": "https://empleo.unir.net/employment/job/157807/PR%C3%81CTICAS-EN-LA-COMISI%C3%93N-NACIONAL-DEL-MERCADO-DE-VALORES-CNMV",
+    "date_posted": "2026-10-10",
+    "status": "new"
+  },
+  {
+    "id": "job-033",
+    "title": "Business Process Management",
+    "company": "INETUM ESPAÑA S.A.",
+    "location": "Madrid",
+    "modality": "Presencial",
+    "salary_min": 650,
+    "salary_max": 650,
+    "currency": "EUR",
+    "experience_required": "Sin Experiencia",
+    "skills_required": [
+      "BPM"
+    ],
+    "description": "FUNCIONES:\n\nLevantamiento y análisis de procesos de negocio mediante entrevistas, talleres, revisión de documentación y/o análisis de data con process mining.\nModelado y documentación de procesos As-Is y To-Be, identificando actividades, actores, sistemas, información, reglas de negocio y puntos de decisión.\nIdentificación de ineficiencias, puntos de mejora y oportunidades de simplificación, estandarización y automatización de procesos.\nElaboración de requerimientos y especificaciones funcionales que permitan trasladar las necesidades de negocio a los equipos tecnológicos.\nParticipación en pro",
+    "benefits": [
+      "Convenio oficial UNIR",
+      "Tutor de prácticas asignado",
+      "Convalidación horas FFE / DAM"
+    ],
+    "source": "Bolsa de Empleo UNIR",
+    "url": "https://empleo.unir.net/employment/job/157850/Business-Process-Management",
+    "date_posted": "2026-10-10",
+    "status": "new"
+  },
+  {
+    "id": "job-034",
+    "title": "Prácticas Office Assistant",
+    "company": "kronos real estate group",
+    "location": "Madrid",
+    "modality": "Presencial",
+    "salary_min": 1000,
+    "salary_max": 1000,
+    "currency": "EUR",
+    "experience_required": "Sin Experiencia",
+    "skills_required": [
+      "Excel"
+    ],
+    "description": "Buscamos una persona organizada, proactiva y con buenas habilidades de comunicación para dar soporte en el día a día de la oficina. Siempre bajo supervisión.\n\nPrincipales funciones:\n\nAtención y recepción de visitas.\nGestión de llamadas, mensajería y correspondencia.\nApoyo en la organización y mantenimiento de salas de reuniones y espacios comunes.\nGestión de pedidos de material de oficina, snacks y catering.\nApoyo en la organización de eventos corporativos internos, como desayunos, comidas, barbacoas y celebraciones de equipo.\nSoporte en comunicaciones internas y onboarding de nuevas incorpora",
+    "benefits": [
+      "Convenio oficial UNIR",
+      "Tutor de prácticas asignado",
+      "Convalidación horas FFE / DAM"
+    ],
+    "source": "Bolsa de Empleo UNIR",
+    "url": "https://empleo.unir.net/employment/job/157674/Pr%C3%A1cticas-Office-Assistant",
+    "date_posted": "2026-10-10",
+    "status": "new"
+  },
+  {
+    "id": "job-035",
+    "title": "BECARIO/A PARA DEPARTAMENTO TÉCNICO CONSULTORIA AMBIENTAL",
+    "company": "LITOCLEAN",
+    "location": "Madrid",
+    "modality": "Presencial",
+    "salary_min": null,
+    "salary_max": null,
+    "currency": "EUR",
+    "experience_required": "Sin Experiencia",
+    "skills_required": [
+      "Excel"
+    ],
+    "description": "Litoclean, S.L. busca incorporar un/a Estudiante en Prácticas para dar soporte a nuestro Departamento Técnico, participando en proyectos relacionados con servicios medioambientales.\n\nFunciones principales\n\nLa persona seleccionada colaborará en las siguientes tareas:\n\nApoyo en registros de datos\nApoyo en elaboración de informes técnicos\nSoporte en la gestión documental y administrativa\nOfrecemos\nConvenio de prácticas con centro de estudios.\nFormación y acompañamiento por parte de profesionales del sector.\nParticipación en proyectos reales.\nBolsa de ayuda al estudio\n\nRequisitos\nConocimientos:\nEx",
+    "benefits": [
+      "Convenio oficial UNIR",
+      "Tutor de prácticas asignado",
+      "Convalidación horas FFE / DAM"
+    ],
+    "source": "Bolsa de Empleo UNIR",
+    "url": "https://empleo.unir.net/employment/job/157743/BECARIO-A-PARA-DEPARTAMENTO-T%C3%89CNICO-CONSULTORIA-AMBIENTAL",
+    "date_posted": "2026-10-10",
+    "status": "new"
+  },
+  {
+    "id": "job-036",
+    "title": "PRÁCTICAS ADMINISTRATIVO DESPACHO DE ABOGADOS",
+    "company": "M&S ABOGADOS ASOCIADOS",
+    "location": "Madrid",
+    "modality": "Remoto",
+    "salary_min": null,
+    "salary_max": null,
+    "currency": "EUR",
+    "experience_required": "Sin Experiencia",
+    "skills_required": [
+      "Excel"
+    ],
+    "description": "Manejo de lexnet, dehu, mercurio, aca, horus\n\n-Manejo excel y crm a nivel despacho de abogados\n\n-Trabajo administrativo con orientación a la técnica jurídica\n\nRequisitos\nConocimientos:\nTecnologia\nInformática\nMicrosoft Office\nTecnologías de la información\nAdministración de empresas\nGestión administrativa y Soporte\nBachillerato\nIdiomas\nInglés\nNivel:Intermedio (B1)\nTitulaciones:\n\nLa empresa solicita que el candidato cuente con al menos una de estas titulaciones:\n\nGrado en Administración y Dirección de Empresas\nMáster Universitario en Gestión Administrativa\nGrado en Derecho\nDuración de las práctic",
+    "benefits": [
+      "Convenio oficial UNIR",
+      "Tutor de prácticas asignado",
+      "Convalidación horas FFE / DAM"
+    ],
+    "source": "Bolsa de Empleo UNIR",
+    "url": "https://empleo.unir.net/employment/job/157763/PR%C3%81CTICAS-ADMINISTRATIVO-DESPACHO-DE-ABOGADOS",
+    "date_posted": "2026-10-10",
+    "status": "new"
+  },
+  {
+    "id": "job-037",
+    "title": "Prácticas en Social Media & Content Creator",
+    "company": "ABAR",
+    "location": "Teletrabajo",
+    "modality": "Remoto",
+    "salary_min": null,
+    "salary_max": null,
+    "currency": "EUR",
+    "experience_required": "Sin Experiencia",
+    "skills_required": [
+      "Redes"
+    ],
+    "description": "En ABAR buscamos una persona en prácticas con perfil creativo, buen ojo visual y ganas de crecer en creación de contenido y social media.\n\n¿Qué harás?\n\n• Crear piezas y creatividades para redes sociales.\n\n• Editar reels, TikToks y contenido en vídeo.\n\n• Planificar y programar publicaciones.\n\n• Buscar tendencias, referencias e ideas de contenido.\n\n• Adaptar contenidos a diferentes formatos y plataformas.\n\n• ¡Y aprender mucho!\n\n¿Qué buscamos?\n\n• Manejo de Canva.\n\n• Conocimientos de CapCut, Edits o herramientas similares.\n\n• Sensibilidad estética y atención al detalle.\n\n• Organización, iniciativa",
+    "benefits": [
+      "Convenio oficial UNIR",
+      "Tutor de prácticas asignado",
+      "Convalidación horas FFE / DAM"
+    ],
+    "source": "Bolsa de Empleo UNIR",
+    "url": "https://empleo.unir.net/employment/job/157612/Pr%C3%A1cticas-en-Social-Media-%2Band%2B-Content-Creator",
+    "date_posted": "2026-10-10",
+    "status": "new"
+  },
+  {
+    "id": "job-038",
+    "title": "Responsable de IT y Transformación Digital",
+    "company": "ALCHEMLIFE IBERIA",
+    "location": "Barcelona",
+    "modality": "Remoto",
+    "salary_min": null,
+    "salary_max": null,
+    "currency": "EUR",
+    "experience_required": "De 3 a 5 años",
+    "skills_required": [
+      "Ciberseguridad",
+      "Bases de datos"
+    ],
+    "description": "Sobre el puesto\n\nBuscamos incorporar a nuestro equipo una persona Responsable de IT, con una trayectoria profesional de 3 años o más en el área de IT. Será responsable de coordinar el soporte a usuarios, la administración de servicios y dispositivos, la ciberseguridad, los proveedores tecnológicos y los proyectos de transformación digital.\n\nEl puesto requiere una visión transversal: comprender las necesidades de negocio, priorizarlas y convertirlas en soluciones tecnológicas sostenibles, documentadas y seguras, combinando capacidad técnica con organización, comunicación y orientación al servic",
+    "benefits": [
+      "Convenio oficial UNIR",
+      "Tutor de prácticas asignado",
+      "Convalidación horas FFE / DAM"
+    ],
+    "source": "Bolsa de Empleo UNIR",
+    "url": "https://empleo.unir.net/employment/job/157732/Responsable-de-IT-y-Transformaci%C3%B3n-Digital",
+    "date_posted": "2026-10-10",
+    "status": "new"
+  },
+  {
+    "id": "job-039",
+    "title": "Desarrollador React",
+    "company": "SCRUMMERS SAS",
+    "location": "Teletrabajo",
+    "modality": "Remoto",
+    "salary_min": 1800,
+    "salary_max": 1800,
+    "currency": "USD",
+    "experience_required": "Más de 5 años",
+    "skills_required": [
+      "Java",
+      "Git",
+      "Bases de datos",
+      "React",
+      "Cloud"
+    ],
+    "description": "¡Estamos contratando Desarrollador React! Si tienes entre 3 y 5 años de experiencia creando aplicaciones web modernas, esta es tu oportunidad para unirte a un equipo que innova en el mundo Fintech y Cripto.\n\n Requisitos clave:\n\nDominio de TypeScript y React (Router, Hooks, Redux)\nGestión de estado con Redux, Mobx o Zustand\nIntegración de APIs REST y manejo de JSON\nPruebas unitarias/integración con Jest, Mocha, Chai\nArquitectura limpia, DDD y desarrollo web con HTML, CSS, JS\nBases de datos NoSQL: MongoDB, DynamoDB, TigerBettle\nExperiencia con AWS, Git y protocolos HTTP/HTTPS\n\nPlus: experiencia ",
+    "benefits": [
+      "Convenio oficial UNIR",
+      "Tutor de prácticas asignado",
+      "Convalidación horas FFE / DAM"
+    ],
+    "source": "Bolsa de Empleo UNIR",
+    "url": "https://empleo.unir.net/employment/job/154336/Desarrollador-React",
+    "date_posted": "2026-10-10",
+    "status": "new"
+  },
+  {
+    "id": "job-040",
+    "title": "Bolsas de trabajo 26-27: CIBERSEGURIDAD | Docente FP",
+    "company": "Fundación Diocesanas- Jesús Obrero Fundazioa. EGIBIDE",
+    "location": "España",
+    "modality": "Presencial",
+    "salary_min": null,
+    "salary_max": null,
+    "currency": "EUR",
+    "experience_required": "Sin Experiencia",
+    "skills_required": [
+      "Ciberseguridad"
+    ],
+    "description": "Estudios requeridos\nPerfil 1: Formación Universitaria en Informática, Telecomunicaciones o afines\nPerfil 2: Formación profesional y/o Grado Superior relacionados con este ámbito\"\n\nOtros conocimientos\n\nFP y Formación para el empleo\n\nMaster o Diploma de Formación de Profesorado o equivalentes (opcional)\nHabilitación por experiencia previa prevista en la ley\n\nExperiencia\n\nSe valorará:\n\nExperiencia como docente y experiencia o acompañamiento de adolescentes en el ámbito no formal, en todos los casos\nExperiencia laboral en el ámbito de la especialización que aporta cada candidatura\n\nIdiomas\n\nFP y F",
+    "benefits": [
+      "Convenio oficial UNIR",
+      "Tutor de prácticas asignado",
+      "Convalidación horas FFE / DAM"
+    ],
+    "source": "Bolsa de Empleo UNIR",
+    "url": "https://empleo.unir.net/employment/job/152553/Bolsas-de-trabajo-26-27:-CIBERSEGURIDAD-%7C-Docente-FP",
+    "date_posted": "2026-10-10",
+    "status": "new"
+  },
+  {
+    "id": "job-041",
+    "title": "ANALISTA INFORMATICO EN CIBERSEGURIDAD",
+    "company": "axure technologies",
+    "location": "Bogotá",
+    "modality": "Presencial",
+    "salary_min": 3000000,
+    "salary_max": 3000000,
+    "currency": "COP",
+    "experience_required": "1 año",
+    "skills_required": [
+      "Linux",
+      "Ciberseguridad",
+      "SIEM",
+      "Firewalls",
+      "Networking",
+      "Redes",
+      "Bases de datos"
+    ],
+    "description": "Misión del cargo\n\nGarantizar la disponibilidad, el desempeño y la seguridad de la infraestructura de red y del perímetro tecnológico de AXURE Technologies y sus clientes, mediante el monitoreo, administración y soporte de plataformas de comunicaciones y seguridad.\n\nRequisitos\n\nFormación académica:\n\nTecnólogo o profesional en Ingeniería de Sistemas, Telecomunicaciones, Electrónica o carreras afines.\n\nExperiencia:\n\nMínimo 1 año en cargos similares.\n\nConocimientos\n\nNetworking y redes inalámbricas.\n\nLinux y Windows.\n\nGestión de incidentes de seguridad.\n\nSIEM y monitoreo de alertas.\n\nFirewalls NGFW",
+    "benefits": [
+      "Convenio oficial UNIR",
+      "Tutor de prácticas asignado",
+      "Convalidación horas FFE / DAM"
+    ],
+    "source": "Bolsa de Empleo UNIR",
+    "url": "https://empleo.unir.net/employment/job/157785/ANALISTA-INFORMATICO-EN-CIBERSEGURIDAD",
+    "date_posted": "2026-10-10",
+    "status": "new"
+  },
+  {
+    "id": "job-042",
+    "title": "INGENIERO DE DATOS MD",
+    "company": "NETBY CONSULTING",
+    "location": "Teletrabajo",
+    "modality": "Remoto",
+    "salary_min": null,
+    "salary_max": null,
+    "currency": "EUR",
+    "experience_required": "2 años",
+    "skills_required": [
+      "Python",
+      "SQL",
+      "PostgreSQL",
+      "MySQL",
+      "Oracle",
+      "Bases de datos",
+      "Cloud"
+    ],
+    "description": "¡Estamos buscando un Ingeniero de Datos MD!\n\nBuscamos un profesional con experiencia en el diseño e implementación de pipelines de datos para entornos distribuidos (Data Lake/Lakehouse) y optimización de consultas SQL sobre grandes volúmenes de datos.\n\n? Título en Ingeniería de Software, Sistemas, Ciencias de la Computación o carreras afines.\n\n? Mínimo 3 años de experiencia en posiciones similares.\n\n? Desarrollo en Python con: PySpark, Apache Spark, Spark Streaming, Apache Airflow y Apache Iceberg.\n\n? Manejo de bases de datos: SQL Server, PostgreSQL, MySQL y Oracle.\n\n? Conocimientos sólidos en",
+    "benefits": [
+      "Convenio oficial UNIR",
+      "Tutor de prácticas asignado",
+      "Convalidación horas FFE / DAM"
+    ],
+    "source": "Bolsa de Empleo UNIR",
+    "url": "https://empleo.unir.net/employment/job/157777/INGENIERO-DE-DATOS-MD",
+    "date_posted": "2026-10-10",
+    "status": "new"
+  },
+  {
+    "id": "job-043",
+    "title": "IT RECRUITER",
+    "company": "NETBY CONSULTING",
+    "location": "Teletrabajo",
+    "modality": "Remoto",
+    "salary_min": null,
+    "salary_max": null,
+    "currency": "EUR",
+    "experience_required": "1 año",
+    "skills_required": [
+      "Gestión de Sistemas",
+      "Desarrollo de Software",
+      "Bases de Datos"
+    ],
+    "description": "¡Estamos buscando IT Recruiter en la ciudad de Guayaquil!\n\nBuscamos talento con experiencia en reclutamiento y selección de perfiles tecnológicos, conocimiento IT y capacidad para gestionar procesos de selección end-to-end.\n\nTítulo de tercer nivel en Gestión de Talento Humano, Psicología Organizacional o afines.\nMínimo 1 año de experiencia en reclutamiento y selección de perfiles IT.\nExperiencia en reclutamiento end-to-end.\nConocimiento de roles tecnológicos (desarrollo, QA, infraestructura, data).\nManejo de LinkedIn Recruiter y portales de empleo.\nEntrevistas por competencias y comunicación e",
+    "benefits": [
+      "Convenio oficial UNIR",
+      "Tutor de prácticas asignado",
+      "Convalidación horas FFE / DAM"
+    ],
+    "source": "Bolsa de Empleo UNIR",
+    "url": "https://empleo.unir.net/employment/job/157833/IT-RECRUITER",
+    "date_posted": "2026-10-10",
+    "status": "new"
+  },
+  {
+    "id": "job-044",
+    "title": "Sr. Frontend Developer",
+    "company": "SCRUMMERS SAS",
+    "location": "Teletrabajo",
+    "modality": "Remoto",
+    "salary_min": 2000,
+    "salary_max": 2000,
+    "currency": "USD",
+    "experience_required": "Más de 5 años",
+    "skills_required": [
+      "Java",
+      "Git",
+      "Cloud"
+    ],
+    "description": "¡Estamos buscando un Sr. Frontend Developer con enfoque en Angular! Si te apasiona construir interfaces robustas, escalables y de alto rendimiento, esta es tu oportunidad para liderar el desarrollo frontend de proyectos desafiantes.\n\nRequisitos clave:\n\nDominio avanzado de Angular (CLI, módulos, componentes, servicios, pipes, directivas)\nSólida experiencia en JavaScript y TypeScript (RxJS, async/await, promesas)\nHTML5, CSS3, SASS/LESS y diseño responsivo con Bootstrap\nPruebas unitarias e integración con Jasmine y Karma\nOptimización de performance (lazy loading, tree shaking, bundle optimization",
+    "benefits": [
+      "Convenio oficial UNIR",
+      "Tutor de prácticas asignado",
+      "Convalidación horas FFE / DAM"
+    ],
+    "source": "Bolsa de Empleo UNIR",
+    "url": "https://empleo.unir.net/employment/job/154340/Sr.-Frontend-Developer",
+    "date_posted": "2026-10-10",
+    "status": "new"
+  },
+  {
+    "id": "job-045",
+    "title": "DOCENTES DE SECUNDARIA PARA TECNOLOGÍA Y DIGITALIZACIÓN",
+    "company": "Fundacion Victoria",
+    "location": "España",
+    "modality": "Presencial",
+    "salary_min": 300000,
+    "salary_max": 300000,
+    "currency": "EUR",
+    "experience_required": "Sin Experiencia",
+    "skills_required": [
+      "Gestión de Sistemas",
+      "Desarrollo de Software",
+      "Bases de Datos"
+    ],
+    "description": "Fundación Victoria, selecciona personal docente para bolsa de empleo, de la asignatura de Tecnología y digitalización en Secundaria y Bachillerato para el curso escolar 2026-2027.\n\nREQUISITOS: \n\nTitulaciones aptas para el puesto:\n\nINGENIERIA SUPERIOR EN INFORMÁTICA, TELECOMUNICACIONES, INDUSTRIAL  + MÁSTER DE PROFESORADO Y Certificado de inglés B2 de Aptis, Cambridge, Trinity o Escuela Oficial de Idiomas.\n\nRequisitos\nConocimientos:\nTecnologia\nInformática\nTecnologías de la información\nIngeniería\nIngeniería industrial\nEducación secundaria\nEnseñanza\nMatemáticas\nIdiomas\nInglés\nNivel:Intermedio Alt",
+    "benefits": [
+      "Convenio oficial UNIR",
+      "Tutor de prácticas asignado",
+      "Convalidación horas FFE / DAM"
+    ],
+    "source": "Bolsa de Empleo UNIR",
+    "url": "https://empleo.unir.net/employment/job/157193/DOCENTES-DE-SECUNDARIA-PARA-TECNOLOG%C3%8DA-Y-DIGITALIZACI%C3%93N",
+    "date_posted": "2026-10-10",
+    "status": "new"
+  },
+  {
+    "id": "job-046",
+    "title": "Desarrolladores Node.js",
+    "company": "SCRUMMERS SAS",
+    "location": "Teletrabajo",
+    "modality": "Remoto",
+    "salary_min": 2000,
+    "salary_max": 2000,
+    "currency": "USD",
+    "experience_required": "Más de 5 años",
+    "skills_required": [
+      "Java",
+      "Git",
+      "Docker",
+      "Bases de datos",
+      "React",
+      "Cloud"
+    ],
+    "description": "¡Estamos buscando Desarrolladores Node.js! Si tienes entre 3 y 5 años de experiencia y te apasiona construir soluciones backend escalables, esta oportunidad es para ti.\n\nRequisitos clave:\n\nDominio de JavaScript y TypeScript\nExperiencia con Node.js, Nest.js, Express.js, Koa.js\nPruebas unitarias/integración con Jest, Mocha, Chai\nIntegración de APIs REST y manejo de JSON\nArquitectura limpia, DDD y DevOps (Docker, Kubernetes, CI/CD)\nBases de datos NoSQL: MongoDB, DynamoDB, TigerBettle\nFamiliaridad con Git, NPM y protocolos HTTP/HTTPS\nConocimientos recomendados en React, Angular o Vue.js\n\n Plus: ex",
+    "benefits": [
+      "Convenio oficial UNIR",
+      "Tutor de prácticas asignado",
+      "Convalidación horas FFE / DAM"
+    ],
+    "source": "Bolsa de Empleo UNIR",
+    "url": "https://empleo.unir.net/employment/job/154335/Desarrolladores-Node.js",
+    "date_posted": "2026-10-10",
+    "status": "new"
+  },
+  {
+    "id": "job-047",
+    "title": "Desarrollador Flutter",
+    "company": "SCRUMMERS SAS",
+    "location": "Teletrabajo",
+    "modality": "Remoto",
+    "salary_min": 1800,
+    "salary_max": 1800,
+    "currency": "USD",
+    "experience_required": "Más de 5 años",
+    "skills_required": [
+      "Java",
+      "Git",
+      "Bases de datos",
+      "Android",
+      "Cloud"
+    ],
+    "description": "¡Estamos contratando! Buscamos un(a) desarrollador(a) móvil con 3-5 años de experiencia para unirse a nuestro equipo y crear soluciones innovadoras en el sector Fintech y Cripto.\n\nRequisitos clave:\n\nDominio de Dart y Flutter (UI/UX, widgets, pruebas unitarias)\nExperiencia con patrones de gestión de estado (Provider, Bloc, Redux)\nIntegración de APIs REST y manejo de JSON\nArquitectura limpia, DDD y desarrollo multiplataforma\nBases de datos NoSQL: MongoDB, DynamoDB (TigerBettle opcional)\nConocimientos en AWS, HTTP/HTTPS, Git\nExperiencia en wallets, Web Monetization, ILP, Open Payments API\n\n Respo",
+    "benefits": [
+      "Convenio oficial UNIR",
+      "Tutor de prácticas asignado",
+      "Convalidación horas FFE / DAM"
+    ],
+    "source": "Bolsa de Empleo UNIR",
+    "url": "https://empleo.unir.net/employment/job/154334/Desarrollador-Flutter",
+    "date_posted": "2026-10-10",
+    "status": "new"
+  },
+  {
+    "id": "job-048",
+    "title": "NEUROPSICÓLOGO/A",
+    "company": "NEPSA REHABILITACIÓN NEUROLÓGICA",
+    "location": "España",
+    "modality": "Presencial",
+    "salary_min": null,
+    "salary_max": null,
+    "currency": "EUR",
+    "experience_required": "Sin Experiencia",
+    "skills_required": [
+      "Gestión de Sistemas",
+      "Desarrollo de Software",
+      "Bases de Datos"
+    ],
+    "description": "Buscamos Neuropsicólogo/a a jornada completa en horario partido, con los viernes a la tarde libre.\n\n*Requisitos:\n\nMaster General Sanitario\nMaster en Neuropsicología clínica\n\n*Funciones Principales:\n\nEvaluación neuropsicológica: Realizar la valoración cuantitativa y cualitativa de las funciones cognitivas, conductuales y emocionales de los pacientes mediante baterías estandarizadas.\nTratamiento y rehabilitación: Diseñar, implementar y monitorizar planes individuales de rehabilitación cognitiva y conductual, combinando terapia convencional y nuevas tecnologías (software de estimulación cognitiva",
+    "benefits": [
+      "Convenio oficial UNIR",
+      "Tutor de prácticas asignado",
+      "Convalidación horas FFE / DAM"
+    ],
+    "source": "Bolsa de Empleo UNIR",
+    "url": "https://empleo.unir.net/employment/job/157814/NEUROPSIC%C3%93LOGO-A",
+    "date_posted": "2026-10-10",
+    "status": "new"
+  },
+  {
+    "id": "job-049",
+    "title": "COMERCIAL SERVICIOS INFORMÁTICOS",
+    "company": "GRUPO EMESA",
+    "location": "España",
+    "modality": "Presencial",
+    "salary_min": 20000,
+    "salary_max": 20000,
+    "currency": "EUR",
+    "experience_required": "2 años",
+    "skills_required": [
+      "Gestión de Sistemas",
+      "Desarrollo de Software",
+      "Bases de Datos"
+    ],
+    "description": "Se precisa incorporar un comercial especialista en servicios informáticos para ampliar cartera de clientes.\n\nRequisitos\nConocimientos:\nInformática\nSeguridad informática\nTecnologías de la información\nComercial y ventas\nCaptación\nConsultoría Tecnológica\nTitulaciones:\n\nLa empresa solicita que el candidato cuente con al menos una de estas titulaciones:\n\nPrograma en Transformación Digital\nPrograma en Dirección Comercial y Ventas\nMáster Universitario en Dirección Comercial y Ventas\nExecutive Máster en Comercial y Ventas\nGrado en Ingeniería informática\nInscríbete en\nTu afinidad con la oferta\n17%\nCono",
+    "benefits": [
+      "Convenio oficial UNIR",
+      "Tutor de prácticas asignado",
+      "Convalidación horas FFE / DAM"
+    ],
+    "source": "Bolsa de Empleo UNIR",
+    "url": "https://empleo.unir.net/employment/job/150176/COMERCIAL-SERVICIOS-INFORM%C3%81TICOS",
+    "date_posted": "2026-10-10",
+    "status": "new"
   }
 ]

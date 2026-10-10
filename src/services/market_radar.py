@@ -26,6 +26,34 @@ class MarketRadar:
             console.print(f"[red]Error al cargar ofertas: {e}[/red]")
         return []
 
+    def _normalize_salary_eur(self, j: Dict[str, Any]) -> float:
+        """Convierte y normaliza salarios a EUR anuales para estadísticas comparables."""
+        s_min = float(j.get("salary_min") or 0)
+        s_max = float(j.get("salary_max") or 0)
+        curr = (j.get("currency") or "EUR").upper()
+        if s_max <= 0:
+            return 0.0
+
+        # Conversión de divisa
+        if curr == "COP":
+            s_min *= 0.00023
+            s_max *= 0.00023
+        elif curr == "USD":
+            s_min *= 0.92
+            s_max *= 0.92
+
+        # Anualizar si es estipendio mensual (< 3000)
+        if s_max < 3000:
+            s_min *= 12
+            s_max *= 12
+
+        # Corrección de errata de centavos (> 150k con múltiplo de 10)
+        if s_max > 150000:
+            s_max /= 10
+            s_min /= 10
+
+        return (s_min + s_max) / 2
+
     def get_market_insights(self) -> Dict[str, Any]:
         """Genera el reporte de inteligencia de mercado."""
         jobs = self.load_jobs()
@@ -37,14 +65,14 @@ class MarketRadar:
 
         # 1. Frecuencia de Skills
         skill_counter = Counter()
-        skill_salaries: Dict[str, List[int]] = {}
+        skill_salaries: Dict[str, List[float]] = {}
         modalities = Counter()
 
         for j in jobs:
             skills = j.get("skills_required", [])
+            salary_mid = self._normalize_salary_eur(j)
             for s in skills:
                 skill_counter[s] += 1
-                salary_mid = (j.get("salary_min", 0) + j.get("salary_max", 0)) / 2
                 if salary_mid > 0:
                     if s not in skill_salaries:
                         skill_salaries[s] = []
@@ -91,9 +119,9 @@ class MarketRadar:
 
         # 4. Distribución Salarial y Modalidad
         all_salaries_mid = [
-            (j.get("salary_min", 0) + j.get("salary_max", 0)) / 2
+            self._normalize_salary_eur(j)
             for j in jobs
-            if j.get("salary_max", 0) > 0
+            if self._normalize_salary_eur(j) > 0
         ]
         avg_market_salary = round(sum(all_salaries_mid) / len(all_salaries_mid)) if all_salaries_mid else 0
 

@@ -67,14 +67,14 @@
   {
     "id": "custom-006",
     "name": "Bolsa de Empleo UNIR",
-    "logo_icon": "fa-globe",
+    "logo_icon": "fa-graduation-cap",
     "color": "fuchsia",
     "type": "custom",
     "url": "https://empleo.unir.net",
-    "category": "Prácticas DAM / Convenios",
+    "category": "Prácticas DAM / Convenios Oficiales",
     "enabled": true,
-    "description": "Portal oficial de prácticas y empleo de la UNIR",
-    "last_sync": "2026-10-10 22:58:09",
-    "jobs_count": 0
+    "description": "Portal oficial de prácticas y empleo de la UNIR. Conexión autenticada mediante cookies de sesión activa.",
+    "last_sync": "2026-10-10 23:22:57",
+    "jobs_count": 22
   }
 ]

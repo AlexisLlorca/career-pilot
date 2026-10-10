@@ -43,27 +43,28 @@ class JobMatcher:
         skill_ratio = len(matched) / total_skills
 
         # 2. Análisis de salario
-        min_expected = personal.get("min_salary_expected", 28000)
-        job_max = job.get("salary_max", 0)
-        job_min = job.get("salary_min", 0)
+        min_expected = personal.get("min_salary_expected", 28000) or 28000
+        job_max = job.get("salary_max") or 0
+        job_min = job.get("salary_min") or 0
+        currency = job.get("currency", "EUR") or "EUR"
         is_internship = any(k in job.get("experience_required", "").lower() for k in ["práctica", "practica", "beca", "trainee", "internship"])
 
         salary_score = 1.0
         salary_comment = "Salario no especificado"
         if is_internship:
-            monthly_stipend = round(job_max / 12) if job_max > 0 else 800
+            monthly_stipend = job_max if (job_max > 0 and job_max <= 2000) else (round(job_max / 12) if job_max > 2000 else 600)
             salary_score = 1.0
-            salary_comment = f"Bolsa de ayuda formativa estimada (~{monthly_stipend:,} €/mes)"
+            salary_comment = f"Bolsa de ayuda formativa estimada (~{monthly_stipend:,} {currency}/mes)" if monthly_stipend else "Convenio de prácticas curriculares (FCT/FFE)"
         elif job_max > 0:
             if job_max >= min_expected:
                 salary_score = 1.0
-                salary_comment = f"Alineado con tus expectativas ({job_min:,} - {job_max:,} €)"
+                salary_comment = f"Alineado con tus expectativas ({job_min:,} - {job_max:,} {currency})"
             elif job_max >= min_expected * 0.85:
                 salary_score = 0.7
-                salary_comment = f"Ligeramente por debajo del objetivo ({job_max:,} € vs {min_expected:,} €)"
+                salary_comment = f"Ligeramente por debajo del objetivo ({job_max:,} {currency} vs {min_expected:,} €)"
             else:
                 salary_score = 0.4
-                salary_comment = f"Por debajo del umbral mínimo ({job_max:,} €)"
+                salary_comment = f"Por debajo del umbral mínimo ({job_max:,} {currency})"
 
         # 3. Modalidad
         modality_score = 1.0

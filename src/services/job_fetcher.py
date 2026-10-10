@@ -46,7 +46,8 @@ class JobFetcher:
 
             # Filtro Salario (No descartar prácticas si tienen bolsa formativa)
             is_intern = any(k in job.get("experience_required", "").lower() for k in ["práctica", "practica", "beca", "trainee", "internship"])
-            if min_salary and not is_intern and (job.get("salary_max", 0) > 0 and job.get("salary_max", 0) < min_salary):
+            s_max = job.get("salary_max") or 0
+            if min_salary and not is_intern and (s_max > 0 and s_max < min_salary):
                 continue
 
             # Filtro Modalidad
