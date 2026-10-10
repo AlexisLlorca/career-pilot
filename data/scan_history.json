@@ -1,0 +1,29 @@
+[
+  {
+    "timestamp": "2026-10-10 22:46:27",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 20,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-10 22:48:13",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 20,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-10 22:48:20",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 20,
+    "status": "success"
+  }
+]

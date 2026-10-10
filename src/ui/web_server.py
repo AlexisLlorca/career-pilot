@@ -9,6 +9,7 @@ Plataforma 100% SPA:
 
 import os
 import json
+import asyncio
 from pathlib import Path
 from typing import Dict, Any, Optional, List
 
@@ -31,6 +32,7 @@ from src.services.job_matcher import JobMatcher
 from src.services.job_fetcher import JobFetcher
 from src.services.market_radar import MarketRadar
 from src.services.ai_interviewer import AIInterviewer
+from src.services.scheduler import CareerScannerScheduler
 
 # Inicialización de servicios
 profile_mgr = ProfileManager()
@@ -38,8 +40,14 @@ job_matcher = JobMatcher(profile_mgr)
 job_fetcher = JobFetcher(job_matcher)
 market_radar = MarketRadar(profile_mgr)
 ai_interviewer = AIInterviewer(profile_mgr)
+scanner_scheduler = CareerScannerScheduler()
 
 app = FastAPI(title="CareerPilot — AI Career & Interview Agent", version="1.0.0")
+
+@app.on_event("startup")
+async def startup_event():
+    """Inicia el bucle de escaneo automático en segundo plano."""
+    asyncio.create_task(scanner_scheduler.start_in_app_background_loop())
 
 app.add_middleware(
     CORSMiddleware,
@@ -87,6 +95,17 @@ class LiveSyncRequest(BaseModel):
 
 class ImportTextRequest(BaseModel):
     raw_text: str
+
+
+class SchedulerConfigRequest(BaseModel):
+    enabled: bool
+    interval_hours: int
+    keywords: List[str]
+
+
+class SystemdToggleRequest(BaseModel):
+    enable: bool
+    interval_hours: Optional[int] = 6
 
 
 # --- API ENDPOINTS ---
@@ -234,6 +253,44 @@ def api_save_gemini_key(req: ApiKeyRequest):
     return {"status": "ok", "configured": True}
 
 
+@app.get("/api/scheduler/status")
+def api_scheduler_status():
+    """Retorna el estado de la tarea en segundo plano y el timer de systemd."""
+    return {
+        "config": scanner_scheduler.get_config(),
+        "systemd": scanner_scheduler.get_systemd_status(),
+        "history": scanner_scheduler.get_history()
+    }
+
+
+@app.post("/api/scheduler/config")
+def api_scheduler_save_config(req: SchedulerConfigRequest):
+    """Actualiza la frecuencia y las palabras clave de escaneo."""
+    cfg = scanner_scheduler.get_config()
+    cfg["enabled"] = req.enabled
+    cfg["interval_hours"] = req.interval_hours
+    cfg["keywords"] = req.keywords
+    scanner_scheduler.save_config(cfg)
+    return {"status": "ok", "config": cfg}
+
+
+@app.post("/api/scheduler/scan-now")
+def api_scheduler_run_now():
+    """Ejecuta un ciclo de escaneo forzado de inmediato."""
+    result = scanner_scheduler.run_full_scan_now()
+    return {"status": "ok", "result": result}
+
+
+@app.post("/api/scheduler/systemd")
+def api_scheduler_toggle_systemd(req: SystemdToggleRequest):
+    """Conmuta el temporizador de systemd en Linux."""
+    if req.enable:
+        scanner_scheduler.enable_systemd_timer(req.interval_hours or 6)
+    else:
+        scanner_scheduler.disable_systemd_timer()
+    return {"status": "ok", "systemd": scanner_scheduler.get_systemd_status()}
+
+
 # --- FRONTEND HTML SPA CON ESTILO UNIR-WEB ---
 
 @app.get("/", response_class=HTMLResponse)
@@ -318,8 +375,17 @@ def index_html():
       </button>
     </nav>
 
-    <!-- ESTADO CANDIDATO / GEMINI -->
+    <!-- ESTADO CANDIDATO / GEMINI / AUTO-ESCANEO -->
     <div class="flex items-center space-x-3">
+      <!-- BOTÓN AUTO-ESCANEO PROGRAMADO -->
+      <button @click="openSchedulerModal = true"
+              class="px-3 py-1.5 rounded-xl border flex items-center space-x-2 text-xs transition"
+              :class="schedulerConfig.enabled ? 'bg-emerald-950/70 border-emerald-700/60 text-emerald-300 hover:border-emerald-500' : 'bg-gray-800 border-gray-700 text-gray-400'">
+        <span class="w-2 h-2 rounded-full" :class="schedulerConfig.enabled ? 'bg-emerald-400 animate-pulse' : 'bg-gray-500'"></span>
+        <span class="font-medium hidden sm:inline" x-text="schedulerConfig.enabled ? 'Auto-Escaneo: ' + schedulerConfig.interval_hours + 'h' : 'Auto-Escaneo: Pausado'"></span>
+        <i class="fa-solid fa-clock text-xs"></i>
+      </button>
+
       <div class="text-right hidden sm:block">
         <p class="text-xs font-semibold text-gray-200" x-text="profile.personal?.name || 'Alexis Llorca'"></p>
         <p class="text-[11px] text-cyan-400 font-mono">DAM · Ciberseguridad</p>
@@ -1127,6 +1193,142 @@ def index_html():
   </div>
 
 
+  <!-- ============================================================== -->
+  <!-- MODAL: AUTOMATIZACIÓN & ESCANEO PROGRAMADO (SCHEDULER / CRON) -->
+  <!-- ============================================================== -->
+  <div x-show="openSchedulerModal" x-cloak class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+    <div class="glass max-w-2xl w-full rounded-2xl p-6 md:p-8 space-y-5 max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+        <div>
+          <h3 class="text-base font-bold text-emerald-400 flex items-center space-x-2">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            <span>Automatización & Escaneo Programado de Empleo</span>
+          </h3>
+          <p class="text-xs text-gray-400 mt-0.5">Rastreo desatendido y periódico de ofertas laborales en internet.</p>
+        </div>
+        <button @click="openSchedulerModal = false" class="text-gray-400 hover:text-gray-200">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- ESTADO Y TOGGLE PRINCIPAL -->
+      <div class="p-4 rounded-xl bg-gray-900/90 border border-gray-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div>
+          <span class="text-xs font-bold text-gray-200 block">Rastreador en Segundo Plano:</span>
+          <span class="text-xs text-gray-400" x-text="schedulerConfig.enabled ? '🟢 Activo — El sistema rastrea la web periódicamente de forma autónoma.' : '⚪ Pausado — El escaneo automático está detenido.'"></span>
+        </div>
+
+        <div class="flex items-center space-x-3">
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" x-model="schedulerConfig.enabled" @change="saveSchedulerConfig()" class="sr-only peer">
+            <div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:width-5 after:transition-all peer-checked:bg-emerald-600"></div>
+          </label>
+        </div>
+      </div>
+
+      <!-- INTERVALO Y PALABRAS CLAVE -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- FRECUENCIA -->
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 mb-1.5">Frecuencia de Escaneo:</label>
+          <select x-model="schedulerConfig.interval_hours" @change="saveSchedulerConfig()"
+                  class="w-full px-3.5 py-2.5 rounded-xl bg-gray-900 border border-gray-700 text-xs text-gray-200 focus:border-emerald-500 focus:outline-none">
+            <option :value="1">⚡ Cada 1 hora (Monitoreo intensivo)</option>
+            <option :value="3">⏰ Cada 3 horas</option>
+            <option :value="6">⭐ Cada 6 horas (Recomendado)</option>
+            <option :value="12">🌙 Cada 12 horas (2 veces al día)</option>
+            <option :value="24">📅 Cada 24 horas (Una vez al día)</option>
+          </select>
+          <p class="text-[11px] text-gray-400 mt-1" x-show="schedulerConfig.next_run" x-text="'Próximo escaneo previsto: ' + schedulerConfig.next_run"></p>
+        </div>
+
+        <!-- ACCIÓN MANUAL INMEDIATA -->
+        <div class="flex flex-col justify-end">
+          <button @click="runScanNow()" :disabled="isScanningNow"
+                  class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 font-bold text-xs text-white shadow-lg shadow-emerald-600/20 transition flex items-center justify-center space-x-2 disabled:opacity-50">
+            <i class="fa-solid fa-bolt" x-show="!isScanningNow"></i>
+            <i class="fa-solid fa-spinner fa-spin" x-show="isScanningNow"></i>
+            <span x-text="isScanningNow ? 'Escaneando la web ahora...' : '⚡ Forzar Escaneo Inmediato'"></span>
+          </button>
+          <span class="text-[11px] text-gray-400 text-center mt-1">Busca ofertas y recalcula las estadísticas al instante.</span>
+        </div>
+      </div>
+
+      <!-- GESTIÓN DE PALABRAS CLAVE RASTREADAS -->
+      <div class="space-y-2">
+        <label class="block text-xs font-semibold text-gray-300">Términos de búsqueda monitoreados automáticamente:</label>
+        <div class="flex flex-wrap gap-2 items-center">
+          <template x-for="(kw, idx) in schedulerConfig.keywords" :key="idx">
+            <span class="px-2.5 py-1 rounded-lg bg-gray-800 border border-gray-700 text-xs font-mono text-cyan-300 flex items-center space-x-1.5">
+              <span x-text="kw"></span>
+              <button @click="removeSchedulerKeyword(idx)" class="text-gray-400 hover:text-rose-400 ml-1">
+                <i class="fa-solid fa-xmark text-[10px]"></i>
+              </button>
+            </span>
+          </template>
+
+          <!-- Input para añadir keyword -->
+          <div class="flex items-center space-x-1.5">
+            <input type="text" x-model="newKeywordInput" @keydown.enter.prevent="addSchedulerKeyword()"
+                   placeholder="+ Añadir tag (ej. spring, docker)"
+                   class="px-3 py-1 rounded-lg bg-gray-900 border border-gray-700 text-xs text-gray-200 placeholder-gray-500 focus:border-cyan-500 focus:outline-none">
+            <button @click="addSchedulerKeyword()" class="px-2 py-1 rounded-lg bg-gray-800 hover:bg-gray-700 text-xs text-cyan-400 font-semibold">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- INTEGRACIÓN CON SYSTEMD LINUX -->
+      <div class="p-4 rounded-xl bg-gray-900/60 border border-gray-800 space-y-2">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center space-x-2">
+            <i class="fa-brands fa-linux text-base text-cyan-400"></i>
+            <span class="text-xs font-bold text-gray-200">Servicio de Sistema Linux (systemd user timer)</span>
+          </div>
+          <span class="text-xs px-2 py-0.5 rounded-full font-mono"
+                :class="schedulerSystemd.activo ? 'bg-emerald-950 text-emerald-300 border border-emerald-800' : 'bg-gray-800 text-gray-400'">
+            <span x-text="schedulerSystemd.activo ? '● Activo en Linux' : '○ Inactivo'"></span>
+          </span>
+        </div>
+
+        <p class="text-xs text-gray-400">
+          Permite que el escáner se ejecute automáticamente de fondo a nivel de sistema operativo, incluso si cierras el navegador o reinicias el equipo.
+        </p>
+
+        <div class="flex items-center justify-between pt-1">
+          <span class="text-[11px] text-gray-400 font-mono" x-text="'Próxima alarma de sistema: ' + schedulerSystemd.proxima_ejecucion"></span>
+          <button @click="toggleSystemd()"
+                  class="px-3 py-1.5 rounded-lg text-xs font-semibold transition"
+                  :class="schedulerSystemd.activo ? 'bg-rose-950/80 hover:bg-rose-900 text-rose-300 border border-rose-800' : 'bg-cyan-600 hover:bg-cyan-500 text-white'">
+            <span x-text="schedulerSystemd.activo ? 'Desactivar Timer' : 'Activar en Linux'"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- HISTORIAL RECIENTE -->
+      <div class="space-y-2" x-show="schedulerHistory.length">
+        <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider">Historial de Últimos Escaneos:</h4>
+        <div class="space-y-1.5 max-h-36 overflow-y-auto pr-1">
+          <template x-for="(h, idx) in schedulerHistory.slice().reverse().slice(0, 5)" :key="idx">
+            <div class="p-2.5 rounded-lg bg-gray-900/60 border border-gray-800 text-xs flex justify-between items-center">
+              <div>
+                <span class="font-mono text-gray-300 font-semibold" x-text="h.timestamp"></span>
+                <span class="text-gray-400 ml-2" x-text="h.details?.join(', ')"></span>
+              </div>
+              <span class="px-2 py-0.5 rounded font-mono font-bold"
+                    :class="h.new_jobs_found > 0 ? 'bg-emerald-950 text-emerald-300' : 'bg-gray-800 text-gray-400'"
+                    x-text="'+' + h.new_jobs_found + ' ofertas'"></span>
+            </div>
+          </template>
+        </div>
+      </div>
+
+      <div class="flex justify-end pt-1">
+        <button @click="openSchedulerModal = false" class="px-5 py-2 rounded-xl bg-gray-800 hover:bg-gray-700 text-xs font-semibold text-gray-200">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+
   <!-- ALPINE.JS LOGIC -->
   <script>
     function careerPilotApp() {
@@ -1167,10 +1369,19 @@ def index_html():
         syncIsInternship: true,
         isSyncing: false,
 
+        // Automatización / Scheduler
+        openSchedulerModal: false,
+        schedulerConfig: { enabled: true, interval_hours: 6, keywords: ['java', 'prácticas', 'ciberseguridad'] },
+        schedulerSystemd: { activo: false, proxima_ejecucion: 'No programada' },
+        schedulerHistory: [],
+        isScanningNow: false,
+        newKeywordInput: '',
+
         async initApp() {
           await this.loadProfile();
           await this.loadJobs();
           await this.loadMarketInsights();
+          await this.loadSchedulerStatus();
           this.initSpeechRecognition();
         },
 
@@ -1465,6 +1676,81 @@ def index_html():
           } finally {
             this.isSyncing = false;
           }
+        },
+
+        async loadSchedulerStatus() {
+          try {
+            const res = await fetch('/api/scheduler/status');
+            const data = await res.json();
+            if (data.config) this.schedulerConfig = data.config;
+            if (data.systemd) this.schedulerSystemd = data.systemd;
+            if (data.history) this.schedulerHistory = data.history;
+          } catch (e) {
+            console.error('Error cargando estado del scheduler:', e);
+          }
+        },
+
+        async saveSchedulerConfig() {
+          try {
+            await fetch('/api/scheduler/config', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(this.schedulerConfig)
+            });
+            await this.loadSchedulerStatus();
+          } catch (e) {
+            console.error('Error guardando config del scheduler:', e);
+          }
+        },
+
+        async runScanNow() {
+          this.isScanningNow = true;
+          try {
+            const res = await fetch('/api/scheduler/scan-now', { method: 'POST' });
+            const data = await res.json();
+            const count = data.result?.new_jobs_found || 0;
+            alert(`Escaneo completado: ${count} nuevas ofertas encontradas.`);
+            await this.loadJobs();
+            await this.loadMarketInsights();
+            await this.loadSchedulerStatus();
+          } catch (e) {
+            alert('Error ejecutando escaneo de inmediato');
+          } finally {
+            this.isScanningNow = false;
+          }
+        },
+
+        async toggleSystemd() {
+          try {
+            const targetState = !this.schedulerSystemd.activo;
+            const res = await fetch('/api/scheduler/systemd', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                enable: targetState,
+                interval_hours: parseInt(this.schedulerConfig.interval_hours) || 6
+              })
+            });
+            const data = await res.json();
+            this.schedulerSystemd = data.systemd;
+            alert(targetState ? '✔ Temporizador systemd activado en segundo plano en Linux.' : '✔ Temporizador systemd desactivado.');
+          } catch (e) {
+            alert('Error configurando systemd timer');
+          }
+        },
+
+        addSchedulerKeyword() {
+          const val = this.newKeywordInput.trim();
+          if (val && !this.schedulerConfig.keywords.includes(val)) {
+            this.schedulerConfig.keywords.push(val);
+            this.newKeywordInput = '';
+            this.saveSchedulerConfig();
+          }
+        },
+
+        removeSchedulerKeyword(idx) {
+          this.schedulerConfig.keywords.splice(idx, 1);
+          this.saveSchedulerConfig();
         },
 
         async saveApiKey() {
