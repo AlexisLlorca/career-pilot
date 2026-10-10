@@ -1,0 +1,33 @@
+{
+  "personal": {
+    "name": "Alexis Emmanuel Llorca",
+    "headline": "Desarrollador Multiplataforma (DAM) | Especialista en Ciberseguridad",
+    "email": "alexisllorca9@gmail.com",
+    "location": "España",
+    "preferred_modality": "Remoto / Híbrido",
+    "min_salary_expected": 30000,
+    "max_salary_expected": 45000,
+    "currency": "EUR",
+    "bio": "Estudiante de 2º de Desarrollo de Aplicaciones Multiplataforma (DAM) con Máster en Ciberseguridad. Especializado en desarrollo seguro de software (Security by Design), arquitecturas backend robustas en Java, aplicaciones móviles con Kotlin y buenas prácticas defensivas OWASP."
+  },
+  "skills": {
+    "languages": ["Java", "Kotlin", "SQL", "JavaScript", "Python", "Bash", "HTML5", "CSS3"],
+    "backend_frameworks": ["Spring Boot", "JPA / Hibernate", "JDBC", "REST APIs"],
+    "security": ["Security by Design", "OWASP Top 10", "Análisis de Vulnerabilidades", "Hardening", "Criptografía Básica", "Seguridad en Redes"],
+    "mobile": ["Android", "Jetpack Compose", "Ciclo de vida Android", "Retrofit"],
+    "systems_tools": ["Linux (Debian/Arch/Ubuntu)", "Git & GitHub", "Docker (Básico)", "PostgreSQL", "MySQL"]
+  },
+  "experience_level": "Junior / Mid",
+  "education": [
+    {
+      "degree": "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM)",
+      "institution": "UNIR",
+      "status": "En curso (2º)"
+    },
+    {
+      "degree": "Máster en Ciberseguridad",
+      "institution": "Formación Especializada",
+      "status": "Completado"
+    }
+  ]
+}
