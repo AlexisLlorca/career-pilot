@@ -80,6 +80,15 @@ class ApiKeyRequest(BaseModel):
     api_key: str
 
 
+class LiveSyncRequest(BaseModel):
+    keyword: Optional[str] = "java"
+    is_internship: Optional[bool] = False
+
+
+class ImportTextRequest(BaseModel):
+    raw_text: str
+
+
 # --- API ENDPOINTS ---
 
 @app.get("/api/profile")
@@ -130,6 +139,27 @@ def api_update_job_status(job_id: str, payload: Dict[str, str]):
     if not success:
         raise HTTPException(status_code=400, detail="No se pudo actualizar la oferta")
     return {"status": "ok", "new_status": new_status}
+
+
+@app.post("/api/jobs/sync-live")
+def api_sync_live(req: LiveSyncRequest):
+    """Sincroniza ofertas en vivo desde APIs de empleo."""
+    count = job_fetcher.sync_live_jobs_online(
+        keyword=req.keyword or "java",
+        is_internship=req.is_internship or False
+    )
+    return {"status": "ok", "imported_count": count}
+
+
+@app.post("/api/jobs/import-text")
+def api_import_text(req: ImportTextRequest):
+    """Importa y estructura una oferta pegada en texto libre mediante IA."""
+    if not req.raw_text.strip():
+        raise HTTPException(status_code=400, detail="El texto de la oferta está vacío")
+    new_job = job_fetcher.import_from_raw_text(req.raw_text)
+    if not new_job:
+        raise HTTPException(status_code=500, detail="No se pudo procesar la oferta con IA. Revisa tu clave de Gemini.")
+    return {"status": "ok", "job": new_job}
 
 
 @app.get("/api/market-insights")
@@ -328,6 +358,7 @@ def index_html():
             <!-- Nivel -->
             <select x-model="selectedExperience" @change="loadJobs()" class="px-3.5 py-2.5 rounded-xl bg-gray-900 border border-gray-700 text-sm text-gray-200 focus:border-cyan-500 focus:outline-none">
               <option value="todos">Cualquier experiencia</option>
+              <option value="prácticas">🎓 Prácticas / Becas</option>
               <option value="junior">Junior</option>
               <option value="mid">Mid</option>
             </select>
@@ -339,7 +370,18 @@ def index_html():
               <option value="date_desc">📅 Más Recientes</option>
             </select>
 
-            <button @click="loadJobs()" class="px-4 py-2.5 rounded-xl bg-gray-800 hover:bg-gray-700 border border-gray-700 text-sm text-gray-200 transition flex items-center space-x-1.5" title="Recargar ofertas">
+            <!-- ACCIONES DE BÚSQUEDA EN VIVO E IMPORTACIÓN -->
+            <button @click="openSyncModal = true" class="px-3.5 py-2.5 rounded-xl bg-indigo-600/90 hover:bg-indigo-500 text-white text-xs font-semibold shadow-md transition flex items-center space-x-1.5" title="Buscar ofertas en APIs externas">
+              <i class="fa-solid fa-globe text-xs"></i>
+              <span class="hidden sm:inline">Buscar en Vivo</span>
+            </button>
+
+            <button @click="openImportModal = true" class="px-3.5 py-2.5 rounded-xl bg-cyan-600/90 hover:bg-cyan-500 text-white text-xs font-semibold shadow-md transition flex items-center space-x-1.5" title="Pegar oferta desde InfoJobs o LinkedIn">
+              <i class="fa-solid fa-file-import text-xs"></i>
+              <span class="hidden sm:inline">Pegar Oferta</span>
+            </button>
+
+            <button @click="loadJobs()" class="px-3.5 py-2.5 rounded-xl bg-gray-800 hover:bg-gray-700 border border-gray-700 text-sm text-gray-200 transition flex items-center space-x-1.5" title="Recargar ofertas">
               <i class="fa-solid fa-arrows-rotate text-xs"></i>
             </button>
           </div>
@@ -372,6 +414,11 @@ def index_html():
                 </span>
 
                 <span class="text-xs px-2.5 py-0.5 rounded-full bg-gray-800 text-gray-300 font-medium" x-text="job.source"></span>
+                <span x-show="job.experience_required && (job.experience_required.toLowerCase().includes('práctica') || job.experience_required.toLowerCase().includes('beca'))"
+                      class="text-xs px-2.5 py-0.5 rounded-full bg-violet-950/80 border border-violet-700/60 text-violet-300 font-semibold flex items-center">
+                  <i class="fa-solid fa-graduation-cap text-[10px] mr-1 text-violet-400"></i>
+                  <span>Prácticas / Beca</span>
+                </span>
                 <span class="text-xs text-gray-400 font-mono" x-text="job.date_posted"></span>
               </div>
 
@@ -995,6 +1042,91 @@ def index_html():
   </div>
 
 
+  <!-- ============================================================== -->
+  <!-- MODAL: PEGAR / IMPORTAR OFERTA EXTERNA (CON IA) -->
+  <!-- ============================================================== -->
+  <div x-show="openImportModal" x-cloak class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+    <div class="glass max-w-xl w-full rounded-2xl p-6 md:p-8 space-y-4 max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+        <h3 class="text-base font-bold text-cyan-400 flex items-center space-x-2">
+          <i class="fa-solid fa-file-import"></i>
+          <span>Importar Oferta de Empleo / Prácticas</span>
+        </h3>
+        <button @click="openImportModal = false" class="text-gray-400 hover:text-gray-200">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <p class="text-xs text-gray-300">
+        Copia y pega la descripción de cualquier oferta que hayas visto en <strong>InfoJobs, LinkedIn, Primer Empleo o Tecnoempleo</strong>. Nuestra IA extraerá automáticamente la empresa, el stack, la modalidad y calculará tu afinidad:
+      </p>
+
+      <div>
+        <label class="block text-xs font-semibold text-gray-300 mb-1">Texto de la oferta copiado:</label>
+        <textarea x-model="importRawText" rows="7" placeholder="Pega aquí el texto completo de la oferta de InfoJobs o LinkedIn..."
+                  class="w-full px-4 py-3 rounded-xl bg-gray-900 border border-gray-700 text-xs text-gray-100 placeholder-gray-500 focus:border-cyan-500 focus:outline-none"></textarea>
+      </div>
+
+      <div class="flex justify-end space-x-2 pt-2">
+        <button @click="openImportModal = false" class="px-4 py-2 rounded-xl bg-gray-800 text-xs text-gray-300">Cancelar</button>
+        <button @click="importJobFromText()" :disabled="isImporting || !importRawText.trim()"
+                class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 font-bold text-xs text-white shadow-lg shadow-cyan-600/30 transition flex items-center space-x-2 disabled:opacity-50">
+          <i class="fa-solid fa-wand-magic-sparkles" x-show="!isImporting"></i>
+          <i class="fa-solid fa-spinner fa-spin" x-show="isImporting"></i>
+          <span x-text="isImporting ? 'Analizando con IA...' : 'Analizar e Incorporar al Radar'"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================== -->
+  <!-- MODAL: SINCRONIZAR OFERTAS EN VIVO DESDE APIS EXTERNAS -->
+  <!-- ============================================================== -->
+  <div x-show="openSyncModal" x-cloak class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+    <div class="glass max-w-md w-full rounded-2xl p-6 space-y-4">
+      <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+        <h3 class="text-base font-bold text-indigo-400 flex items-center space-x-2">
+          <i class="fa-solid fa-globe"></i>
+          <span>Buscar & Sincronizar en Vivo</span>
+        </h3>
+        <button @click="openSyncModal = false" class="text-gray-400 hover:text-gray-200">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <p class="text-xs text-gray-300">
+        Escanear APIs de empleo activas en tiempo real para incorporar nuevas ofertas al Radar y alimentar las estadísticas de mercado.
+      </p>
+
+      <div class="space-y-3">
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 mb-1">Palabra clave / Stack tecnológico:</label>
+          <input type="text" x-model="syncKeyword" placeholder="ej. java, practicas, ciberseguridad, android..."
+                 class="w-full px-4 py-2.5 rounded-xl bg-gray-900 border border-gray-700 text-xs text-gray-100 focus:border-indigo-500 focus:outline-none">
+        </div>
+
+        <div class="p-3 rounded-xl bg-gray-900 border border-gray-800 flex items-center space-x-3">
+          <input type="checkbox" id="checkIntern" x-model="syncIsInternship" class="rounded text-indigo-500 focus:ring-0">
+          <label for="checkIntern" class="text-xs text-gray-200 cursor-pointer">
+            🎓 Buscar específicamente vacantes de <strong>Prácticas / Becas formativas</strong>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex justify-end space-x-2 pt-2">
+        <button @click="openSyncModal = false" class="px-4 py-2 rounded-xl bg-gray-800 text-xs text-gray-300">Cancelar</button>
+        <button @click="syncOnlineJobs()" :disabled="isSyncing"
+                class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 font-bold text-xs text-white shadow-lg shadow-indigo-600/30 transition flex items-center space-x-2 disabled:opacity-50">
+          <i class="fa-solid fa-magnifying-glass" x-show="!isSyncing"></i>
+          <i class="fa-solid fa-spinner fa-spin" x-show="isSyncing"></i>
+          <span x-text="isSyncing ? 'Sincronizando...' : 'Escanear APIs y Añadir'"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
   <!-- ALPINE.JS LOGIC -->
   <script>
     function careerPilotApp() {
@@ -1027,6 +1159,13 @@ def index_html():
         cheatSheetData: {},
         openApiKeyModal: false,
         apiKeyInput: '',
+        openImportModal: false,
+        importRawText: '',
+        isImporting: false,
+        openSyncModal: false,
+        syncKeyword: 'prácticas',
+        syncIsInternship: true,
+        isSyncing: false,
 
         async initApp() {
           await this.loadProfile();
@@ -1276,6 +1415,56 @@ def index_html():
 
         testVoiceSynthesis() {
           this.speakText("Prueba de audio del sistema CareerPilot. Tu micrófono y altavoces están listos para la entrevista.");
+        },
+
+        async importJobFromText() {
+          const text = this.importRawText.trim();
+          if (!text) return;
+          this.isImporting = true;
+          try {
+            const res = await fetch('/api/jobs/import-text', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ raw_text: text })
+            });
+            const data = await res.json();
+            if (res.ok && data.job) {
+              alert(`¡Oferta "${data.job.title}" importada y analizada con éxito!`);
+              this.importRawText = '';
+              this.openImportModal = false;
+              await this.loadJobs();
+              await this.loadMarketInsights();
+            } else {
+              alert(data.detail || 'Error al procesar la oferta con IA');
+            }
+          } catch (e) {
+            alert('Error de conexión al importar oferta');
+          } finally {
+            this.isImporting = false;
+          }
+        },
+
+        async syncOnlineJobs() {
+          this.isSyncing = true;
+          try {
+            const res = await fetch('/api/jobs/sync-live', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                keyword: this.syncKeyword.trim(),
+                is_internship: this.syncIsInternship
+              })
+            });
+            const data = await res.json();
+            alert(`Sincronización completada: se han incorporado ${data.imported_count || 0} nuevas ofertas.`);
+            this.openSyncModal = false;
+            await this.loadJobs();
+            await this.loadMarketInsights();
+          } catch (e) {
+            alert('Error al sincronizar ofertas externas');
+          } finally {
+            this.isSyncing = false;
+          }
         },
 
         async saveApiKey() {

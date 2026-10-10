@@ -46,10 +46,15 @@ class JobMatcher:
         min_expected = personal.get("min_salary_expected", 28000)
         job_max = job.get("salary_max", 0)
         job_min = job.get("salary_min", 0)
+        is_internship = any(k in job.get("experience_required", "").lower() for k in ["práctica", "practica", "beca", "trainee", "internship"])
 
         salary_score = 1.0
         salary_comment = "Salario no especificado"
-        if job_max > 0:
+        if is_internship:
+            monthly_stipend = round(job_max / 12) if job_max > 0 else 800
+            salary_score = 1.0
+            salary_comment = f"Bolsa de ayuda formativa estimada (~{monthly_stipend:,} €/mes)"
+        elif job_max > 0:
             if job_max >= min_expected:
                 salary_score = 1.0
                 salary_comment = f"Alineado con tus expectativas ({job_min:,} - {job_max:,} €)"
@@ -82,6 +87,8 @@ class JobMatcher:
             highlights.append("Modalidad 100% Remota")
         if any(sec in " ".join(matched).lower() for sec in ["owasp", "security", "hardening", "vulnerabilidades"]):
             highlights.append("Aprovecha directamente tu especialización en Ciberseguridad")
+        if is_internship:
+            highlights.append("Apta para convenio educativo de FCT o prácticas extracurriculares (UNIR DAM)")
 
         return {
             "match_percentage": final_score,

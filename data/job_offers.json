@@ -10,9 +10,22 @@
     "currency": "EUR",
     "experience_required": "Junior / Mid",
     "date_posted": "2026-10-09",
-    "skills_required": ["Java", "Spring Boot", "SQL", "OWASP Top 10", "REST APIs", "Git", "Docker"],
+    "skills_required": [
+      "Java",
+      "Spring Boot",
+      "SQL",
+      "OWASP Top 10",
+      "REST APIs",
+      "Git",
+      "Docker"
+    ],
     "description": "Buscamos un desarrollador Java para integrarse en nuestro equipo de pagos digitales. Valoramos enormemente perfil con sensibilidad hacia la seguridad (Security by Design, prevención de vulnerabilidades OWASP). Desarrollarás microservicios en Spring Boot conectados a bases de datos relacionales y APIs seguras.",
-    "benefits": ["100% Remoto", "Presupuesto de formación anual", "Horario flexible de viernes", "Seguro médico privado"],
+    "benefits": [
+      "100% Remoto",
+      "Presupuesto de formación anual",
+      "Horario flexible de viernes",
+      "Seguro médico privado"
+    ],
     "source": "LinkedIn",
     "status": "new",
     "applied_date": null
@@ -28,9 +41,20 @@
     "currency": "EUR",
     "experience_required": "Junior / Mid",
     "date_posted": "2026-10-08",
-    "skills_required": ["Kotlin", "Android", "Jetpack Compose", "REST APIs", "Git", "Clean Architecture"],
+    "skills_required": [
+      "Kotlin",
+      "Android",
+      "Jetpack Compose",
+      "REST APIs",
+      "Git",
+      "Clean Architecture"
+    ],
     "description": "Ampliamos equipo móvil para app de alta concurrencia. Buscamos desarrollador Kotlin con manejo de Jetpack Compose, consumo de servicios REST con Retrofit y buenas prácticas de arquitectura. Se valorará conocimiento de seguridad en almacenamiento local y protección de credenciales.",
-    "benefits": ["Flexibilidad horaria", "Tarjeta restaurante", "Formación en certificaciones oficiales"],
+    "benefits": [
+      "Flexibilidad horaria",
+      "Tarjeta restaurante",
+      "Formación en certificaciones oficiales"
+    ],
     "source": "InfoJobs",
     "status": "new",
     "applied_date": null
@@ -46,9 +70,21 @@
     "currency": "EUR",
     "experience_required": "Junior",
     "date_posted": "2026-10-10",
-    "skills_required": ["Security by Design", "Análisis de Vulnerabilidades", "OWASP Top 10", "Linux", "Bash", "Python", "Hardening"],
+    "skills_required": [
+      "Security by Design",
+      "Análisis de Vulnerabilidades",
+      "OWASP Top 10",
+      "Linux",
+      "Bash",
+      "Python",
+      "Hardening"
+    ],
     "description": "Oportunidad para graduados en Ciberseguridad o desarrolladores DAM con especialización en seguridad. Trabajarás auditando código fuente, participando en modelado de amenazas, revisiones de seguridad y configuración de bastionado en servidores Linux.",
-    "benefits": ["Plan de carrera y mentoría senior", "100% remoto desde cualquier punto de España", "Financiación de certificaciones (OSCP, CEH)"],
+    "benefits": [
+      "Plan de carrera y mentoría senior",
+      "100% remoto desde cualquier punto de España",
+      "Financiación de certificaciones (OSCP, CEH)"
+    ],
     "source": "TecnoEmpleo",
     "status": "new",
     "applied_date": null
@@ -64,9 +100,21 @@
     "currency": "EUR",
     "experience_required": "Mid",
     "date_posted": "2026-10-07",
-    "skills_required": ["Java", "Spring Boot", "PostgreSQL", "Docker", "Kubernetes", "Kafka", "AWS"],
+    "skills_required": [
+      "Java",
+      "Spring Boot",
+      "PostgreSQL",
+      "Docker",
+      "Kubernetes",
+      "Kafka",
+      "AWS"
+    ],
     "description": "Buscamos un Ingeniero Backend con experiencia sólida en el ecosistema Java. Participarás en la migración a arquitecturas orientadas a eventos y contenedores. Imprescindible dominio de Java 17+, patrones de concurrencia y despliegue en entornos Cloud.",
-    "benefits": ["Salario competitivo", "Stock options", "Presupuesto para setup en casa (1.500 €)"],
+    "benefits": [
+      "Salario competitivo",
+      "Stock options",
+      "Presupuesto para setup en casa (1.500 €)"
+    ],
     "source": "GetManfred",
     "status": "new",
     "applied_date": null
@@ -82,9 +130,20 @@
     "currency": "EUR",
     "experience_required": "Junior",
     "date_posted": "2026-10-06",
-    "skills_required": ["Java", "SQL", "Git", "JavaScript", "HTML5", "CSS3"],
+    "skills_required": [
+      "Java",
+      "SQL",
+      "Git",
+      "JavaScript",
+      "HTML5",
+      "CSS3"
+    ],
     "description": "Incorporación inmediata para recién titulados o estudiantes de último curso de DAM. Proyectos variados de desarrollo de software interno, mantenimiento de bases de datos relacionales e interfaces web de administración.",
-    "benefits": ["Contrato indefinido", "Jornada intensiva en verano", "Tutor asignado"],
+    "benefits": [
+      "Contrato indefinido",
+      "Jornada intensiva en verano",
+      "Tutor asignado"
+    ],
     "source": "InfoJobs",
     "status": "new",
     "applied_date": null
@@ -100,9 +159,22 @@
     "currency": "EUR",
     "experience_required": "Mid",
     "date_posted": "2026-10-09",
-    "skills_required": ["Linux", "Docker", "Kubernetes", "CI/CD", "Security by Design", "Python", "Bash", "SAST/DAST"],
+    "skills_required": [
+      "Linux",
+      "Docker",
+      "Kubernetes",
+      "CI/CD",
+      "Security by Design",
+      "Python",
+      "Bash",
+      "SAST/DAST"
+    ],
     "description": "Buscamos un perfil técnico que una el mundo del desarrollo y la ciberseguridad. Integrarás herramientas de análisis estático y dinámico de código (SAST/DAST) en pipelines de CI/CD, asegurarás contenedores Docker y auditarás infraestructuras Linux.",
-    "benefits": ["Empresa internacional", "Inglés como lengua de trabajo", "Horario flexible 100%"],
+    "benefits": [
+      "Empresa internacional",
+      "Inglés como lengua de trabajo",
+      "Horario flexible 100%"
+    ],
     "source": "LinkedIn",
     "status": "new",
     "applied_date": null
@@ -118,10 +190,362 @@
     "currency": "EUR",
     "experience_required": "Junior / Mid",
     "date_posted": "2026-10-05",
-    "skills_required": ["Kotlin", "Java", "Android", "SQL", "REST APIs", "Criptografía Básica"],
+    "skills_required": [
+      "Kotlin",
+      "Java",
+      "Android",
+      "SQL",
+      "REST APIs",
+      "Criptografía Básica"
+    ],
     "description": "Trabaja en nuestra aplicación bancaria móvil. Desarrollarás funcionalidades nativas en Kotlin/Android interactuando con microservicios en Java y SQLite/Room cifrado. Gran foco en validación de datos, prevención de inyecciones y seguridad criptográfica.",
-    "benefits": ["Plan de pensiones", "25 días de vacaciones", "Clases de inglés gratuitas"],
+    "benefits": [
+      "Plan de pensiones",
+      "25 días de vacaciones",
+      "Clases de inglés gratuitas"
+    ],
     "source": "RemoteOK",
+    "status": "new",
+    "applied_date": null
+  },
+  {
+    "id": "job-008",
+    "title": "Prácticas Curriculares / Extracurriculares DAM Backend Java",
+    "company": "Indra / Minsait",
+    "location": "Madrid / Remoto (España)",
+    "modality": "Remoto",
+    "salary_min": 9600,
+    "salary_max": 12000,
+    "currency": "EUR",
+    "experience_required": "Prácticas / Beca",
+    "date_posted": "2026-10-10",
+    "skills_required": [
+      "Java",
+      "SQL",
+      "Spring Boot",
+      "Git",
+      "REST APIs"
+    ],
+    "description": "Convenio de colaboración educativa para alumnos de 2º curso de Desarrollo de Aplicaciones Multiplataforma (DAM). Integración en equipo de desarrollo backend para proyectos del sector público y banca digital. Tutor senior asignado durante todo el periodo con altas posibilidades de contratación indefinida al finalizar las prácticas.",
+    "benefits": [
+      "Bolsa de ayuda 850 €/mes",
+      "Horario compatible con clases (25-30h/sem)",
+      "Posibilidad de pase a contrato junior"
+    ],
+    "source": "InfoJobs",
+    "status": "new",
+    "applied_date": null
+  },
+  {
+    "id": "job-009",
+    "title": "Beca de Ciberseguridad & Análisis Forense / SOC",
+    "company": "Telefónica Tech",
+    "location": "Valencia / Remoto (España)",
+    "modality": "Remoto",
+    "salary_min": 10800,
+    "salary_max": 14400,
+    "currency": "EUR",
+    "experience_required": "Prácticas / Beca",
+    "date_posted": "2026-10-10",
+    "skills_required": [
+      "Security by Design",
+      "Linux",
+      "Bash",
+      "OWASP Top 10",
+      "Análisis de Vulnerabilidades",
+      "Redes"
+    ],
+    "description": "Programa Talentum para estudiantes o recién titulados de Máster en Ciberseguridad o FP DAM. Colaboración directa en el Centro de Operaciones de Ciberseguridad (SOC), monitorización de alertas de intrusión, análisis de incidentes de seguridad y configuración de defensas en servidores Linux.",
+    "benefits": [
+      "Bolsa de ayuda 1.000 €/mes",
+      "100% Remoto",
+      "Acceso a laboratorios de hacking ético"
+    ],
+    "source": "Primer Empleo",
+    "status": "new",
+    "applied_date": null
+  },
+  {
+    "id": "job-010",
+    "title": "Prácticas Desarrollador Android Junior (Kotlin)",
+    "company": "Cabify Digital Labs",
+    "location": "Madrid (España)",
+    "modality": "Híbrido",
+    "salary_min": 9600,
+    "salary_max": 12000,
+    "currency": "EUR",
+    "experience_required": "Prácticas / Beca",
+    "date_posted": "2026-10-09",
+    "skills_required": [
+      "Kotlin",
+      "Android",
+      "Jetpack Compose",
+      "Git",
+      "REST APIs"
+    ],
+    "description": "Buscamos estudiante de DAM apasionado por el ecosistema móvil Android. Aprenderás de un equipo de ingenieros senior desarrollando módulos en Kotlin moderno con Jetpack Compose y consumo de microservicios. Se requiere convenio con centro de estudios (UNIR u homólogo).",
+    "benefits": [
+      "Bolsa económica 850 €/mes",
+      "Comida subvencionada",
+      "Equipo portátil de última generación"
+    ],
+    "source": "LinkedIn",
+    "status": "new",
+    "applied_date": null
+  },
+  {
+    "id": "job-011",
+    "title": "Trainee / Beca DevSecOps & Seguridad de Aplicaciones",
+    "company": "GMV Aerospace & Defense",
+    "location": "Madrid (España)",
+    "modality": "Remoto",
+    "salary_min": 12000,
+    "salary_max": 15000,
+    "currency": "EUR",
+    "experience_required": "Prácticas / Beca",
+    "date_posted": "2026-10-08",
+    "skills_required": [
+      "Linux",
+      "Security by Design",
+      "Docker",
+      "Python",
+      "Bash",
+      "Git"
+    ],
+    "description": "Incorporación en el área de seguridad aeroespacial y de defensa. Asistencia en la automatización de escaneos de seguridad en código (SAST), bastionado de contenedores Docker y hardening de sistemas operativos Linux.",
+    "benefits": [
+      "Bolsa de 1.100 €/mes",
+      "Horario flexible de mañanas",
+      "Formación técnica de primer nivel"
+    ],
+    "source": "TecnoEmpleo",
+    "status": "new",
+    "applied_date": null
+  },
+  {
+    "id": "job-012",
+    "title": "Prácticas Desarrollo de Software Multiplataforma (Java & SQL)",
+    "company": "Capgemini Engineering",
+    "location": "Sevilla / Remoto (España)",
+    "modality": "Remoto",
+    "salary_min": 8400,
+    "salary_max": 10800,
+    "currency": "EUR",
+    "experience_required": "Prácticas / Beca",
+    "date_posted": "2026-10-07",
+    "skills_required": [
+      "Java",
+      "SQL",
+      "Git",
+      "PostgreSQL",
+      "HTML5"
+    ],
+    "description": "Convenio de FCT o prácticas para estudiantes de ciclo formativo DAM. Participación en el ciclo de vida del software, desarrollo de componentes en Java, mantenimiento de bases de datos relacionales y redacción de documentación técnica.",
+    "benefits": [
+      "Jornada de 5 horas diarias",
+      "Viernes tarde libre",
+      "Certificación interna bonificada"
+    ],
+    "source": "InfoJobs",
+    "status": "new",
+    "applied_date": null
+  },
+  {
+    "id": "job-013",
+    "title": "Beca Java Cloud Microservices & APIs",
+    "company": "Santander Digital Services",
+    "location": "Madrid / Remoto (España)",
+    "modality": "Híbrido",
+    "salary_min": 11000,
+    "salary_max": 13500,
+    "currency": "EUR",
+    "experience_required": "Prácticas / Beca",
+    "date_posted": "2026-10-06",
+    "skills_required": [
+      "Java",
+      "Spring Boot",
+      "REST APIs",
+      "SQL",
+      "OWASP Top 10"
+    ],
+    "description": "Beca remunerada en banca digital. Participarás en la construcción y pruebas unitarias de APIs RESTful desarrolladas con Spring Boot y securizadas bajo directrices bancarias OWASP.",
+    "benefits": [
+      "Bolsa 950 €/mes",
+      "Ruta de autobús y comedor de empresa",
+      "Pase directo a contrato junior"
+    ],
+    "source": "LinkedIn",
+    "status": "new",
+    "applied_date": null
+  },
+  {
+    "id": "job-014",
+    "title": "Principal Engineer, Product Security (m/f/x)",
+    "company": "commercetools",
+    "location": "München, Bayern",
+    "modality": "Híbrido",
+    "salary_min": 30000,
+    "salary_max": 42000,
+    "currency": "EUR",
+    "experience_required": "Junior / Mid",
+    "date_posted": "Hoy (Live API)",
+    "skills_required": [
+      "Engineering"
+    ],
+    "description": "&lt;div class=&quot;ng-tns-c879422873-771&quot;&gt;\n&lt;section id=&quot;processing-state-26&quot; class=&quot;processing-state_container ng-tns-c879422873-771 is-gpi-avatar is-done-processing ng-trigger ng-trigger-processingStateShowHide ng-star-inserted&quot;&gt;\n&lt;div id=&qu...",
+    "benefits": [
+      "Trabajo en remoto",
+      "Equipo internacional"
+    ],
+    "source": "Arbeitnow Live API",
+    "status": "new",
+    "applied_date": null
+  },
+  {
+    "id": "job-015",
+    "title": "Senior Site Reliability Engineer - Observability (x/f/m)",
+    "company": "Doctolib",
+    "location": "Berlin, Berlin",
+    "modality": "Híbrido",
+    "salary_min": 10000,
+    "salary_max": 13000,
+    "currency": "EUR",
+    "experience_required": "Prácticas / Beca",
+    "date_posted": "Hoy (Live API)",
+    "skills_required": [
+      "Engineering"
+    ],
+    "description": "&lt;h2 class=&quot;s-pb-2 s-pt-4 s-heading-xl s-text-foreground dark:s-text-foreground-night&quot;&gt;&lt;strong class=&quot;s-font-semibold s-text-foreground dark:s-text-foreground-night&quot;&gt;Your Impact&lt;/strong&gt;&lt;/h2&gt;\n&lt;div class=&quot;s-whitespace-pre-wrap s-b...",
+    "benefits": [
+      "Trabajo en remoto",
+      "Equipo internacional"
+    ],
+    "source": "Arbeitnow Live API",
+    "status": "new",
+    "applied_date": null
+  },
+  {
+    "id": "job-016",
+    "title": "Senior AI Evangelist & Developer Advocate, Agentic AI",
+    "company": "nice",
+    "location": "",
+    "modality": "Híbrido",
+    "salary_min": 10000,
+    "salary_max": 13000,
+    "currency": "EUR",
+    "experience_required": "Prácticas / Beca",
+    "date_posted": "Hoy (Live API)",
+    "skills_required": [
+      "CX - Agentic Experience Automation"
+    ],
+    "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;At NiCE, we don’t limit our challenges. We challenge our limits. Always. We’re ambitious. We’re game changers. And we play to win. We set the highest standards and execute beyond them. And if you’re like us, we can offer you the...",
+    "benefits": [
+      "Trabajo en remoto",
+      "Equipo internacional"
+    ],
+    "source": "Arbeitnow Live API",
+    "status": "new",
+    "applied_date": null
+  },
+  {
+    "id": "job-017",
+    "title": "Senior Avionics Engineer (f/m/d)",
+    "company": "TYTAN Technologies GmbH",
+    "location": "Munich, Bayern, Germany",
+    "modality": "Híbrido",
+    "salary_min": 10000,
+    "salary_max": 13000,
+    "currency": "EUR",
+    "experience_required": "Prácticas / Beca",
+    "date_posted": "Hoy (Live API)",
+    "skills_required": [
+      "Engineering"
+    ],
+    "description": "<h4 class=\"detail-block-title\" style=\"text-align:start;\"><strong><span style=\"color:#121317\">TYTAN Technologies</span></strong></h4><p class=\"TranslationField-module__fieldItemValue___c0djd\" style=\"text-align:start;\"><span style=\"color:#121317\">At </span><strong><span style=\"colo...",
+    "benefits": [
+      "Trabajo en remoto",
+      "Equipo internacional"
+    ],
+    "source": "Arbeitnow Live API",
+    "status": "new",
+    "applied_date": null
+  },
+  {
+    "id": "job-018",
+    "title": "Senior Electronics Hardware Engineer (m/f/d)",
+    "company": "TYTAN Technologies GmbH",
+    "location": "Munich, Bayern, Germany",
+    "modality": "Híbrido",
+    "salary_min": 10000,
+    "salary_max": 13000,
+    "currency": "EUR",
+    "experience_required": "Prácticas / Beca",
+    "date_posted": "Hoy (Live API)",
+    "skills_required": [
+      "Engineering"
+    ],
+    "description": "<h3>TYTAN Technologies</h3><p><span style=\"color:#121317\">The </span><strong><span style=\"color:#121317\">PACE</span></strong><span style=\"color:#121317\"> is fast. The expectations are high. The contribution matters. Working at TYTAN is more than a job, this is a mission. We thriv...",
+    "benefits": [
+      "Trabajo en remoto",
+      "Equipo internacional"
+    ],
+    "source": "Arbeitnow Live API",
+    "status": "new",
+    "applied_date": null
+  },
+  {
+    "id": "job-019",
+    "title": "Senior Performance Marketing Manager (m/w/d)",
+    "company": "Education Partners",
+    "location": "München",
+    "modality": "Híbrido",
+    "salary_min": 30000,
+    "salary_max": 42000,
+    "currency": "EUR",
+    "experience_required": "Junior / Mid",
+    "date_posted": "Hoy (Live API)",
+    "skills_required": [
+      "Beratung",
+      "Neukundengewinnung",
+      "Kommunikation",
+      "Kundenzufriedenheit",
+      "Kundendatenbank",
+      "vertrieb"
+    ],
+    "description": "<br><strong>Über uns - Developer Akademie</strong><p><ul><li style=\"font-size:14px;font-family:Arial, Helvetica, sans-serif;\">Wir sind ein wachsendes Startup aus dem E-Learning / Education Sektor und ermöglichen es, hunderten aktiven Kundinnen und Kunden als Quereinsteigern eine ...",
+    "benefits": [
+      "Trabajo en remoto",
+      "Equipo internacional"
+    ],
+    "source": "Arbeitnow Live API",
+    "status": "new",
+    "applied_date": null
+  },
+  {
+    "id": "job-020",
+    "title": "Dozent Fachinformatiker Systemintegration (m/w/d)",
+    "company": "Education Partners",
+    "location": "München (remote)",
+    "modality": "Híbrido",
+    "salary_min": 30000,
+    "salary_max": 42000,
+    "currency": "EUR",
+    "experience_required": "Junior / Mid",
+    "date_posted": "Hoy (Live API)",
+    "skills_required": [
+      "Fachinformatiker",
+      "Softwareentwickler",
+      "Frontend",
+      "Backend",
+      "Fullstack",
+      "Developer"
+    ],
+    "description": "<br><strong>Über uns - Developer Akademie</strong><p><span style=\"color:rgb(31,31,31);font-family:Arial, Helvetica, sans-serif;font-size:14px;font-style:normal;font-weight:400;text-transform:none;background-color:rgb(255,255,255);display:inline;\">Wir suchen dich als Verstärkung u...",
+    "benefits": [
+      "Trabajo en remoto",
+      "Equipo internacional"
+    ],
+    "source": "Arbeitnow Live API",
     "status": "new",
     "applied_date": null
   }
