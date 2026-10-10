@@ -33,6 +33,7 @@ from src.services.job_fetcher import JobFetcher
 from src.services.market_radar import MarketRadar
 from src.services.ai_interviewer import AIInterviewer
 from src.services.scheduler import CareerScannerScheduler
+from src.services.source_manager import SourceManager
 
 # Inicialización de servicios
 profile_mgr = ProfileManager()
@@ -41,6 +42,7 @@ job_fetcher = JobFetcher(job_matcher)
 market_radar = MarketRadar(profile_mgr)
 ai_interviewer = AIInterviewer(profile_mgr)
 scanner_scheduler = CareerScannerScheduler()
+source_mgr = SourceManager()
 
 app = FastAPI(title="CareerPilot — AI Career & Interview Agent", version="1.0.0")
 
@@ -106,6 +108,17 @@ class SchedulerConfigRequest(BaseModel):
 class SystemdToggleRequest(BaseModel):
     enable: bool
     interval_hours: Optional[int] = 6
+
+
+class AddSourceRequest(BaseModel):
+    name: str
+    url: str
+    category: Optional[str] = "Personalizada"
+    description: Optional[str] = None
+
+
+class ToggleSourceRequest(BaseModel):
+    enabled: bool
 
 
 # --- API ENDPOINTS ---
@@ -291,6 +304,53 @@ def api_scheduler_toggle_systemd(req: SystemdToggleRequest):
     return {"status": "ok", "systemd": scanner_scheduler.get_systemd_status()}
 
 
+# --- ENDPOINTS GESTOR DE FUENTES DE EMPLEO ---
+
+@app.get("/api/sources")
+def api_get_sources():
+    """Retorna la lista de todas las fuentes de empleo configuradas."""
+    return source_mgr.get_sources()
+
+
+@app.post("/api/sources")
+def api_add_source(req: AddSourceRequest):
+    """Añade una fuente manual personalizada."""
+    if not req.name.strip() or not req.url.strip():
+        raise HTTPException(status_code=400, detail="Nombre y URL requeridos")
+    new_src = source_mgr.add_custom_source(
+        name=req.name,
+        url=req.url,
+        category=req.category or "Personalizada",
+        description=req.description
+    )
+    return {"status": "ok", "source": new_src}
+
+
+@app.put("/api/sources/{source_id}/toggle")
+def api_toggle_source(source_id: str, req: ToggleSourceRequest):
+    """Activa o desactiva una fuente."""
+    success = source_mgr.toggle_source(source_id, req.enabled)
+    if not success:
+        raise HTTPException(status_code=404, detail="Fuente no encontrada")
+    return {"status": "ok", "enabled": req.enabled}
+
+
+@app.delete("/api/sources/{source_id}")
+def api_delete_source(source_id: str):
+    """Elimina una fuente personalizada."""
+    success = source_mgr.delete_source(source_id)
+    if not success:
+        raise HTTPException(status_code=404, detail="Fuente no encontrada")
+    return {"status": "ok", "message": "Fuente eliminada"}
+
+
+@app.post("/api/sources/{source_id}/scan")
+def api_scan_single_source(source_id: str):
+    """Rastrea de forma inmediata una fuente personalizada web."""
+    res = source_mgr.scan_custom_source_web(source_id)
+    return res
+
+
 # --- FRONTEND HTML SPA CON ESTILO UNIR-WEB ---
 
 @app.get("/", response_class=HTMLResponse)
@@ -365,6 +425,14 @@ def index_html():
         <i class="fa-solid fa-microphone-lines"></i>
         <span>Simulador de Voz</span>
         <span class="w-2 h-2 rounded-full bg-fuchsia-400 animate-ping absolute -top-0.5 -right-0.5"></span>
+      </button>
+
+      <button @click="activeTab = 'sources'"
+              :class="activeTab === 'sources' ? 'bg-teal-600 text-white shadow-md shadow-teal-600/30 font-semibold' : 'text-gray-400 hover:text-gray-200 hover:bg-gray-800/60'"
+              class="px-4 py-2 rounded-lg text-sm transition-all duration-150 flex items-center space-x-2">
+        <i class="fa-solid fa-network-wired"></i>
+        <span>Fuentes</span>
+        <span class="ml-1 px-1.5 py-0.2 text-xs rounded-full bg-black/30" x-text="sourcesList.length"></span>
       </button>
 
       <button @click="activeTab = 'profile'"
@@ -1014,6 +1082,99 @@ def index_html():
       </div>
     </div>
 
+
+    <!-- ============================================================== -->
+    <!-- TAB 5: GESTOR DE PLATAFORMAS & FUENTES DE EMPLEO -->
+    <!-- ============================================================== -->
+    <div x-show="activeTab === 'sources'" x-cloak class="space-y-6">
+      <!-- HEADER GESTOR -->
+      <div class="glass p-6 md:p-8 rounded-2xl flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div>
+          <h2 class="text-xl font-bold text-teal-400 flex items-center space-x-2.5">
+            <i class="fa-solid fa-network-wired"></i>
+            <span>Plataformas & Fuentes de Empleo Monitorizadas</span>
+          </h2>
+          <p class="text-xs text-gray-300 mt-1 max-w-2xl">
+            Gestiona los portales donde el copiloto busca vacantes automáticamente. Puedes activar o pausar cualquier fuente nativa (InfoJobs, Primer Empleo, LinkedIn, TecnoEmpleo) y añadir <strong>fuentes manuales personalizadas</strong> (webs corporativas, bolsas universitarias o RSS).
+          </p>
+        </div>
+
+        <button @click="openAddSourceModal = true"
+                class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-500 hover:to-cyan-500 text-white font-bold text-xs shadow-lg shadow-teal-600/30 transition flex items-center space-x-2 shrink-0">
+          <i class="fa-solid fa-plus"></i>
+          <span>Añadir Fuente Manual</span>
+        </button>
+      </div>
+
+      <!-- GRID DE FUENTES ACTIVAS -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <template x-for="src in sourcesList" :key="src.id">
+          <div class="glass-card p-5 rounded-2xl space-y-4 flex flex-col justify-between transition border"
+               :class="src.enabled ? 'border-gray-800 hover:border-teal-500/50' : 'opacity-60 border-gray-900 bg-gray-950/40'">
+            
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <!-- ICONO Y TIPO -->
+                <div class="flex items-center space-x-3">
+                  <div class="w-10 h-10 rounded-xl bg-gray-800 border border-gray-700 flex items-center justify-center text-lg text-teal-400">
+                    <i class="fa-solid" :class="src.logo_icon || 'fa-globe'"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-sm text-gray-100" x-text="src.name"></h3>
+                    <span class="text-[10px] px-2 py-0.2 rounded-full bg-gray-800 text-gray-400 font-mono" x-text="src.type === 'native' ? 'Nativa España' : (src.type === 'api' ? 'API Directa' : 'Personalizada')"></span>
+                  </div>
+                </div>
+
+                <!-- SWITCH TOGGLE -->
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" :checked="src.enabled" @change="toggleSourceActive(src.id, src.enabled)" class="sr-only peer">
+                  <div class="w-9 h-5 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-teal-500"></div>
+                </label>
+              </div>
+
+              <!-- CATEGORÍA BADGE -->
+              <div>
+                <span class="text-xs px-2.5 py-0.5 rounded-md bg-teal-950/60 border border-teal-800/60 text-teal-300 font-mono font-medium" x-text="src.category"></span>
+              </div>
+
+              <p class="text-xs text-gray-300 leading-relaxed" x-text="src.description"></p>
+
+              <!-- URL -->
+              <a :href="src.url" target="_blank" class="text-[11px] text-cyan-400 hover:underline flex items-center space-x-1 truncate">
+                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                <span x-text="src.url"></span>
+              </a>
+            </div>
+
+            <!-- FOOTER DE LA CARD DE FUENTE -->
+            <div class="pt-3 border-t border-gray-800/80 flex items-center justify-between text-xs">
+              <div>
+                <span class="text-gray-400 text-[11px] block">Aportadas al Radar:</span>
+                <strong class="text-cyan-300 font-mono" x-text="src.jobs_count + ' ofertas'"></strong>
+              </div>
+
+              <div class="flex items-center space-x-2">
+                <!-- BOTÓN ESCANEAR ESTA FUENTE -->
+                <button @click="scanSingleSource(src.id)" :disabled="isScanningSourceId === src.id"
+                        class="px-3 py-1.5 rounded-lg bg-gray-800 hover:bg-gray-700 border border-gray-700 text-teal-300 font-medium text-xs transition flex items-center space-x-1" title="Escanear esta fuente con IA">
+                  <i class="fa-solid fa-bolt text-[11px]" x-show="isScanningSourceId !== src.id"></i>
+                  <i class="fa-solid fa-spinner fa-spin text-[11px]" x-show="isScanningSourceId === src.id"></i>
+                  <span>Escanear</span>
+                </button>
+
+                <!-- BOTÓN ELIMINAR (SOLO SI ES MANUAL) -->
+                <button x-show="src.type === 'custom'" @click="deleteSource(src.id)"
+                        class="px-2 py-1.5 rounded-lg bg-rose-950/60 hover:bg-rose-900 border border-rose-800 text-rose-300 text-xs transition" title="Eliminar fuente personalizada">
+                  <i class="fa-solid fa-trash-can text-[11px]"></i>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </template>
+      </div>
+    </div>
+
   </main>
 
 
@@ -1329,6 +1490,69 @@ def index_html():
   </div>
 
 
+  <!-- ============================================================== -->
+  <!-- MODAL: AÑADIR FUENTE MANUAL PERSONALIZADA -->
+  <!-- ============================================================== -->
+  <div x-show="openAddSourceModal" x-cloak class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+    <div class="glass max-w-lg w-full rounded-2xl p-6 md:p-8 space-y-4 max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+        <h3 class="text-base font-bold text-teal-400 flex items-center space-x-2">
+          <i class="fa-solid fa-circle-plus"></i>
+          <span>Registrar Nueva Fuente Manual de Empleo</span>
+        </h3>
+        <button @click="openAddSourceModal = false" class="text-gray-400 hover:text-gray-200">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <p class="text-xs text-gray-300">
+        Añade la web de empleo de una empresa, una bolsa de trabajo de prácticas o un feed de ofertas. El sistema la incluirá en los escaneos periódicos y extraerá vacantes automáticamente con IA.
+      </p>
+
+      <div class="space-y-3">
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 mb-1">Nombre del Portal o Empresa:</label>
+          <input type="text" x-model="newSourceForm.name" placeholder="ej. Bolsa de Empleo UNIR, Careers Telefónica, BBVA Empleo..."
+                 class="w-full px-4 py-2.5 rounded-xl bg-gray-900 border border-gray-700 text-xs text-gray-100 focus:border-teal-500 focus:outline-none">
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 mb-1">URL de la web de empleo o Feed RSS:</label>
+          <input type="url" x-model="newSourceForm.url" placeholder="https://..."
+                 class="w-full px-4 py-2.5 rounded-xl bg-gray-900 border border-gray-700 text-xs text-gray-100 font-mono focus:border-teal-500 focus:outline-none">
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 mb-1">Categoría / Especialidad:</label>
+          <select x-model="newSourceForm.category" class="w-full px-3.5 py-2.5 rounded-xl bg-gray-900 border border-gray-700 text-xs text-gray-200 focus:border-teal-500 focus:outline-none">
+            <option value="Prácticas DAM / Convenios">🎓 Prácticas DAM / Convenios FCT</option>
+            <option value="Ciberseguridad & SOC">🛡️ Ciberseguridad & SOC</option>
+            <option value="Backend Java / Spring">☕ Backend Java / Spring Boot</option>
+            <option value="Android & Móvil">📱 Android & Kotlin</option>
+            <option value="General Tech">💻 General Tech / IT</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 mb-1">Descripción o notas (opcional):</label>
+          <input type="text" x-model="newSourceForm.description" placeholder="Notas sobre esta fuente..."
+                 class="w-full px-4 py-2.5 rounded-xl bg-gray-900 border border-gray-700 text-xs text-gray-100 focus:border-teal-500 focus:outline-none">
+        </div>
+      </div>
+
+      <div class="flex justify-end space-x-2 pt-2">
+        <button @click="openAddSourceModal = false" class="px-4 py-2 rounded-xl bg-gray-800 text-xs text-gray-300">Cancelar</button>
+        <button @click="addCustomSource()" :disabled="isAddingSource || !newSourceForm.name.trim() || !newSourceForm.url.trim()"
+                class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-500 hover:to-cyan-500 font-bold text-xs text-white shadow-lg shadow-teal-600/30 transition flex items-center space-x-2 disabled:opacity-50">
+          <i class="fa-solid fa-floppy-disk" x-show="!isAddingSource"></i>
+          <i class="fa-solid fa-spinner fa-spin" x-show="isAddingSource"></i>
+          <span x-text="isAddingSource ? 'Guardando...' : 'Guardar y Activar Fuente'"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
   <!-- ALPINE.JS LOGIC -->
   <script>
     function careerPilotApp() {
@@ -1377,11 +1601,24 @@ def index_html():
         isScanningNow: false,
         newKeywordInput: '',
 
+        // Fuentes de Empleo (Plataformas & Manuales)
+        sourcesList: [],
+        openAddSourceModal: false,
+        isAddingSource: false,
+        isScanningSourceId: null,
+        newSourceForm: {
+          name: '',
+          url: '',
+          category: 'Prácticas DAM / Convenios',
+          description: ''
+        },
+
         async initApp() {
           await this.loadProfile();
           await this.loadJobs();
           await this.loadMarketInsights();
           await this.loadSchedulerStatus();
+          await this.loadSources();
           this.initSpeechRecognition();
         },
 
@@ -1751,6 +1988,84 @@ def index_html():
         removeSchedulerKeyword(idx) {
           this.schedulerConfig.keywords.splice(idx, 1);
           this.saveSchedulerConfig();
+        },
+
+        // MÉTODOS DE FUENTES DE EMPLEO
+        async loadSources() {
+          try {
+            const res = await fetch('/api/sources');
+            this.sourcesList = await res.json();
+          } catch (e) {
+            console.error('Error cargando fuentes:', e);
+          }
+        },
+
+        async toggleSourceActive(sourceId, currentEnabled) {
+          try {
+            const newEnabled = !currentEnabled;
+            await fetch(`/api/sources/${sourceId}/toggle`, {
+              method: 'PUT',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ enabled: newEnabled })
+            });
+            await this.loadSources();
+          } catch (e) {
+            alert('Error al modificar estado de la fuente');
+          }
+        },
+
+        async addCustomSource() {
+          if (!this.newSourceForm.name.trim() || !this.newSourceForm.url.trim()) {
+            alert('Por favor introduce el nombre y la URL de la web o feed.');
+            return;
+          }
+          this.isAddingSource = true;
+          try {
+            const res = await fetch('/api/sources', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(this.newSourceForm)
+            });
+            const data = await res.json();
+            if (res.ok) {
+              alert(`¡Fuente "${this.newSourceForm.name}" añadida con éxito!`);
+              this.newSourceForm = { name: '', url: '', category: 'Prácticas DAM / Convenios', description: '' };
+              this.openAddSourceModal = false;
+              await this.loadSources();
+            } else {
+              alert(data.detail || 'Error al añadir fuente');
+            }
+          } catch (e) {
+            alert('Error al añadir la fuente');
+          } finally {
+            this.isAddingSource = false;
+          }
+        },
+
+        async deleteSource(sourceId) {
+          if (!confirm('¿Seguro que deseas eliminar esta fuente personalizada?')) return;
+          try {
+            await fetch(`/api/sources/${sourceId}`, { method: 'DELETE' });
+            await this.loadSources();
+          } catch (e) {
+            alert('Error al eliminar fuente');
+          }
+        },
+
+        async scanSingleSource(sourceId) {
+          this.isScanningSourceId = sourceId;
+          try {
+            const res = await fetch(`/api/sources/${sourceId}/scan`, { method: 'POST' });
+            const data = await res.json();
+            alert(data.message || 'Escaneo finalizado');
+            await this.loadJobs();
+            await this.loadMarketInsights();
+            await this.loadSources();
+          } catch (e) {
+            alert('Error al escanear la fuente');
+          } finally {
+            this.isScanningSourceId = null;
+          }
         },
 
         async saveApiKey() {

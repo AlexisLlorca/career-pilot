@@ -24,6 +24,7 @@ from src.core.profile_manager import ProfileManager
 from src.services.job_matcher import JobMatcher
 from src.services.job_fetcher import JobFetcher
 from src.services.market_radar import MarketRadar
+from src.services.source_manager import SourceManager
 
 CONFIG_SCANNER_FILE = DATA_DIR / "scanner_config.json"
 SCAN_LOG_FILE = DATA_DIR / "scan_history.json"
@@ -101,7 +102,16 @@ class CareerScannerScheduler:
                 total_new_imported += count
                 details.append(f"{count} ofertas nuevas para '{kw}'")
 
-        # 2. Actualizar estadísticas de mercado
+        # 2. Escaneo de fuentes personalizadas manuales activas
+        source_mgr = SourceManager()
+        for src in source_mgr.get_sources():
+            if src.get("enabled", True) and src.get("type") == "custom":
+                src_res = source_mgr.scan_custom_source_web(src.get("id"))
+                if src_res.get("jobs_imported", 0) > 0:
+                    total_new_imported += src_res["jobs_imported"]
+                    details.append(f"{src_res['jobs_imported']} ofertas de {src.get('name')}")
+
+        # 3. Actualizar estadísticas de mercado
         insights = market_radar.get_market_insights()
 
         # 3. Guardar log

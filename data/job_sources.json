@@ -1,0 +1,80 @@
+[
+  {
+    "id": "source-infojobs",
+    "name": "InfoJobs España",
+    "logo_icon": "fa-briefcase",
+    "color": "sky",
+    "type": "native",
+    "url": "https://www.infojobs.net",
+    "category": "DAM · Java · Prácticas",
+    "enabled": true,
+    "description": "Portal #1 de empleo en España para desarrollo, perfiles de Formación Profesional (DAM) y contratos formativos.",
+    "last_sync": "2026-10-10 22:50:00",
+    "jobs_count": 8
+  },
+  {
+    "id": "source-primerempleo",
+    "name": "Primer Empleo (Prácticas & Becas)",
+    "logo_icon": "fa-graduation-cap",
+    "color": "violet",
+    "type": "native",
+    "url": "https://www.primerempleo.com",
+    "category": "Convenios FCT · Prácticas",
+    "enabled": true,
+    "description": "Especializado exclusivamente en becas formativas, convenios con universidades y centros de FP para estudiantes sin experiencia.",
+    "last_sync": "2026-10-10 22:50:00",
+    "jobs_count": 6
+  },
+  {
+    "id": "source-linkedin",
+    "name": "LinkedIn Jobs España",
+    "logo_icon": "fa-linkedin",
+    "color": "blue",
+    "type": "native",
+    "url": "https://www.linkedin.com/jobs",
+    "category": "Ciberseguridad · Remoto",
+    "enabled": true,
+    "description": "Red profesional líder para puestos de ciberseguridad, arquitecturas backend modernas y vacantes remotas.",
+    "last_sync": "2026-10-10 22:50:00",
+    "jobs_count": 7
+  },
+  {
+    "id": "source-tecnoempleo",
+    "name": "TecnoEmpleo IT",
+    "logo_icon": "fa-laptop-code",
+    "color": "amber",
+    "type": "native",
+    "url": "https://www.tecnoempleo.com",
+    "category": "Tecnología · Sistemas",
+    "enabled": true,
+    "description": "Bolsa de trabajo 100% vertical y especializada en informática, telecomunicaciones y seguridad en España.",
+    "last_sync": "2026-10-10 22:50:00",
+    "jobs_count": 4
+  },
+  {
+    "id": "source-arbeitnow",
+    "name": "Arbeitnow Live API",
+    "logo_icon": "fa-globe",
+    "color": "emerald",
+    "type": "api",
+    "url": "https://www.arbeitnow.com/api/job-board-api",
+    "category": "Remoto UE · APIs",
+    "enabled": true,
+    "description": "Conexión directa en tiempo real con más de 300 ofertas internacionales con teletrabajo y equipos distribuidos.",
+    "last_sync": "2026-10-10 22:50:00",
+    "jobs_count": 7
+  },
+  {
+    "id": "custom-006",
+    "name": "Bolsa de Empleo UNIR",
+    "logo_icon": "fa-globe",
+    "color": "fuchsia",
+    "type": "custom",
+    "url": "https://empleo.unir.net",
+    "category": "Prácticas DAM / Convenios",
+    "enabled": true,
+    "description": "Portal oficial de prácticas y empleo de la UNIR",
+    "last_sync": "2026-10-10 22:58:09",
+    "jobs_count": 0
+  }
+]

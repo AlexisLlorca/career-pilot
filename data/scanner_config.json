@@ -6,11 +6,12 @@
     "prácticas",
     "ciberseguridad",
     "kotlin",
-    "DAM"
+    "DAM",
+    "junior"
   ],
   "search_internships_active": true,
   "systemd_active": true,
-  "last_run": "2026-10-10 22:48:20",
-  "next_run": "2026-10-11 04:48:21",
-  "total_scans_completed": 3
+  "last_run": "2026-10-10 22:58:02",
+  "next_run": "2026-10-11 04:58:09",
+  "total_scans_completed": 14
 }

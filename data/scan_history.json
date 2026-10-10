@@ -25,5 +25,104 @@
     ],
     "total_jobs_in_db": 20,
     "status": "success"
+  },
+  {
+    "timestamp": "2026-10-10 22:51:04",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 20,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-10 22:55:00",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 20,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-10 22:55:12",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 20,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-10 22:55:19",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 20,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-10 22:55:27",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 20,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-10 22:56:04",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 20,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-10 22:56:42",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 20,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-10 22:57:05",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 20,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-10 22:57:17",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 20,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-10 22:57:55",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 20,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-10 22:58:02",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 20,
+    "status": "success"
   }
 ]
