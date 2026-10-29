@@ -3,15 +3,23 @@
   "interval_hours": 6,
   "keywords": [
     "java",
+    "spring boot",
     "prácticas",
+    "beca",
+    "convenio",
     "ciberseguridad",
-    "kotlin",
+    "soc",
+    "analista soc",
     "DAM",
-    "junior"
+    "junior",
+    "backend junior",
+    "kotlin",
+    "android",
+    "fct"
   ],
   "search_internships_active": true,
   "systemd_active": true,
-  "last_run": "2026-10-29 15:15:48",
-  "next_run": "2026-10-29 21:16:03",
-  "total_scans_completed": 100
+  "last_run": "2026-10-29 15:16:22",
+  "next_run": "2026-10-29 21:16:37",
+  "total_scans_completed": 101
 }
