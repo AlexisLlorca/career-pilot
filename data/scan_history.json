@@ -1,24 +1,5 @@
 [
   {
-    "timestamp": "2026-10-26 12:00:15",
-    "new_jobs_found": 5,
-    "details": [
-      "5 ofertas nuevas para 'java'"
-    ],
-    "total_jobs_in_db": 388,
-    "status": "success"
-  },
-  {
-    "timestamp": "2026-10-26 18:21:06",
-    "new_jobs_found": 6,
-    "details": [
-      "2 ofertas nuevas para 'prácticas'",
-      "4 ofertas de Bolsa de Empleo UNIR"
-    ],
-    "total_jobs_in_db": 394,
-    "status": "success"
-  },
-  {
     "timestamp": "2026-10-27 11:12:37",
     "new_jobs_found": 0,
     "details": [
@@ -266,6 +247,24 @@
   },
   {
     "timestamp": "2026-10-29 14:52:26",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 436,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-29 15:14:57",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 436,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-29 15:15:48",
     "new_jobs_found": 0,
     "details": [
       "No se encontraron nuevas ofertas duplicadas"

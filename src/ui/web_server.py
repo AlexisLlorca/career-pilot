@@ -1069,18 +1069,24 @@ def index_html():
         </div>
       </div>
 
-      <!-- DOS COLUMNAS: RANKING DE SKILLS Y RECOMENDACIONES DE GAP -->
+      <!-- DOS COLUMNAS PRINCIPALES: TECNOLOGÍAS VS ESPECIALIDADES TÉCNICAS -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         
-        <!-- RANKING DE SKILLS DEMANDADAS -->
+        <!-- COLUMNA 1: RANKING DE TECNOLOGÍAS, LENGUAJES & HERRAMIENTAS -->
         <div class="glass p-6 rounded-2xl space-y-4">
-          <h3 class="text-lg font-bold text-gray-200 flex items-center justify-between">
-            <span>Ranking de Tecnologías Requeridas</span>
-            <span class="text-xs text-gray-400 font-normal">% de presencia en ofertas</span>
-          </h3>
+          <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+            <div>
+              <h3 class="text-base font-bold text-gray-100 flex items-center space-x-2">
+                <i class="fa-solid fa-code text-cyan-400"></i>
+                <span>Tecnologías, Lenguajes & Frameworks</span>
+              </h3>
+              <p class="text-xs text-gray-400 mt-0.5">Ranking de stack técnico real demandado en las ofertas.</p>
+            </div>
+            <span class="text-xs text-gray-400 font-mono">% presencia</span>
+          </div>
 
           <div class="space-y-3.5">
-            <template x-for="skill in marketData.top_skills" :key="skill.name">
+            <template x-for="skill in (marketData.top_technologies || marketData.top_skills)" :key="skill.name">
               <div class="space-y-1.5">
                 <div class="flex justify-between items-center text-xs">
                   <div class="flex items-center space-x-2">
@@ -1098,7 +1104,7 @@ def index_html():
                   </div>
                 </div>
 
-                <!-- BARRA DE PROGRESO -->
+                <!-- BARRA DE PROGRESO TECNOLÓGICA -->
                 <div class="w-full h-2 rounded-full bg-gray-800 overflow-hidden">
                   <div class="h-full rounded-full transition-all duration-500"
                        :class="skill.is_owned ? 'bg-gradient-to-r from-emerald-500 to-cyan-500' : 'bg-gradient-to-r from-amber-500 to-orange-500'"
@@ -1109,47 +1115,91 @@ def index_html():
           </div>
         </div>
 
-        <!-- RECOMENDACIONES ESTRATÉGICAS DE SKILL GAP -->
-        <div class="space-y-6">
-          <div class="glass p-6 rounded-2xl space-y-4">
-            <h3 class="text-lg font-bold text-amber-300 flex items-center space-x-2">
-              <i class="fa-solid fa-bullhorn text-amber-400"></i>
-              <span>Recomendaciones de Alto Impacto para tu CV</span>
-            </h3>
-            <p class="text-xs text-gray-300">
-              Estas son las tecnologías con mayor presencia en ofertas que aún no figuran como destacadas en tu perfil. Añadirlas multiplicará tus entrevistas:
-            </p>
-
-            <div class="space-y-3">
-              <template x-for="gap in marketData.gap_recommendations" :key="gap.skill">
-                <div class="glass-card p-4 rounded-xl border-l-4 border-l-amber-500 space-y-1">
-                  <div class="flex justify-between items-center">
-                    <span class="font-bold text-gray-100 text-sm font-mono" x-text="gap.skill"></span>
-                    <span class="text-xs px-2 py-0.5 rounded bg-amber-950/80 text-amber-300 font-bold" x-text="gap.demand_pct + '% demanda'"></span>
-                  </div>
-                  <p class="text-xs text-gray-300" x-text="gap.reason"></p>
-                </div>
-              </template>
+        <!-- COLUMNA 2: ESPECIALIDADES & PERFILES TÉCNICOS ESPECÍFICOS -->
+        <div class="glass p-6 rounded-2xl space-y-4">
+          <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+            <div>
+              <h3 class="text-base font-bold text-gray-100 flex items-center space-x-2">
+                <i class="fa-solid fa-layer-group text-fuchsia-400"></i>
+                <span>Áreas & Especialidades Más Demandadas</span>
+              </h3>
+              <p class="text-xs text-gray-400 mt-0.5">Clasificación específica por rol técnico y dominio profesional.</p>
             </div>
+            <span class="text-xs text-gray-400 font-mono">% presencia</span>
           </div>
 
-          <!-- MODALIDADES DE TRABAJO -->
-          <div class="glass p-6 rounded-2xl">
-            <h4 class="text-sm font-bold text-gray-200 mb-3 flex items-center space-x-2">
-              <i class="fa-solid fa-house-laptop text-cyan-400"></i>
-              <span>Distribución por Modalidad</span>
-            </h4>
-            <div class="grid grid-cols-2 gap-3">
-              <template x-for="mod in marketData.modality_breakdown" :key="mod.name">
-                <div class="p-3 rounded-xl bg-gray-900 border border-gray-800 text-center">
-                  <span class="text-xs text-gray-400 block" x-text="mod.name"></span>
-                  <span class="text-lg font-bold text-cyan-300 font-mono" x-text="mod.percentage + '%'"></span>
+          <div class="space-y-3.5">
+            <template x-for="spec in (marketData.top_specialties || [])" :key="spec.name">
+              <div class="space-y-1.5">
+                <div class="flex justify-between items-center text-xs">
+                  <div class="flex items-center space-x-2">
+                    <span class="font-semibold text-gray-200" x-text="spec.name"></span>
+                  </div>
+                  <div class="flex items-center space-x-3 font-mono">
+                    <span class="text-gray-400" x-show="spec.average_salary" x-text="'~' + spec.average_salary.toLocaleString() + ' €'"></span>
+                    <strong class="text-fuchsia-400" x-text="spec.percentage + '%'"></strong>
+                  </div>
                 </div>
-              </template>
-            </div>
+
+                <!-- BARRA DE PROGRESO ESPECIALIDAD -->
+                <div class="w-full h-2 rounded-full bg-gray-800 overflow-hidden">
+                  <div class="h-full rounded-full bg-gradient-to-r from-fuchsia-600 to-indigo-500 transition-all duration-500"
+                       :style="'width: ' + spec.percentage + '%'"></div>
+                </div>
+              </div>
+            </template>
           </div>
         </div>
 
+      </div>
+
+      <!-- SEGUNDA FILA: RECOMENDACIONES CV + DISTRIBUCIÓN MODALIDAD -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- RECOMENDACIONES ESTRATÉGICAS DE SKILL GAP (2 cols) -->
+        <div class="lg:col-span-2 glass p-6 rounded-2xl space-y-4">
+          <h3 class="text-base font-bold text-amber-300 flex items-center space-x-2">
+            <i class="fa-solid fa-bullhorn text-amber-400"></i>
+            <span>Recomendaciones de Alto Impacto para tu CV</span>
+          </h3>
+          <p class="text-xs text-gray-300">
+            Tecnologías reales con alta demanda en vacantes que no figuran como destacadas en tu perfil. Añadirlas en tu portfolio multiplicará tu ratio de entrevistas:
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <template x-for="gap in marketData.gap_recommendations" :key="gap.skill">
+              <div class="glass-card p-4 rounded-xl border-l-4 border-l-amber-500 space-y-1">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-gray-100 text-xs font-mono" x-text="gap.skill"></span>
+                  <span class="text-[11px] px-2 py-0.5 rounded bg-amber-950/80 text-amber-300 font-bold" x-text="gap.demand_pct + '% demanda'"></span>
+                </div>
+                <p class="text-xs text-gray-300" x-text="gap.reason"></p>
+              </div>
+            </template>
+          </div>
+        </div>
+
+        <!-- MODALIDADES DE TRABAJO (1 col) -->
+        <div class="glass p-6 rounded-2xl flex flex-col justify-between space-y-4">
+          <div>
+            <h4 class="text-base font-bold text-gray-200 mb-1 flex items-center space-x-2">
+              <i class="fa-solid fa-house-laptop text-cyan-400"></i>
+              <span>Distribución por Modalidad</span>
+            </h4>
+            <p class="text-xs text-gray-400">Modalidad real de las vacantes analizadas.</p>
+          </div>
+
+          <div class="space-y-2.5">
+            <template x-for="mod in marketData.modality_breakdown" :key="mod.name">
+              <div class="p-3 rounded-xl bg-gray-900 border border-gray-800 flex justify-between items-center">
+                <span class="text-xs text-gray-300 flex items-center space-x-2">
+                  <span class="w-2 h-2 rounded-full" :class="mod.name === 'Remoto' ? 'bg-emerald-400' : (mod.name === 'Híbrido' ? 'bg-cyan-400' : 'bg-gray-400')"></span>
+                  <span x-text="mod.name"></span>
+                </span>
+                <span class="text-sm font-bold text-cyan-300 font-mono" x-text="mod.percentage + '%'"></span>
+              </div>
+            </template>
+          </div>
+        </div>
       </div>
     </div>
 

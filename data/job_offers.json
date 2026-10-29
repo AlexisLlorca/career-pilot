@@ -13,10 +13,10 @@
     "skills_required": [
       "Java",
       "Spring Boot",
-      "SQL",
+      "SQL / Bases de Datos",
       "OWASP Top 10",
       "REST APIs",
-      "Git",
+      "Git & GitHub",
       "Docker"
     ],
     "description": "Buscamos un desarrollador Java para integrarse en nuestro equipo de pagos digitales. Valoramos enormemente perfil con sensibilidad hacia la seguridad (Security by Design, prevención de vulnerabilidades OWASP). Desarrollarás microservicios en Spring Boot conectados a bases de datos relacionales y APIs seguras.",
@@ -46,7 +46,7 @@
       "Android",
       "Jetpack Compose",
       "REST APIs",
-      "Git",
+      "Git & GitHub",
       "Clean Architecture"
     ],
     "description": "Ampliamos equipo móvil para app de alta concurrencia. Buscamos desarrollador Kotlin con manejo de Jetpack Compose, consumo de servicios REST con Retrofit y buenas prácticas de arquitectura. Se valorará conocimiento de seguridad en almacenamiento local y protección de credenciales.",
@@ -132,8 +132,8 @@
     "date_posted": "2026-10-06",
     "skills_required": [
       "Java",
-      "SQL",
-      "Git",
+      "SQL / Bases de Datos",
+      "Git & GitHub",
       "JavaScript",
       "HTML5",
       "CSS3"
@@ -194,7 +194,7 @@
       "Kotlin",
       "Java",
       "Android",
-      "SQL",
+      "SQL / Bases de Datos",
       "REST APIs",
       "Criptografía Básica"
     ],
@@ -221,9 +221,9 @@
     "date_posted": "2026-10-10",
     "skills_required": [
       "Java",
-      "SQL",
+      "SQL / Bases de Datos",
       "Spring Boot",
-      "Git",
+      "Git & GitHub",
       "REST APIs"
     ],
     "description": "Convenio de colaboración educativa para alumnos de 2º curso de Desarrollo de Aplicaciones Multiplataforma (DAM). Integración en equipo de desarrollo backend para proyectos del sector público y banca digital. Tutor senior asignado durante todo el periodo con altas posibilidades de contratación indefinida al finalizar las prácticas.",
@@ -280,7 +280,7 @@
       "Kotlin",
       "Android",
       "Jetpack Compose",
-      "Git",
+      "Git & GitHub",
       "REST APIs"
     ],
     "description": "Buscamos estudiante de DAM apasionado por el ecosistema móvil Android. Aprenderás de un equipo de ingenieros senior desarrollando módulos en Kotlin moderno con Jetpack Compose y consumo de microservicios. Se requiere convenio con centro de estudios (UNIR u homólogo).",
@@ -310,7 +310,7 @@
       "Docker",
       "Python",
       "Bash",
-      "Git"
+      "Git & GitHub"
     ],
     "description": "Incorporación en el área de seguridad aeroespacial y de defensa. Asistencia en la automatización de escaneos de seguridad en código (SAST), bastionado de contenedores Docker y hardening de sistemas operativos Linux.",
     "benefits": [
@@ -335,8 +335,8 @@
     "date_posted": "2026-10-07",
     "skills_required": [
       "Java",
-      "SQL",
-      "Git",
+      "SQL / Bases de Datos",
+      "Git & GitHub",
       "PostgreSQL",
       "HTML5"
     ],
@@ -365,7 +365,7 @@
       "Java",
       "Spring Boot",
       "REST APIs",
-      "SQL",
+      "SQL / Bases de Datos",
       "OWASP Top 10"
     ],
     "description": "Beca remunerada en banca digital. Participarás en la construcción y pruebas unitarias de APIs RESTful desarrolladas con Spring Boot y securizadas bajo directrices bancarias OWASP.",
@@ -631,7 +631,7 @@
     "date_posted": "Hoy (Live API)",
     "skills_required": [
       "Java",
-      "Git",
+      "Git & GitHub",
       "REST APIs"
     ],
     "description": "<br><strong>Stellenbeschreibung</strong><p><strong>Du gewinnst die richtigen Menschen und übernimmst Verantwortung für alles, was danach kommt?</strong><br>Pammys ist in wenigen Jahren auf über eine Million Kundinnen und Kunden gewachsen. Unsere Logistik sorgt täglich dafür, dass...",
@@ -656,7 +656,7 @@
     "date_posted": "Hoy (Live API)",
     "skills_required": [
       "Java",
-      "Git",
+      "Git & GitHub",
       "REST APIs"
     ],
     "description": "<br><strong>Stellenbeschreibung</strong><p><span style=\"font-family:Arial, Helvetica, sans-serif;font-size:14px;\">Du gewinnst starke Mitarbeitende, treibst HR-Themen voran und übernimmst Verantwortung?</span><span style=\"font-family:Arial, Helvetica, sans-serif;font-size:14px;\">P...",
@@ -709,7 +709,7 @@
     "date_posted": "Hoy (Live API)",
     "skills_required": [
       "Java",
-      "Git",
+      "Git & GitHub",
       "REST APIs"
     ],
     "description": "<br><strong>Stellenbeschreibung</strong><p><span style=\"font-family:Verdana, Geneva, sans-serif;font-size:14px;\">Du reportest nicht, was passiert ist. Du sorgst dafür, dass wir wissen, was als Nächstes passieren muss.</span><p><span style=\"font-family:Verdana, Geneva, sans-serif;...",
@@ -732,10 +732,8 @@
     "currency": "EUR",
     "experience_required": "Sin Experiencia",
     "skills_required": [
-      "Bases de datos",
-      "ERP",
-      "Ofimática",
-      "Excel"
+      "SQL / Bases de Datos",
+      "ERP"
     ],
     "description": "¿Te gustaría conocer cómo se coordina una red de formadores y proveedores desde dentro de un departamento de Recursos Externos?\n\n¿Qué aprenderás con nosotros?\n\nFormarás parte del departamento de Recursos Externos, donde, con el apoyo de un tutor, participarás en tareas como:\n\nGestión y actualización de información en el ERP corporativo.\nAlta y mantenimiento de datos de formadores y proveedores.\nElaboración y seguimiento de informes mediante Excel.\nRegistro y seguimiento de incidencias.\nApoyo en la búsqueda, homologación y gestión de proveedores y colaboradores.\nSegún tu perfil e intereses, pod",
     "benefits": [
@@ -759,8 +757,7 @@
     "currency": "EUR",
     "experience_required": "Sin Experiencia",
     "skills_required": [
-      "Bases de datos",
-      "Ofimática"
+      "SQL / Bases de Datos"
     ],
     "description": "La persona seleccionada se incorporará al equipo de consultoría, participando y dando soporte en proyectos vinculados principalmente al sector educativo y empresarial. Entre sus funciones estarán:\n\n- Apoyo en el desarrollo y seguimiento de proyectos de consultoría estratégica.\n\n-Recopilación, organización y análisis de información y datos para la elaboración de diagnósticos y recomendaciones.\n\n-Preparación de informes ejecutivos y presentaciones.\n\n-Apoyo en la elaboración y seguimiento de cuadros de mando, métricas e indicadores de negocio.\n\n-Apoyo en proyectos relacionados con estrategia, mar",
     "benefits": [
@@ -784,9 +781,8 @@
     "currency": "EUR",
     "experience_required": "2 años",
     "skills_required": [
-      "Bases de datos",
-      "Cloud",
-      "Excel"
+      "SQL / Bases de Datos",
+      "Cloud"
     ],
     "description": "En Empieza Por Educar (ExE) trabajamos para contribuir a reducir las desigualdades educativas y mejorar las oportunidades de aprendizaje de todo el alumnado. Para ello, desarrollamos un programa de formación y acompañamiento de profesionales que trabajan en centros educativos, con el objetivo de impulsar su capacidad para generar un impacto positivo en sus estudiantes y comunidades educativas.\n\nBuscamos una persona en prácticas que quiera conocer de cerca el funcionamiento de un programa educativo y contribuir a su desarrollo, dando apoyo transversal en diferentes proyectos y procesos del día ",
     "benefits": [
@@ -812,7 +808,7 @@
     "skills_required": [
       "Gestión de Sistemas",
       "Desarrollo de Software",
-      "Bases de Datos"
+      "SQL / Bases de Datos"
     ],
     "description": "En The Optimal Flow abrimos dos plazas de prácticas SDR (Sales Development Representative) para aprender venta consultiva B2B en una consultora de automatización e inteligencia artificial.\n\nCONDICIONES\n\n• Prácticas académicas externas mediante convenio con la universidad o centro de estudios.\n\n• Seis meses, 30 horas semanales y ayuda al estudio de 600 € brutos mensuales.\n\n• 100 % remoto. También es posible realizar las prácticas desde el extranjero si la universidad y el convenio lo permiten.\n\n• Incorporación lo antes posible, idealmente antes del 1 de noviembre, según disponibilidad y formali",
     "benefits": [
@@ -835,9 +831,7 @@
     "salary_max": 500,
     "currency": "EUR",
     "experience_required": "Sin Experiencia",
-    "skills_required": [
-      "Excel"
-    ],
+    "skills_required": [],
     "description": "La CNMV, Comisión Nacional del Mercado de Valores, es el organismo encargado de la supervisión e inspección de los mercados de valores españoles y de la actividad de cuantos intervienen en los mismos.\n\nSu objetivo es velar por la transparencia de los mercados de valores españoles y la correcta formación de precios, así como la protección de los inversores. La acción de la Comisión se proyecta principalmente sobre las sociedades que emiten y ofrecen valores para ser colocados de forma pública, sobre los mercados secundarios de valores, y sobre las empresas que prestan servicios de inversión e i",
     "benefits": [
       "Convenio oficial UNIR",
@@ -883,9 +877,7 @@
     "salary_max": 1000,
     "currency": "EUR",
     "experience_required": "Sin Experiencia",
-    "skills_required": [
-      "Excel"
-    ],
+    "skills_required": [],
     "description": "Buscamos una persona organizada, proactiva y con buenas habilidades de comunicación para dar soporte en el día a día de la oficina. Siempre bajo supervisión.\n\nPrincipales funciones:\n\nAtención y recepción de visitas.\nGestión de llamadas, mensajería y correspondencia.\nApoyo en la organización y mantenimiento de salas de reuniones y espacios comunes.\nGestión de pedidos de material de oficina, snacks y catering.\nApoyo en la organización de eventos corporativos internos, como desayunos, comidas, barbacoas y celebraciones de equipo.\nSoporte en comunicaciones internas y onboarding de nuevas incorpora",
     "benefits": [
       "Convenio oficial UNIR",
@@ -907,9 +899,7 @@
     "salary_max": null,
     "currency": "EUR",
     "experience_required": "Sin Experiencia",
-    "skills_required": [
-      "Excel"
-    ],
+    "skills_required": [],
     "description": "Litoclean, S.L. busca incorporar un/a Estudiante en Prácticas para dar soporte a nuestro Departamento Técnico, participando en proyectos relacionados con servicios medioambientales.\n\nFunciones principales\n\nLa persona seleccionada colaborará en las siguientes tareas:\n\nApoyo en registros de datos\nApoyo en elaboración de informes técnicos\nSoporte en la gestión documental y administrativa\nOfrecemos\nConvenio de prácticas con centro de estudios.\nFormación y acompañamiento por parte de profesionales del sector.\nParticipación en proyectos reales.\nBolsa de ayuda al estudio\n\nRequisitos\nConocimientos:\nEx",
     "benefits": [
       "Convenio oficial UNIR",
@@ -931,9 +921,7 @@
     "salary_max": null,
     "currency": "EUR",
     "experience_required": "Sin Experiencia",
-    "skills_required": [
-      "Excel"
-    ],
+    "skills_required": [],
     "description": "Manejo de lexnet, dehu, mercurio, aca, horus\n\n-Manejo excel y crm a nivel despacho de abogados\n\n-Trabajo administrativo con orientación a la técnica jurídica\n\nRequisitos\nConocimientos:\nTecnologia\nInformática\nMicrosoft Office\nTecnologías de la información\nAdministración de empresas\nGestión administrativa y Soporte\nBachillerato\nIdiomas\nInglés\nNivel:Intermedio (B1)\nTitulaciones:\n\nLa empresa solicita que el candidato cuente con al menos una de estas titulaciones:\n\nGrado en Administración y Dirección de Empresas\nMáster Universitario en Gestión Administrativa\nGrado en Derecho\nDuración de las práctic",
     "benefits": [
       "Convenio oficial UNIR",
@@ -981,7 +969,7 @@
     "experience_required": "De 3 a 5 años",
     "skills_required": [
       "Ciberseguridad",
-      "Bases de datos"
+      "SQL / Bases de Datos"
     ],
     "description": "Sobre el puesto\n\nBuscamos incorporar a nuestro equipo una persona Responsable de IT, con una trayectoria profesional de 3 años o más en el área de IT. Será responsable de coordinar el soporte a usuarios, la administración de servicios y dispositivos, la ciberseguridad, los proveedores tecnológicos y los proyectos de transformación digital.\n\nEl puesto requiere una visión transversal: comprender las necesidades de negocio, priorizarlas y convertirlas en soluciones tecnológicas sostenibles, documentadas y seguras, combinando capacidad técnica con organización, comunicación y orientación al servic",
     "benefits": [
@@ -1006,8 +994,8 @@
     "experience_required": "Más de 5 años",
     "skills_required": [
       "Java",
-      "Git",
-      "Bases de datos",
+      "Git & GitHub",
+      "SQL / Bases de Datos",
       "React",
       "Cloud"
     ],
@@ -1063,7 +1051,7 @@
       "Firewalls",
       "Networking",
       "Redes",
-      "Bases de datos"
+      "SQL / Bases de Datos"
     ],
     "description": "Misión del cargo\n\nGarantizar la disponibilidad, el desempeño y la seguridad de la infraestructura de red y del perímetro tecnológico de AXURE Technologies y sus clientes, mediante el monitoreo, administración y soporte de plataformas de comunicaciones y seguridad.\n\nRequisitos\n\nFormación académica:\n\nTecnólogo o profesional en Ingeniería de Sistemas, Telecomunicaciones, Electrónica o carreras afines.\n\nExperiencia:\n\nMínimo 1 año en cargos similares.\n\nConocimientos\n\nNetworking y redes inalámbricas.\n\nLinux y Windows.\n\nGestión de incidentes de seguridad.\n\nSIEM y monitoreo de alertas.\n\nFirewalls NGFW",
     "benefits": [
@@ -1088,11 +1076,10 @@
     "experience_required": "2 años",
     "skills_required": [
       "Python",
-      "SQL",
+      "SQL / Bases de Datos",
       "PostgreSQL",
       "MySQL",
       "Oracle",
-      "Bases de datos",
       "Cloud"
     ],
     "description": "¡Estamos buscando un Ingeniero de Datos MD!\n\nBuscamos un profesional con experiencia en el diseño e implementación de pipelines de datos para entornos distribuidos (Data Lake/Lakehouse) y optimización de consultas SQL sobre grandes volúmenes de datos.\n\n? Título en Ingeniería de Software, Sistemas, Ciencias de la Computación o carreras afines.\n\n? Mínimo 3 años de experiencia en posiciones similares.\n\n? Desarrollo en Python con: PySpark, Apache Spark, Spark Streaming, Apache Airflow y Apache Iceberg.\n\n? Manejo de bases de datos: SQL Server, PostgreSQL, MySQL y Oracle.\n\n? Conocimientos sólidos en",
@@ -1119,7 +1106,7 @@
     "skills_required": [
       "Gestión de Sistemas",
       "Desarrollo de Software",
-      "Bases de Datos"
+      "SQL / Bases de Datos"
     ],
     "description": "¡Estamos buscando IT Recruiter en la ciudad de Guayaquil!\n\nBuscamos talento con experiencia en reclutamiento y selección de perfiles tecnológicos, conocimiento IT y capacidad para gestionar procesos de selección end-to-end.\n\nTítulo de tercer nivel en Gestión de Talento Humano, Psicología Organizacional o afines.\nMínimo 1 año de experiencia en reclutamiento y selección de perfiles IT.\nExperiencia en reclutamiento end-to-end.\nConocimiento de roles tecnológicos (desarrollo, QA, infraestructura, data).\nManejo de LinkedIn Recruiter y portales de empleo.\nEntrevistas por competencias y comunicación e",
     "benefits": [
@@ -1144,7 +1131,7 @@
     "experience_required": "Más de 5 años",
     "skills_required": [
       "Java",
-      "Git",
+      "Git & GitHub",
       "Cloud"
     ],
     "description": "¡Estamos buscando un Sr. Frontend Developer con enfoque en Angular! Si te apasiona construir interfaces robustas, escalables y de alto rendimiento, esta es tu oportunidad para liderar el desarrollo frontend de proyectos desafiantes.\n\nRequisitos clave:\n\nDominio avanzado de Angular (CLI, módulos, componentes, servicios, pipes, directivas)\nSólida experiencia en JavaScript y TypeScript (RxJS, async/await, promesas)\nHTML5, CSS3, SASS/LESS y diseño responsivo con Bootstrap\nPruebas unitarias e integración con Jasmine y Karma\nOptimización de performance (lazy loading, tree shaking, bundle optimization",
@@ -1171,7 +1158,7 @@
     "skills_required": [
       "Gestión de Sistemas",
       "Desarrollo de Software",
-      "Bases de Datos"
+      "SQL / Bases de Datos"
     ],
     "description": "Fundación Victoria, selecciona personal docente para bolsa de empleo, de la asignatura de Tecnología y digitalización en Secundaria y Bachillerato para el curso escolar 2026-2027.\n\nREQUISITOS: \n\nTitulaciones aptas para el puesto:\n\nINGENIERIA SUPERIOR EN INFORMÁTICA, TELECOMUNICACIONES, INDUSTRIAL  + MÁSTER DE PROFESORADO Y Certificado de inglés B2 de Aptis, Cambridge, Trinity o Escuela Oficial de Idiomas.\n\nRequisitos\nConocimientos:\nTecnologia\nInformática\nTecnologías de la información\nIngeniería\nIngeniería industrial\nEducación secundaria\nEnseñanza\nMatemáticas\nIdiomas\nInglés\nNivel:Intermedio Alt",
     "benefits": [
@@ -1196,9 +1183,9 @@
     "experience_required": "Más de 5 años",
     "skills_required": [
       "Java",
-      "Git",
+      "Git & GitHub",
       "Docker",
-      "Bases de datos",
+      "SQL / Bases de Datos",
       "React",
       "Cloud"
     ],
@@ -1225,8 +1212,8 @@
     "experience_required": "Más de 5 años",
     "skills_required": [
       "Java",
-      "Git",
-      "Bases de datos",
+      "Git & GitHub",
+      "SQL / Bases de Datos",
       "Android",
       "Cloud"
     ],
@@ -1254,7 +1241,7 @@
     "skills_required": [
       "Gestión de Sistemas",
       "Desarrollo de Software",
-      "Bases de Datos"
+      "SQL / Bases de Datos"
     ],
     "description": "Buscamos Neuropsicólogo/a a jornada completa en horario partido, con los viernes a la tarde libre.\n\n*Requisitos:\n\nMaster General Sanitario\nMaster en Neuropsicología clínica\n\n*Funciones Principales:\n\nEvaluación neuropsicológica: Realizar la valoración cuantitativa y cualitativa de las funciones cognitivas, conductuales y emocionales de los pacientes mediante baterías estandarizadas.\nTratamiento y rehabilitación: Diseñar, implementar y monitorizar planes individuales de rehabilitación cognitiva y conductual, combinando terapia convencional y nuevas tecnologías (software de estimulación cognitiva",
     "benefits": [
@@ -1280,7 +1267,7 @@
     "skills_required": [
       "Gestión de Sistemas",
       "Desarrollo de Software",
-      "Bases de Datos"
+      "SQL / Bases de Datos"
     ],
     "description": "Se precisa incorporar un comercial especialista en servicios informáticos para ampliar cartera de clientes.\n\nRequisitos\nConocimientos:\nInformática\nSeguridad informática\nTecnologías de la información\nComercial y ventas\nCaptación\nConsultoría Tecnológica\nTitulaciones:\n\nLa empresa solicita que el candidato cuente con al menos una de estas titulaciones:\n\nPrograma en Transformación Digital\nPrograma en Dirección Comercial y Ventas\nMáster Universitario en Dirección Comercial y Ventas\nExecutive Máster en Comercial y Ventas\nGrado en Ingeniería informática\nInscríbete en\nTu afinidad con la oferta\n17%\nCono",
     "benefits": [
@@ -1350,10 +1337,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Technology",
-      "Remote"
-    ],
+    "skills_required": [],
     "description": "<p><strong>About us</strong></p><p><strong>Distribusion</strong> is the world’s leading ground transportation marketplace and gives travelers seamless access to ground transportation online, from search to ticket purchase. We have built a cutting-edge B2B technology platform that...",
     "benefits": [
       "Trabajo en remoto",
@@ -1397,9 +1381,7 @@
     "currency": "EUR",
     "experience_required": "Junior / Mid",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Finance"
-    ],
+    "skills_required": [],
     "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;Banyan Software is the best permanent home for software businesses that serve specialized industries, their employees, and their customers. With a buy-grow-and-hold-for-life approach and a permanent capital base, Banyan acquires...",
     "benefits": [
       "Trabajo en remoto",
@@ -1506,7 +1488,7 @@
     "date_posted": "Hoy (Live API)",
     "skills_required": [
       "Java",
-      "Git",
+      "Git & GitHub",
       "REST APIs"
     ],
     "description": "<div class=\"content-intro\"><p><img style=\"display: block; max-width: 100%;\" src=\"https://atolls.com/wp-content/uploads/2025/10/Atolls-Banner_01_Greenhouse_1400x200-scaled.jpg\" alt=\"Atolls top banner\"></p>\n<hr>\n<h3 class=\"mb-2 whitespace-pre-wrap\"><strong>Atolls is the world's lar...",
@@ -1529,9 +1511,7 @@
     "currency": "EUR",
     "experience_required": "Sin Experiencia",
     "skills_required": [
-      "Bases de datos",
-      "Ofimática",
-      "Excel"
+      "SQL / Bases de Datos"
     ],
     "description": "En Grupo Hedima, consultora especializada en formación para el empleo y formación corporativa, tendrás la oportunidad de desarrollarte en la gestión de cursos de formación subvencionada, atención y captación de alumnos, matriculación y coordinación de recursos.\n\nCon el apoyo de un tutor, participarás en tareas como:\n\nGestión documental de la formación: cumplimentación, preparación y revisión de documentos.\nRevisión de la documentación aportada por los alumnos y apoyo en la subsanación o reclamación de documentación.\nApoyo en la captación de alumnos/as, tanto telefónica como presencialmente.\nAp",
     "benefits": [
@@ -1554,9 +1534,7 @@
     "salary_max": null,
     "currency": "EUR",
     "experience_required": "Sin Experiencia",
-    "skills_required": [
-      "Excel"
-    ],
+    "skills_required": [],
     "description": "The opportunity: Your next adventure awaits\n\nEY-Parthenon provides strategic consulting services to help organizations enhance their performance, drive growth, and navigate complex transactions. With over 25,000 professionals around the world, we combine innovative ideas, transaction know-how, and finance solutions to provide real value to our clients. When you join EY-Parthenon, you become part of a vibrant and collaborative culture where diverse skills come together to propel your success. We’re all about teamwork, your development and growth.\n\nOur 6 month off-cycle program with the Real Est",
     "benefits": [
       "Convenio oficial UNIR",
@@ -1578,9 +1556,7 @@
     "salary_max": 1000,
     "currency": "EUR",
     "experience_required": "1 año",
-    "skills_required": [
-      "Excel"
-    ],
+    "skills_required": [],
     "description": "Cellnex Telecom es el líder europeo de infraestructuras de telecomunicaciones inalámbricas, con una presencia relevante en 10 países a nivel europeo, entre ellos España, Italia, Francia, Suiza y Reino Unido. Con sede en Barcelona, Cellnex se dedica a proporcionar soluciones avanzadas de conectividad y desempeña un papel clave en el desarrollo de las tecnologías digitales y de comunicación a nivel global. La compañía destaca por su innovación, su excelencia operativa y su firme compromiso con la sostenibilidad y el avance digital.\n\nEl equipo de Talent Acquisition del Grupo es responsable de ide",
     "benefits": [
       "Convenio oficial UNIR",
@@ -1603,8 +1579,7 @@
     "currency": "EUR",
     "experience_required": "Sin Experiencia",
     "skills_required": [
-      "Redes",
-      "Excel"
+      "Redes"
     ],
     "description": "Únete a nuestro equipo en Winche!\n\nEn Winche, combinamos el espíritu de una startup con la solidez de una empresa líder en el outsourcing comercial. Creemos en el crecimiento personal y profesional de nuestros empleados, y estamos en busca de talento que comparta nuestra visión.\n\n¡Tenemos una emocionante oportunidad disponible para un/una Trainee en nuestro Equipo de Coordinación, para marcar la diferencia en Winche! La posición está ubicada en nuestra Oficina de Barcelona. El convenio ofrece prácticas empresariales remuneradas. Estarás trabajando en un equipo exitoso, junto a compañeros/as qu",
     "benefits": [
@@ -1628,9 +1603,7 @@
     "currency": "EUR",
     "experience_required": "Sin Experiencia",
     "skills_required": [
-      "Bases de datos",
-      "Ofimática",
-      "Excel"
+      "SQL / Bases de Datos"
     ],
     "description": "a) Soporte jurídico y laboral. -Colaborar con la interpretación y aplicación de convenios colectivos, estatus y normativa laboral vigente. -Asistir en la redacción de comunicaciones laborales (sanciones, modificaciones contractuales o despidos) -Realizar búsqueda y elaborar resúmenes sobre novedades legislativas y jurisprudenciales en materia laboral -Dar soporte en la revisión de políticas internas para garantizar su adecuación a la norma vigente. b) Gestión de Relaciones Laborales: -Participar en la preparación de reuniones con la representación legal de las persones trabajadoras (comités, d",
     "benefits": [
@@ -1763,7 +1736,7 @@
     "date_posted": "Hoy (Live API)",
     "skills_required": [
       "Java",
-      "Git",
+      "Git & GitHub",
       "REST APIs"
     ],
     "description": "<br><strong>About the role</strong><p><p style=\"line-height:1.2;text-align:justify;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:12px;font-family:Verdana, Geneva, sans-serif;color:rgb(0,0,0);background-color:transparent;font-weight:400;font-style:normal;text-decoratio...",
@@ -1788,7 +1761,7 @@
     "skills_required": [
       "Gestión de Sistemas",
       "Desarrollo de Software",
-      "Bases de Datos"
+      "SQL / Bases de Datos"
     ],
     "description": "Apoyo en la actualización y organización de planos del edificio y sus diferentes espacios e instalaciones.\nRevisión, actualización y organización de los dosieres y documentación técnica de las instalaciones.\nApoyo en la recopilación y archivo de fichas técnicas, manuales, certificados, revisiones y documentación de mantenimiento.\nColaboración en la elaboración y actualización del inventario de instalaciones, equipos y elementos técnicos del edificio.\nApoyo en el seguimiento y registro de incidencias y actuaciones de mantenimiento\n\nRequisitos\nConocimientos:\nTecnologia\nMicrosoft Office\nAutoCAD\nE",
     "benefits": [
@@ -1811,9 +1784,7 @@
     "salary_max": 400,
     "currency": "EUR",
     "experience_required": "Sin Experiencia",
-    "skills_required": [
-      "Excel"
-    ],
+    "skills_required": [],
     "description": "Prácticas en Banca Comercial, Empresas o Privada | Deutsche Bank\n\n¿Te imaginas dar tus primeros pasos en banca dentro de una entidad líder e innovadora? En Deutsche Bank tendrás la oportunidad de aprender cómo funciona una oficina bancaria mientras desarrollas tu carrera en un entorno dinámico y cercano al cliente.\n\nEn Deutsche Bank fomentamos un entorno de trabajo inclusivo y accesible, donde todas las personas puedan desarrollarse plenamente. En línea con nuestro compromiso con la diversidad y de conformidad con la Ley General de Discapacidad (LGD) en España, animamos a presentar su solicitu",
     "benefits": [
       "Convenio oficial UNIR",
@@ -1835,9 +1806,7 @@
     "salary_max": 800,
     "currency": "EUR",
     "experience_required": "Sin Experiencia",
-    "skills_required": [
-      "Excel"
-    ],
+    "skills_required": [],
     "description": "En Valoriza somos una empresa multinacional dedicada a la gestión de servicios de medioambientales (limpieza viaria, movilidad, infraestructura urbana y el cuidado de infraestructura verde y plantas de tratamiento de residuos).\n\nRespondemos al compromiso de la sociedad para alcanzar un desarrollo sostenible y mitigar los efectos del cambio climático, aportando a todos sus servicios soluciones eficientes.\n\nValoriza apuesta por las personas, su desarrollo profesional y por la conciliación, diversidad, inclusión e igualdad.\n\nBuscamos incorporar 2 Becarios/as en el área de Movilidad Urbana.\n\n¿Cuál",
     "benefits": [
       "Convenio oficial UNIR",
@@ -1859,9 +1828,7 @@
     "salary_max": 400,
     "currency": "EUR",
     "experience_required": "Sin Experiencia",
-    "skills_required": [
-      "Excel"
-    ],
+    "skills_required": [],
     "description": "Prácticas en Banca Comercial, Empresas o Privada | Deutsche Bank\n\n¿Te imaginas dar tus primeros pasos en banca dentro de una entidad líder e innovadora? En Deutsche Bank tendrás la oportunidad de aprender cómo funciona una oficina bancaria mientras desarrollas tu carrera en un entorno dinámico y cercano al cliente.\n\nEn Deutsche Bank fomentamos un entorno de trabajo inclusivo y accesible, donde todas las personas puedan desarrollarse plenamente. En línea con nuestro compromiso con la diversidad y de conformidad con la Ley General de Discapacidad (LGD) en España, animamos a presentar su solicitu",
     "benefits": [
       "Convenio oficial UNIR",
@@ -1883,9 +1850,7 @@
     "salary_max": null,
     "currency": "EUR",
     "experience_required": "Sin Experiencia",
-    "skills_required": [
-      "Ofimática"
-    ],
+    "skills_required": [],
     "description": "Persona apasionada de las artes escénicas y que entienda que el proceso de comercialización es la clave para la difusión de esas creaciones.\nPonemos el foco en la pasión más que en las dotes comerciales que si son necesarias, porque por experiencia cuando alguien ama este sector los resultados son mucho mejores.\nValoramos formación previa en bachillerato artístico, o formación o experiencia en interpretación, dirección, distribución, marketing, comunicación audiovisual, historia del arte\nTambién tenemos un área de internacional, donde para trabajar si que es necesario inglés a nivel al menos e",
     "benefits": [
       "Convenio oficial UNIR",
@@ -1958,7 +1923,7 @@
     "date_posted": "Hoy (Live API)",
     "skills_required": [
       "Java",
-      "Git",
+      "Git & GitHub",
       "REST APIs"
     ],
     "description": "<br><strong>This is your role</strong><p><p style=\"line-height:1.7142857142857142;text-align:justify;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;padding:0pt 0pt 18pt 0pt;\"><span style=\"font-size:12pt;font-family:Arial, Helvetica, sans-serif;color:rgb(22,22,22);backg...",
@@ -2060,7 +2025,7 @@
     "date_posted": "Hoy (Live API)",
     "skills_required": [
       "Java",
-      "Git",
+      "Git & GitHub",
       "REST APIs"
     ],
     "description": "<br><strong>Deine Aufgaben:</strong><p><strong><span style=\"font-size:14px;\">Mission</span></strong><span style=\"font-size:14px;\"><br>Bei yoursquares baust du die Systeme, mit denen wir jeden Tag arbeiten.<br><br>Als zentrale Schnittstelle zwischen den Problemen unserer Bauträger...",
@@ -2085,7 +2050,7 @@
     "date_posted": "Hoy (Live API)",
     "skills_required": [
       "Java",
-      "Git",
+      "Git & GitHub",
       "REST APIs"
     ],
     "description": "<br><strong>Your mission</strong><p><span style=\"color:rgb(41,42,46);font-family:Arial, Helvetica, sans-serif;font-size:14px;font-style:normal;font-weight:400;text-transform:none;background-color:rgb(255,255,255);display:inline;\">As <strong>Junior Solution Architect </strong></sp...",
@@ -2132,7 +2097,6 @@
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
     "skills_required": [
-      "Management",
       "Team Leader"
     ],
     "description": "<p>Unser Mandant ist ein innovatives Softwareunternehmen mit dem Schwerpunkt auf der Entwicklung intelligenter Automatisierungs- und Digitalisierungslösungen für komplexe technische Infrastrukturen. Mit langjähriger Expertise, einer eigenen leistungsfähigen Softwareplattform und ...",
@@ -2403,9 +2367,7 @@
       "Technical Trainer",
       "Generative AI",
       "Cloud Partner Enablement",
-      "Field Training",
-      "EMEA",
-      "Munich"
+      "Field Training"
     ],
     "description": "<br><strong>Your mission</strong><p><p>You train the technical teams of strategic cloud partners to build, integrate and support AI applications with confidence. Your audience is solution architects, field engineers, developers, technical consultants and sales engineering teams.<...",
     "benefits": [
@@ -2453,8 +2415,7 @@
     "currency": "EUR",
     "experience_required": "Sin Experiencia",
     "skills_required": [
-      "Redes",
-      "Excel"
+      "Redes"
     ],
     "description": "¡Únete a nuestro equipo en Winche!\n\nEn Winche, combinamos el espíritu de una startup con la solidez de una empresa líder en el outsourcing comercial. Creemos en el crecimiento personal y profesional de nuestros empleados, y estamos en busca de talento que comparta nuestra visión. ¡Tenemos una emocionante oportunidad disponible para un/una Trainee en nuestro Equipo de Coordinación, para marcar la diferencia en Winche! La posición está ubicada en nuestra Oficina de Madrid. El contrato ofrece prácticas empresariales remuneradas. Estarás trabajando en un equipo exitoso, junto a compañeros que siem",
     "benefits": [
@@ -2480,7 +2441,7 @@
     "skills_required": [
       "Gestión de Sistemas",
       "Desarrollo de Software",
-      "Bases de Datos"
+      "SQL / Bases de Datos"
     ],
     "description": "Desde Walt HR, estamos en búsqueda de un/a Delineante 2D-3D para empresa internacional ubicada en Torrejón de Ardoz (Madrid)\n\nEn este puesto serás responsable de desarrollar dibujos técnicos y crear modelos detallados en 2D y 3D, entre otros de tanques, movimientos de tierra, armaduras, tuberías de calefacción, etc. Trabajarás en estrecha colaboración con otros delineantes, jefes de proyecto y compañeros para transformar ideas en dibujos técnicos sólidos y visualmente claros.\n\nTareas\nDiseñar y desarrollar modelos 2D y 3D y planos técnicos\nTraducir bocetos y conceptos en diseños detallados.\nVer",
     "benefits": [
@@ -2573,9 +2534,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Operations"
-    ],
+    "skills_required": [],
     "description": "<p style=\"min-height:1.5em\">We are looking for an experienced Construction Manager to oversee the delivery of a wide range of complex construction and infrastructure projects across our site. These projects will range from small propulsion test stands and supporting facilities th...",
     "benefits": [
       "Trabajo en remoto",
@@ -2619,7 +2578,7 @@
     "currency": "EUR",
     "experience_required": "Sin Experiencia",
     "skills_required": [
-      "Bases de datos",
+      "SQL / Bases de Datos",
       "Cloud"
     ],
     "description": "Atención de clientes.\nElaboración de expedientes de extranjería.\nPreparación de escritos de recurso.\nAsistencia a procedimientos contenciosos\nRequisitos\nConocimientos:\nAdministración de bases de datos\nCloud\nInteligencia artificial\nMICROSOFT WORD\nDerecho\nAbogado\nAtención al cliente\nTitulaciones:\n\nLa empresa solicita que el candidato cuente con al menos una de estas titulaciones:\n\nGrado en Derecho\nDuración de las prácticas:\n3 a 6 meses\nInscríbete\nTu afinidad con la oferta\n<10%\nConocimientos\n<10%",
@@ -2645,9 +2604,8 @@
     "experience_required": "Más de 5 años",
     "skills_required": [
       "Java",
-      "SQL",
-      "PostgreSQL",
-      "Bases de datos"
+      "SQL / Bases de Datos",
+      "PostgreSQL"
     ],
     "description": "We’re Hiring for a client: Senior Software Engineer\n\nOn-site | Solvo Office\n\nFull-time\n\nOur client is a global provider of AI-powered legal technology, eDiscovery, digital forensics, information governance, and data recovery solutions, helping law firms, corporations, and government agencies manage complex litigation, compliance, investigations, and data challenges.\n\nAbout the Role\n\nWe’re looking for a Senior Software Engineer to design, build, and maintain mission-critical eDiscovery software used by legal teams worldwide.\n\nYou’ll own features from concept to production, work with modern AI d",
     "benefits": [
@@ -2717,9 +2675,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Legion"
-    ],
+    "skills_required": [],
     "description": "<p style=\"min-height:1.5em\">Swarm Aero is redefining air power, building the largest swarming UAV and the most versatile swarming aircraft network in the world. The company is moving quickly to launch the first aircraft designed specifically for swarming, as well as the Command &...",
     "benefits": [
       "Trabajo en remoto",
@@ -2809,9 +2765,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Legion"
-    ],
+    "skills_required": [],
     "description": "<p style=\"min-height:1.5em\">Swarm Aero is redefining air power, building the largest swarming UAV and the most versatile swarming aircraft network in the world. The company is moving quickly to launch the first aircraft designed specifically for swarming, as well as the Command &...",
     "benefits": [
       "Trabajo en remoto",
@@ -2832,9 +2786,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Legion"
-    ],
+    "skills_required": [],
     "description": "<p style=\"min-height:1.5em\">Swarm Aero is redefining air power, building the largest swarming UAV and the most versatile swarming aircraft network in the world. The company is moving quickly to launch the first aircraft designed specifically for swarming, as well as the Command &...",
     "benefits": [
       "Trabajo en remoto",
@@ -2855,9 +2807,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Legion"
-    ],
+    "skills_required": [],
     "description": "<p style=\"min-height:1.5em\">Swarm Aero is redefining air power, building the largest swarming UAV and the most versatile swarming aircraft network in the world. The company is moving quickly to launch the first aircraft designed specifically for swarming, as well as the Command &...",
     "benefits": [
       "Trabajo en remoto",
@@ -2878,9 +2828,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Legion"
-    ],
+    "skills_required": [],
     "description": "<p style=\"min-height:1.5em\">Swarm Aero is redefining air power, building the largest swarming UAV and the most versatile swarming aircraft network in the world. The company is moving quickly to launch the first aircraft designed specifically for swarming, as well as the Command &...",
     "benefits": [
       "Trabajo en remoto",
@@ -2901,9 +2849,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Legion"
-    ],
+    "skills_required": [],
     "description": "<p style=\"min-height:1.5em\">Swarm Aero is redefining air power, building the largest swarming UAV and the most versatile swarming aircraft network in the world. The company is moving quickly to launch the first aircraft designed specifically for swarming, as well as the Command &...",
     "benefits": [
       "Trabajo en remoto",
@@ -2924,9 +2870,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Legion"
-    ],
+    "skills_required": [],
     "description": "<p style=\"min-height:1.5em\">Swarm Aero is redefining air power, building the largest swarming UAV and the most versatile swarming aircraft network in the world. The company is moving quickly to launch the first aircraft designed specifically for swarming, as well as the Command &...",
     "benefits": [
       "Trabajo en remoto",
@@ -2947,9 +2891,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Legion"
-    ],
+    "skills_required": [],
     "description": "<p style=\"min-height:1.5em\">Swarm Aero is redefining air power, building the largest swarming UAV and the most versatile swarming aircraft network in the world. The company is moving quickly to launch the first aircraft designed specifically for swarming, as well as the Command &...",
     "benefits": [
       "Trabajo en remoto",
@@ -2970,9 +2912,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Legion"
-    ],
+    "skills_required": [],
     "description": "<p style=\"min-height:1.5em\">Swarm Aero is redefining air power, building the largest swarming UAV and the most versatile swarming aircraft network in the world. The company is moving quickly to launch the first aircraft designed specifically for swarming, as well as the Command &...",
     "benefits": [
       "Trabajo en remoto",
@@ -3016,7 +2956,7 @@
     "currency": "EUR",
     "experience_required": "Sin Experiencia",
     "skills_required": [
-      "Bases de datos"
+      "SQL / Bases de Datos"
     ],
     "description": "La persona en prácticas dará apoyo al departamento asignado\nSeguimiento de la actualidad: desarrollará conocimiento e interés por la actualidad política, social y regulatoria, con el objetivo de detectar riesgos y oportunidades clave.\nInvestigación estratégica: realizará búsqueda y análisis de información de fuentes públicas (ej. normativas, documentos sectoriales) y técnicas, para transformarla en información útil y con orientación comunicativa.\nPreparación de informes: colaboración en la elaboración de informes de análisis o conclusiones y dossieres sobre políticas públicas en diferentes ámb",
     "benefits": [
@@ -3065,8 +3005,7 @@
     "currency": "EUR",
     "experience_required": "Sin Experiencia",
     "skills_required": [
-      "ERP",
-      "Excel"
+      "ERP"
     ],
     "description": "At Auxadi we are looking for final year students with an interest in the accounting and tax field to join our team in our Madrid office. If you are looking for a position where you can grow, innovate and work in a multicultural and supportive environment, this is the opportunity for you.\n\nWhat will your responsibilities be?\n\nYou will support the full accounting cycle through a variety of key functions, using the integration and use of technologies developed to optimise and streamline accounting processes.\n\nYou will actively participate in the preparation of Financial Statements Accounting and ",
     "benefits": [
@@ -3164,7 +3103,7 @@
     "skills_required": [
       "Gestión de Sistemas",
       "Desarrollo de Software",
-      "Bases de Datos"
+      "SQL / Bases de Datos"
     ],
     "description": "Evaluación de riegos\n\ngestión documentación preventiva\n\nplanificación preventiva\n\ninvestigación accidentes\n\nformación y asesoramiento a clientes\n\nRequisitos\nConocimientos:\nInformática\nActualización de seguridad\nMediciones en construcción\nPRL de obra\nPrevención de riesgos laborales\nSeguridad laboral\nIdiomas\nEspañol\nNivel:Intermedio Alto (B2)\nTitulaciones:\n\nLa empresa solicita que el candidato cuente con al menos una de estas titulaciones:\n\nMáster Universitario en Prevención de Riesgos Laborales\nMáster Universitario en Sistemas Integrados de Gestión de la Prevención de Riesgos Laborales, la Cali",
     "benefits": [
@@ -3189,9 +3128,8 @@
     "experience_required": "Sin Experiencia",
     "skills_required": [
       "Java",
-      "SQL",
-      "PostgreSQL",
-      "Bases de datos"
+      "SQL / Bases de Datos",
+      "PostgreSQL"
     ],
     "description": "SDDFHG\n\nRequisitos\nConocimientos:\nAdministración de bases de datos\nPostgreSQL\nStorage DRS\nSQL\nJavascript\nAngular\nTitulaciones:\n\nLa empresa solicita que el candidato cuente con todas estas titulaciones:\n\nCurso de Adaptación al Grado en Maestro en Educación Primaria\nInscríbete en\nTu afinidad con la oferta\n20%\nConocimientos\n<10%",
     "benefits": [
@@ -3262,8 +3200,7 @@
     "experience_required": "Junior / Mid",
     "date_posted": "Hoy (Live API)",
     "skills_required": [
-      "Engineering",
-      "Remote"
+      "Engineering"
     ],
     "description": "<p><span style=\"color:#121317\"><span style=\"background-color:#FFFFFF\">At TechBiz Global, we are providing recruitment service to our TOP clients from our portfolio. We are currently seeking an </span></span><strong><span style=\"color:#121317\">Senior/Leading Software Engineer</spa...",
     "benefits": [
@@ -3429,7 +3366,7 @@
     "experience_required": "1 año",
     "skills_required": [
       "Redes",
-      "Bases de datos"
+      "SQL / Bases de Datos"
     ],
     "description": "Si te sientes una persona de equipo, dinámica, que valora la diversidad y el buen ambiente de trabajo y quieres explorar tus límites en un entorno internacional ¡Te estamos esperando!\n\n¿Qué ventajas tendrás?\n\nFormarás parte de un proyecto que piensa a lo grande y en expansión.\nEntrarás en un sector apasionante, el de ingredientes para el sector nutracéutico.\nPodrás aprender de las personas que conforman Nektium, uno de los grandes activos de esta compañía.\n\nDescripción del rol\n\nParticipación en creación y revisión de materiales de producto y contenido de marketing\n\nAsistencia en la creación de",
     "benefits": [
@@ -3568,9 +3505,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Customer Success"
-    ],
+    "skills_required": [],
     "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;Curious Minds. Bold Ideas. Extraordinary Impact&lt;/strong&gt;.&lt;br&gt;&lt;br&gt;We&#39;re transforming financial services through bold innovation and relentless execution. You bring the ideas and drive. We&#39;l...",
     "benefits": [
       "Trabajo en remoto",
@@ -3639,7 +3574,7 @@
     "skills_required": [
       "Gestión de Sistemas",
       "Desarrollo de Software",
-      "Bases de Datos"
+      "SQL / Bases de Datos"
     ],
     "description": "We are looking for a proactive and motivated IT trainee to support our IT department. The main responsibility will be to identify opportunities for the application of Artificial Intelligence (AI) within the company and support its implementation, while regularly reporting progress to the IT department.\n\nOther responsibilities:\n\nFirst/second-level support for users in Valencia/Sollana\nESET management and support\nHardware selection and ordering\nInitial set-up of new computers\nSet-up and support for smartphones and tablets\nSoftware and firmware upgrades for HP computers\n\nRequisitos\nConocimientos:",
     "benefits": [
@@ -3664,8 +3599,7 @@
     "experience_required": "Sin Experiencia",
     "skills_required": [
       "Redes",
-      "Bases de datos",
-      "Excel"
+      "SQL / Bases de Datos"
     ],
     "description": "En Winche Redes Comerciales tenemos una emocionante oportunidad disponible para un/una Trainee en nuestro departamento de Recursos Humanos, ubicado en nuestra oficina de Av. Diagonal, 453 Bis, planta 3 (08036 Barcelona). Te integrarás en el equipo para brindar soporte directo en dos áreas estratégicas de la compañía: Atracción de Talento (Selección) y Administración Laboral. Es una oportunidad ideal para adquirir una experiencia práctica y visión 360° en una empresa líder en outsourcing comercial y gran consumo.\n\n✔ Funciones Principales\n\n1. ÁREA DE SELECCIÓN DE PERSONAL:\n\n● Publicación y difus",
     "benefits": [
@@ -3805,9 +3739,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "People"
-    ],
+    "skills_required": [],
     "description": "&lt;p data-start=&quot;135&quot; data-end=&quot;429&quot;&gt;At Alpine Eagle, we’re building the future of counter-drone defence. We’re a fast-growing, international deep-tech company working at the intersection of aerospace engineering, defence systems, and machine learning. Our...",
     "benefits": [
       "Trabajo en remoto",
@@ -3898,7 +3830,6 @@
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
     "skills_required": [
-      "Finance",
       "Accounting & Legal"
     ],
     "description": "&lt;h2&gt;&lt;strong&gt;Your role&lt;/strong&gt;&lt;/h2&gt;\n&lt;p&gt;As (Senior) Site Financial Controller (f/m/d/x) you will be part of the Controlling and FP&amp;amp;A team responsible for Factor EU. Our Team is tasked with safeguarding and owning the financial health of the co...",
@@ -3923,7 +3854,7 @@
     "date_posted": "Hoy (Live API)",
     "skills_required": [
       "Java",
-      "Git",
+      "Git & GitHub",
       "REST APIs"
     ],
     "description": "<p><strong>Location:</strong> Berlin, Germany (office first)&nbsp;</p>\n<h2>Team description</h2>\n<p>Our Platform Tribe builds Fleet, the infrastructure foundation that every engineering team at SumUp relies on to ship safely and quickly. Fleet gives teams a stable, self-service p...",
@@ -3947,8 +3878,7 @@
     "experience_required": "Junior / Mid",
     "date_posted": "Hoy (Live API)",
     "skills_required": [
-      "Sales",
-      "Remote"
+      "Sales"
     ],
     "description": "<p style=\"text-align:justify;\"><strong><span style=\"color:#000000\">Excited to lead AI-driven change across the fast-moving legal markets of the DACH region? We would love to hear from you. 🇩🇪&nbsp;</span></strong></p><p style=\"text-align:justify;\"><strong><span style=\"color:#0000...",
     "benefits": [
@@ -3972,7 +3902,7 @@
     "date_posted": "Hoy (Live API)",
     "skills_required": [
       "Java",
-      "Git",
+      "Git & GitHub",
       "REST APIs"
     ],
     "description": "<p><strong>Senior Account Director - Strategic Account in Maritime Logistics for SITA</strong></p><p><strong>&nbsp;</strong></p><p><strong>Executive summary:</strong> A senior international key account role for a professional who excels in relationship management, stakeholder eng...",
@@ -4018,10 +3948,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Technology",
-      "Remote"
-    ],
+    "skills_required": [],
     "description": "<p><strong>About us</strong></p><p><strong>Distribusion</strong> is the world’s leading ground transportation marketplace and gives travellers seamless access to ground transportation online, from search to ticket purchase. We have built a cutting-edge B2B technology platform tha...",
     "benefits": [
       "Trabajo en remoto",
@@ -4044,7 +3971,7 @@
     "skills_required": [
       "Gestión de Sistemas",
       "Desarrollo de Software",
-      "Bases de Datos"
+      "SQL / Bases de Datos"
     ],
     "description": "Desde grupo Elecnor, buscamos incorporar perfiles que ayuden en Oficina Técnica en nuestras instalaciones y diferentes Delegaciones a nivel nacional.\n\nLa funciones a realizar son las siguientes:\n\n- APOYO ELABORACIÓN ESTUDIOS DE COSTES\n\n- APOYO PETICIÓN OFERTAS A PROVEEDORES\n\n- APOYO ELABORACIÓN MEMORIA TÉCNICA\n\n- APOYO REVISIÓN PLANOS Y MEDICIONES\n\n- APOYO ELABORACIÓN DOCUMENTACIÓN ADMINISTRATIVA OFERTAS\n\nRequisitos\nConocimientos:\nInformática\nMicrosoft Office\nGestión de proyectos\nIngeniería\nIngeniería industrial\nTitulaciones:\n\nLa empresa solicita que el candidato cuente con al menos una de est",
     "benefits": [
@@ -4091,9 +4018,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Technology"
-    ],
+    "skills_required": [],
     "description": "<p style=\"min-height:1.5em\">ZEAL Network SE is a leading international provider of online lottery products, operating for over 20 years with brands like LOTTO24 and Tipp24. As Germany’s largest digital lottery operator and a trusted partner of Spain’s ONCE, we are passionate abou...",
     "benefits": [
       "Trabajo en remoto",
@@ -4183,9 +4108,7 @@
     "salary_max": null,
     "currency": "EUR",
     "experience_required": "2 años",
-    "skills_required": [
-      "Excel"
-    ],
+    "skills_required": [],
     "description": "LÍDER DE VENTAS\n\n¡Lidera, inspira y supera metas con nosotros!\n\n¿Te apasionan las ventas, el liderazgo de equipos y el logro de resultados? En Decameron buscamos un Líder de Ventas dinámico, estratégico y orientado al cumplimiento de objetivos para potenciar el desempeño de nuestro equipo comercial.\n\nMisión del cargo\n\nCumplir y superar las metas de ventas establecidas, garantizando resultados sostenibles y alineados a los procedimientos de la compañía.\n\nRequisitos\nFormación profesional en Administración, Marketing, Comunicación, Mercadeo, Turismo, Ventas o carreras afines.\nExperiencia en áreas",
     "benefits": [
       "Convenio oficial UNIR",
@@ -4210,7 +4133,7 @@
     "skills_required": [
       "Gestión de Sistemas",
       "Desarrollo de Software",
-      "Bases de Datos"
+      "SQL / Bases de Datos"
     ],
     "description": "Se busca docente para impartir los módulos de:\n\nSistemas Secuenciales Programables\nRobótica Industrial\n\nFunciones:\n\nImpartición de clases teóricas y prácticas en los módulos indicados.\nPreparación y adaptación de contenidos al nivel del alumnado de FP.\nUso de equipamiento y entornos reales de automatización y robótica industrial.\nEvaluación y seguimiento del alumnado durante el periodo de sustitución.\n\nRequisitos indispensables:\n\nTitulación relacionada con el ámbito industrial o tecnológico (Ingeniería Industrial, Electrónica, Automática, Mecatrónica, Técnico Superior en Automatización y Robót",
     "benefits": [
@@ -4234,7 +4157,7 @@
     "currency": "EUR",
     "experience_required": "1 año",
     "skills_required": [
-      "Bases de datos"
+      "SQL / Bases de Datos"
     ],
     "description": "Oferta de empleo – Abogado/a Junior (Derecho Procesal Civil)\n\nDespacho de abogados en Madrid busca incorporar un/a Abogado/a Junior con 1-2 años de experiencia en Derecho Procesal Civil.\n\nRequisitos:\n\n* Grado en Derecho y colegiación.\n\n* Experiencia de 1 a 2 años en Derecho Procesal Civil.\n\n* Capacidad de organización y trabajo en equipo.\n\n* Manejo de herramientas ofimáticas.\n\nSe ofrece:\n\n* Incorporación a un equipo dinámico y con proyección profesional.\n\n* Contrato y condiciones a convenir según experiencia.\n\n*Horario de lunes a viernes de 9.30 a 14 y de 16 a 19.30hs.\n\nRequisitos\nConocimiento",
     "benefits": [
@@ -4281,9 +4204,7 @@
     "currency": "EUR",
     "experience_required": "Junior / Mid",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Tech"
-    ],
+    "skills_required": [],
     "description": "&lt;p style=&quot;text-align: center;&quot;&gt;&lt;strong&gt;&lt;em&gt;Location&lt;/em&gt;&lt;/strong&gt;&lt;em&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;: Come and join us in Hamburg or Berlin!&lt;/span&gt;&lt;/em&gt;&lt;/p&gt;\n&lt;p&gt;Following Lyft’s acquisition of F...",
     "benefits": [
       "Trabajo en remoto",
@@ -4304,9 +4225,7 @@
     "currency": "EUR",
     "experience_required": "Junior / Mid",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Tech"
-    ],
+    "skills_required": [],
     "description": "&lt;p style=&quot;text-align: center;&quot;&gt;&lt;strong&gt;&lt;em&gt;Location&lt;/em&gt;&lt;/strong&gt;&lt;em&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;: Come and join us in Hamburg or Berlin!&lt;/span&gt;&lt;/em&gt;&lt;/p&gt;\n&lt;p&gt;Following Lyft’s acquisition of F...",
     "benefits": [
       "Trabajo en remoto",
@@ -4374,7 +4293,6 @@
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
     "skills_required": [
-      "Remote",
       "Engineering"
     ],
     "description": "<p>StellDirVor is an independent consulting, trade and technology company specializing in immersive technologies for healthcare. We support organizations in implementing digital innovations — Virtual, Augmented and Mixed Reality as well as AI — particularly for learning, training...",
@@ -4422,7 +4340,7 @@
     "skills_required": [
       "Gestión de Sistemas",
       "Desarrollo de Software",
-      "Bases de Datos"
+      "SQL / Bases de Datos"
     ],
     "description": "Prácticas de Traducción | 100 horas | Modalidad online\n\nEn Max Traducciones buscamos estudiantes con pasión por los idiomas, atención al detalle y ganas de aplicar sus conocimientos en proyectos reales.\n\nSi quieres dar tus primeros pasos en el mundo profesional de la traducción, ¡queremos conocerte!\n\n¿Qué harás?\n\nTraducción de textos del inglés al español.\nRevisión y corrección de traducciones.\nInvestigación terminológica y elaboración de glosarios.\nAdaptación del formato de los documentos, conservando imágenes y estructura.\n\n¿Qué te ofrecemos?\n\n100 horas de experiencia práctica en un entorno ",
     "benefits": [
@@ -4447,8 +4365,7 @@
     "experience_required": "De 3 a 5 años",
     "skills_required": [
       "Java",
-      "SQL",
-      "Bases de datos",
+      "SQL / Bases de Datos",
       "Spring Boot",
       "ERP"
     ],
@@ -4476,7 +4393,7 @@
     "skills_required": [
       "Gestión de Sistemas",
       "Desarrollo de Software",
-      "Bases de Datos"
+      "SQL / Bases de Datos"
     ],
     "description": "¿Te gustaría formar parte de una empresa internacional líder en Formación Profesional? Buscamos Docente de Informática en nuestro centro de Jaén. Si tienes pasión por la enseñanza y buscas un proyecto estable, ¡esta es tu oportunidad!\n\n¿Cuál será tu misión?\n\nImpartir docencia dinámica y de calidad en el módulo de DAM y SMR.\nPlanificar y diseñar sesiones formativas con un enfoque práctico.\nRealizar el seguimiento continuo y tutorización del alumnado.\nColaborar con el equipo académico en la mejora de los programas.\n\n¿Qué buscamos en ti?\n\nFormación: Grado en Telecomunicaciones o Ingeniería Inform",
     "benefits": [
@@ -4802,7 +4719,6 @@
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
     "skills_required": [
-      "Compliance",
       "Security"
     ],
     "description": "<h2>Über Nexis</h2><p>Die NEXIS Plattform ist eine führende Identity Visibility and Intelligence Platform (IVIP), die eine einheitliche Sicht über IGA-, PAM- und IAM-Systeme hinweg schafft – für menschliche und nicht-menschliche Identitäten sowie AI-Agenten. Sie ermöglicht KI-ges...",
@@ -4871,9 +4787,7 @@
     "currency": "EUR",
     "experience_required": "Junior / Mid",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Tech"
-    ],
+    "skills_required": [],
     "description": "&lt;h2&gt;&lt;strong&gt;The role&lt;/strong&gt;&lt;/h2&gt;\n&lt;p&gt;We’re looking for a new teammate to join us on the journey of keeping HelloFresh a trusted name - someone with a passion for security and appetite for new challenges. Security Engineers work in a variety of ways ...",
     "benefits": [
       "Trabajo en remoto",
@@ -4894,9 +4808,7 @@
     "currency": "EUR",
     "experience_required": "Junior / Mid",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Tech"
-    ],
+    "skills_required": [],
     "description": "&lt;h2&gt;&lt;strong&gt;About the role: What&#39;s in the Box&lt;/strong&gt;&lt;/h2&gt;\n&lt;p&gt;We’re looking for a new teammate to join us on the journey of keeping HelloFresh a trusted name - someone with a passion for security and appetite for new challenges. Security Enginee...",
     "benefits": [
       "Trabajo en remoto",
@@ -4917,9 +4829,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Finance"
-    ],
+    "skills_required": [],
     "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;span style=&quot;font-size: 10pt; font-family: helvetica, arial, sans-serif;&quot;&gt;At Stark, we forge the future of European and national security through cutting-edge, AI-driven technology and unmatched engineering preci...",
     "benefits": [
       "Trabajo en remoto",
@@ -5149,7 +5059,7 @@
     "skills_required": [
       "Gestión de Sistemas",
       "Desarrollo de Software",
-      "Bases de Datos"
+      "SQL / Bases de Datos"
     ],
     "description": "Welcome to the future of nuclear energy, where Westinghouse Electric Company is leading the field with expertise and innovation to shape the power of tomorrow.\n\nAt Westinghouse, innovation is in our DNA. We are creative. We think differently. We reimagine the possible across the nuclear industry every day.\n\nAbout the role:\n\nAs a EHS intern you will participate in developing and implement H&S training plan. This is a 25 hour per week paid internship. With a total duration of 6 months starting in September-October.\n\nYou will report to the EHS Manager and be located at HQ in San Sebastián de los ",
     "benefits": [
@@ -5172,9 +5082,7 @@
     "salary_max": 10000,
     "currency": "EUR",
     "experience_required": "1 año",
-    "skills_required": [
-      "Ofimática"
-    ],
+    "skills_required": [],
     "description": "¿Te gustaría formar parte de una empresa internacional líder en el sector educativo? Buscamos docente de física y química para redactar textos y preparar oposiciones de manera online. Si tienes pasión por la enseñanza y quieres liderar el éxito de nuestros alumnos, ¡esta es tu oportunidad!\n\n¿Cuál será tu misión?\n\nRevisión de temario de oposiciones para profesores en la especialidad de Física y Química.\nElaboración de casos prácticos para la preparación de las oposiciones.\nRealizar el seguimiento continuo, evaluación y tutorización del alumnado.\nImpulsar la innovación metodológica y adaptarla a",
     "benefits": [
       "Convenio oficial UNIR",
@@ -5198,8 +5106,6 @@
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
     "skills_required": [
-      "Remote",
-      "Compliance",
       "Security"
     ],
     "description": "<h2>Compliance Compass GmbH</h2><p>Mit Compliance Compass machen wir aus Compliance ein echtes Steuerungsinstrument statt eines lästigen Pflichtprogramms. Unsere Plattform vereint mehrere aufeinander abgestimmte Frameworks aus der IT-Sicherheit – weitere Standards wie ISO 9001, d...",
@@ -5224,7 +5130,7 @@
     "date_posted": "Hoy (Live API)",
     "skills_required": [
       "Java",
-      "Git",
+      "Git & GitHub",
       "REST APIs"
     ],
     "description": "<p><strong>Senior Account Director - Strategic Account in Maritime Logistics for SITA</strong></p><p><strong>&nbsp;</strong></p><p><strong>Executive summary:</strong> A senior international key account role for a professional who excels in relationship management, stakeholder eng...",
@@ -5249,7 +5155,7 @@
     "skills_required": [
       "Gestión de Sistemas",
       "Desarrollo de Software",
-      "Bases de Datos"
+      "SQL / Bases de Datos"
     ],
     "description": "Descripción de la entidad y/o departamento\n\nEn BONET consulting, firma especializada en Cumplimiento Normativo, desarrollamos proyectos integrales orientados a la implantación, revisión y mejora de sistemas de compliance en organizaciones de distintos sectores.\n\nBuscamos incorporar un/a estudiante en prácticas de Compliance, que se integrará en el área de cumplimiento normativo. La persona seleccionada deberá tener capacidad de adaptación a distintos proyectos y marcos regulatorios, así como interés en desarrollarse en el ámbito del compliance.\n\nOfrecemos la oportunidad de integrarte en una Fi",
     "benefits": [
@@ -5296,9 +5202,7 @@
     "salary_max": 10000,
     "currency": "EUR",
     "experience_required": "1 año",
-    "skills_required": [
-      "Ofimática"
-    ],
+    "skills_required": [],
     "description": "¿Te gustaría formar parte de una empresa internacional líder en el sector educativo? Buscamos especialista en creación de ejercicios psicotécnicos para preparación de oposiciones para preparar contenido de oposiciones de manera online. Si tienes pasión por la enseñanza y quieres liderar el éxito de nuestros alumnos, ¡esta es tu oportunidad!\n\n¿Cuál será tu misión?\n\nSe busca persona que combine conocimientos en psicometría + conocimiento de oposiciones.\nQue sepa resolver psicotécnicos y crear ítems originales, graduar su dificultad, evitar ambigüedades, construir distractores creíbles y comproba",
     "benefits": [
       "Convenio oficial UNIR",
@@ -5323,7 +5227,7 @@
     "skills_required": [
       "Gestión de Sistemas",
       "Desarrollo de Software",
-      "Bases de Datos"
+      "SQL / Bases de Datos"
     ],
     "description": "Participarás activamente en la validación y análisis de información clave para la organización, trabajarás de la mano con nuestro equipo y contribuirás a la mejora de procesos y sistemas. Esta es una oportunidad única para demostrar tu capacidad analítica.\n\nPerfil requerido:\n\nExcelentes habilidades de servicio al cliente (requisito indispensable).\nProactividad, compromiso y disposición para aprender y aportar al equipo.\nCapacidad analítica y criterio para la interpretación y manejo de datos.\nTrabajo colaborativo y orientación a resultados.\nEs imprescindible indicar la disponibilidad de horario",
     "benefits": [
@@ -5346,10 +5250,7 @@
     "salary_max": 800,
     "currency": "EUR",
     "experience_required": "Sin Experiencia",
-    "skills_required": [
-      "Ofimática",
-      "Excel"
-    ],
+    "skills_required": [],
     "description": "Funciones:\n\nDar apoyo en los procesos de selección de perfiles (publicación de ofertas, criba cvs, entrevistas telefónicas u online y actualización de base de datos).\n\nResidencia en Madrid o alrededores cercanos\n\nPosibilidad de realizar jornada de 25-39h semanales.\n\nImprescindible: vehículo propio o posibilidad de desplazamiento diario a nuestras oficinas.\n\nRequisitos\nConocimientos:\nOfimática\nExcel\nMicrosoft Office\nRecursos humanos\nGestión del Talento\nTitulaciones:\n\nLa empresa solicita que el candidato cuente con al menos una de estas titulaciones:\n\nDoble grado en Administración y Dirección de",
     "benefits": [
       "Convenio oficial UNIR",
@@ -5373,7 +5274,6 @@
     "experience_required": "Junior / Mid",
     "date_posted": "Hoy (Live API)",
     "skills_required": [
-      "Remote",
       "Software Development"
     ],
     "description": "<p>At p<strong>athway Solutions GmbH</strong>, we're on a mission to automate accounting for E-Commerce and SaaS companies. Our goal is to free 10,000 entrepreneurs from the burden of manual bookkeeping so they can focus on what they do best: growing their business.<br>We are a f...",
@@ -5398,7 +5298,7 @@
     "skills_required": [
       "Gestión de Sistemas",
       "Desarrollo de Software",
-      "Bases de Datos"
+      "SQL / Bases de Datos"
     ],
     "description": "Arizcuren busca incorporar un/a Guía de Enoturismo para su bodega urbana en Logroño\n\nFunciones principales:\n\nRealización de visitas guiadas y catas de vino en español e inglés.\nAtención y acompañamiento a visitantes nacionales e internacionales.\nPresentación de la historia, filosofía y vinos de Bodegas Arizcuren.\nAtención al cliente y venta directa de vinos en la bodega.\nApoyo en la organización de eventos y experiencias enoturísticas.\nColaboración en tareas de preparación de visitas, logística y pedidos.\nApoyo a gerencia en tareas de marketing digital y comunicación\n\nRequisitos:\n\nNivel de ing",
     "benefits": [
@@ -5424,7 +5324,7 @@
     "skills_required": [
       "Gestión de Sistemas",
       "Desarrollo de Software",
-      "Bases de Datos"
+      "SQL / Bases de Datos"
     ],
     "description": "¿Tienes experiencia trabajando en empresas de consultoría de calidad o quieres trabajar en una? ¿Conoces normativas como la ISO 9000, 14000 o 45000?\n\nImportante empresa líder en la consultoría de calidad precisa incorporar un/a técnico/a en su plantilla que realice las siguientes funciones:\n\n- Asesoramiento y gestión de la cartera de clientes asignada.\n\n- Implantación de normativas según las necesidades de los clientes (ISO 9001, ISO 14001, etc)\n\n- Seguimiento y mantenimiento de los diferentes Sistemas de Gestión (ISO 9001, ISO 14001, etc).\n\n- Definición y seguimiento de los diferentes KPI’s c",
     "benefits": [
@@ -5450,7 +5350,7 @@
     "skills_required": [
       "Gestión de Sistemas",
       "Desarrollo de Software",
-      "Bases de Datos"
+      "SQL / Bases de Datos"
     ],
     "description": "¿Te gustaría formar parte de una empresa internacional líder en Formación Profesional? Buscamos Docente para ciclos transversales de la rama empresarial para nuestra formación online. Si tienes pasión por la enseñanza y buscas un proyecto estable, ¡esta es tu oportunidad!\n\n¿Cuál será tu misión?\n\nImpartir docencia dinámica y de calidad en los módulos de ciclos empresariales.\nPlanificar y diseñar sesiones formativas con un enfoque práctico.\nRealizar el seguimiento continuo y tutorización del alumnado.\nColaborar con el equipo académico en la mejora de los programas.\n\n¿Qué buscamos en ti?\n\nFormaci",
     "benefits": [
@@ -5476,7 +5376,7 @@
     "skills_required": [
       "Gestión de Sistemas",
       "Desarrollo de Software",
-      "Bases de Datos"
+      "SQL / Bases de Datos"
     ],
     "description": "Necesitamos docente para ejercer de profesor/a de Secundaria de las materias de Tecnología de 1º a 4º ESO. Se encargaría además de desarrollar el entorno digital del Centro destinado a docentes y alumnos (chromebook, seguridad, classroom...). Sería un contrato indefinido, a jornada completa en Villalbilla, en el Colegio Educrea El Mirador. Es fundamental tener el Máster de Formación del Profesorado en Tecnología y tener el C1 de Inglés en todas las destrezas ya que la materia se desarrolla en inglés.\n\nRequisitos\nConocimientos:\nTecnologia\nInformática\nTecnologías de la información\nArquitectura\nI",
     "benefits": [
@@ -5617,7 +5517,6 @@
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
     "skills_required": [
-      "Remote",
       "Software Development"
     ],
     "description": "<h2>Das erwartet Dich</h2>\n<p>Caspar Health builds digital rehabilitation products that enable patients to continue their therapy beyond the clinic and help therapists support them more efficiently.</p>\n<p>As a Senior Fullstack Engineer in our Healthcare Professionals Squad, you ...",
@@ -5641,8 +5540,7 @@
     "experience_required": "Sin Experiencia",
     "skills_required": [
       "Python",
-      "Redes",
-      "Excel"
+      "Redes"
     ],
     "description": "¿Quiénes somos y dónde estamos?\n\nSomos una consultora internacional que acelera el crecimiento de las empresas a través del uso de Analítica Avanzada y la aplicación de la Economía Conductual.\n\nNuestra Propuesta de Valor está orientada a conseguir RESULTADOS relevantes de forma rápida y sostenida en el tiempo, a través de diferentes áreas de especialización:\n\nEconomía Conductual\nConsultoría Estratégica de Negocio\nAnalítica Avanzada\nTransformación Comercial y de Negocio\nProyectos de Innovación e Inteligencia Artificial\n\nDesde nuestra oficina de Madrid atendemos a nuestros compromisos de Europa ",
     "benefits": [
@@ -5667,10 +5565,9 @@
     "experience_required": "Sin Experiencia",
     "skills_required": [
       "Java",
-      "SQL",
+      "SQL / Bases de Datos",
       "MySQL",
-      "Oracle",
-      "Bases de datos"
+      "Oracle"
     ],
     "description": "Estudios requeridos: \n\nTécnico/a superior en desarrollo de aplicaciones informáticas\nTécnico/a superior desarrollo de aplicaciones multiplataforma\nTécnico/a superior de Administración de Sistemas Informáticos en Red\n\nAdemás, se valorará: \n\nCursos de especialización en cualquiera de los ámbitos mencionados.\n\nExperiencia profesional\n\nConocimientos relativos a:\n\nProgramación PHP\nProgramación HTML5\nProgramación CSSJava Script\nBases de datos ( Oracle, MySql y SQL server)\nProgramación Oracle SQL Developer\nTratamiento estadístico de datos\n\nIdiomas: Se valorará \n\nEuskera C1/B2\nIngles C1/B2\nOtros\n\nCond",
     "benefits": [
@@ -5694,9 +5591,7 @@
     "currency": "EUR",
     "experience_required": "Junior / Mid",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Operations"
-    ],
+    "skills_required": [],
     "description": "&lt;p&gt;&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;Du bringst Leidenschaft für Technik, Service und die Zufriedenheit unserer Kund:innen &amp;nbsp;mit -und möchtest von Anfang an Teil der Customer Journey sein? Dann bist Du hier richtig.Im Technical Onboarding begleitest Du Praxen und Kranke...",
     "benefits": [
       "Trabajo en remoto",
@@ -5717,10 +5612,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Tech",
-      "Remote"
-    ],
+    "skills_required": [],
     "description": "<p class=\"MsoNormal\">Trusted Shops creates digital trust between people, businesses, and AI Agents. Every day, millions of consumers rely on our solutions to make confident online decisions, while businesses use our products to build trust, strengthen customer relationships, and ...",
     "benefits": [
       "Trabajo en remoto",
@@ -5810,9 +5702,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Operations"
-    ],
+    "skills_required": [],
     "description": "<h2><strong>Join SE3 Labs as Head of Marketing / Communications</strong></h2><p style=\"min-height:1.5em\">Build a credible brand around SE3's technology and work in the field, and tell our story to the people who matter most.</p><p style=\"min-height:1.5em\"></p><h2><strong>About SE...",
     "benefits": [
       "Trabajo en remoto",
@@ -5833,9 +5723,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Operations"
-    ],
+    "skills_required": [],
     "description": "<h2><strong>Join SE3 Labs as Head of Finance</strong></h2><p style=\"min-height:1.5em\">Build the financial infrastructure behind SE3's growth, with numbers the whole company can trust and use.</p><p style=\"min-height:1.5em\"></p><h2><strong>About SE3</strong></h2><p style=\"min-heig...",
     "benefits": [
       "Trabajo en remoto",
@@ -6248,8 +6136,7 @@
     "experience_required": "Sin Experiencia",
     "skills_required": [
       "Java",
-      "Bases de datos",
-      "Ofimática"
+      "SQL / Bases de Datos"
     ],
     "description": "Buscamos practicante de Ingeniería Electrónica para unirse a nuestro equipo de trabajo. Participarás en el seguimiento y evaluación de proyectos tecnológicos, elaboración de informes técnicos y estadísticos, y el control de indicadores de rendimiento (KPIs) para la toma de decisiones estratégicas.\n\nRequisitos\nConocimientos:\nAnálisis de datos\nAutomatización\nOfimática\nMicrosoft Office\nProgramación\nKPI\nTitulaciones:\n\nLa empresa solicita que el candidato cuente con al menos una de estas titulaciones:\n\nGrado en Ingeniería Electrónica Industrial y Automática\nDuración de las prácticas:\n3 a 6 meses\nIn",
     "benefits": [
@@ -6275,7 +6162,7 @@
     "skills_required": [
       "Gestión de Sistemas",
       "Desarrollo de Software",
-      "Bases de Datos"
+      "SQL / Bases de Datos"
     ],
     "description": "Consultor de calidad, medio ambiente y seguridad y salud en el trabajo.\n\nRequisitos\nConocimientos:\nGestión de procesos\nSostenibilidad\nGestión de Calidad\nISO 9001\nRiesgos laborales\nPRL\nSalud laboral\nAuditoría\nIdiomas\nEspañol\nNivel:Nativo\nTitulaciones:\n\nLa empresa solicita que el candidato cuente con al menos una de estas titulaciones:\n\nCertificaciones Gestión Ambiental\nCertificaciones Seguridad Alimentaria\nExperto Universitario en Gestión de Empresas\nPrograma Superior Universitario en Gestión Ambiental y Energética\nPrograma Superior Universitario en Energías Renovables\nDuración de las prácticas",
     "benefits": [
@@ -6300,8 +6187,7 @@
     "experience_required": "Sin Experiencia",
     "skills_required": [
       "Redes",
-      "Bases de datos",
-      "Excel"
+      "SQL / Bases de Datos"
     ],
     "description": "Buscamos un practicante de Ingeniería de Telecomunicaciones enfocado en el análisis y control. Apoyarás en la evaluación del rendimiento de infraestructura de red, el desarrollo de informes de gestión operativa y el seguimiento de KPIs de conectividad y calidad de servicio bajo modalidad virtual.\n\nRequisitos\nConocimientos:\nAdministración de bases de datos\nProcesamiento de datos\nExcel\nGestión de procesos\nMonitoreo de procesos\nTitulaciones:\n\nLa empresa solicita que el candidato cuente con al menos una de estas titulaciones:\n\nMáster Universitario en Ingeniería de Telecomunicación\nGrado en Ingenie",
     "benefits": [
@@ -6419,7 +6305,7 @@
     "skills_required": [
       "Java",
       "Redes",
-      "Bases de datos"
+      "SQL / Bases de Datos"
     ],
     "description": "Buscamos incorporar un/a Técnico/a de Soporte Informático Presencial para dar soporte técnico a usuarios y garantizar el correcto funcionamiento de los equipos y sistemas informáticos en nuestras instalaciones de Mérida.\n\nFunciones principales\nAtención y resolución de incidencias informáticas de forma presencial.\nInstalación, configuración y mantenimiento de equipos informáticos y periféricos.\nSoporte a usuarios en sistemas operativos, aplicaciones ofimáticas y herramientas corporativas.\nDiagnóstico y resolución de problemas de hardware, software y conectividad.\nGestión y seguimiento de incide",
     "benefits": [
@@ -6467,8 +6353,6 @@
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
     "skills_required": [
-      "Remote",
-      "Management",
       "Team Leader"
     ],
     "description": "<p>Du übernimmst die IT-Leitung bei einem unserer Klinikkunden und gestaltest sie langfristig. Vom ersten Tag an, mit voller Verantwortung.</p><p>Actura übernimmt operative Führungsfunktionen in Krankenhäusern und Reha-Kliniken. Unser Anspruch: Umsetzung statt Beratung. Dafür suc...",
@@ -6584,8 +6468,7 @@
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
     "skills_required": [
-      "STE",
-      "Remote"
+      "STE"
     ],
     "description": "<p><strong>Location:&nbsp;</strong>UK, central Europe, and Latin America</p><p><strong>Remote&nbsp;| Full-time</strong></p><p><strong>Compensation: Competitive Compensation</strong></p><p></p><p>Our client is seeking an experienced, full-time Product Designer to shape the core us...",
     "benefits": [
@@ -6607,8 +6490,7 @@
     "currency": "EUR",
     "experience_required": "Sin Experiencia",
     "skills_required": [
-      "Bases de datos",
-      "Excel"
+      "SQL / Bases de Datos"
     ],
     "description": "La empresa Mam Originals dedicada al comercio al por menor de artículos de lujo y joyería busca incorporar una persona en prácticas para el departamento de logística de la empresa.\n\nEn dichas prácticas aprenderá los procesos logísticos tanto de almacén como de transporte necesarios para el funcionamiento de una empresa.\n\n- Aprender y dar soporte a las operaciones de almacén y procesos logísticos.\n\n- Dar soporte a las actividades de control de estoc y al inventario.\n\n- Dar soporte a las actividades de entrada y salida del almacén.\n\n- Asistir en la preparación y validación de la documentación de",
     "benefits": [
@@ -6634,7 +6516,7 @@
     "skills_required": [
       "Gestión de Sistemas",
       "Desarrollo de Software",
-      "Bases de Datos"
+      "SQL / Bases de Datos"
     ],
     "description": "¿Te gustaría formar parte de una empresa internacional líder en Formación Profesional? Buscamos Docente en el instalaciones de automatización y robótica para nuestro centro de Zaragoza.\n\n¿Cuál será tu misión?\n\nConocimiento de instalaciones de automatización y mantenimiento\nInterpretación de esquemas.\nCapacidad de explicación de casos reales e interpretación de normativa.\nManejo de software como Tia Portal, solidworks, fluidsim, eplan…\nConocimientos de robótica ABB, Uniersal Robots y KUKA\nResolver las dudas que le planteen los alumnos.\nImpartición de clases y desarrollo de prácticas\nProponer nu",
     "benefits": [
@@ -6956,9 +6838,7 @@
     "salary_max": 1040,
     "currency": "EUR",
     "experience_required": "Sin Experiencia",
-    "skills_required": [
-      "Excel"
-    ],
+    "skills_required": [],
     "description": "1. Medio Ambiente (MA) Soporte en la gestión del Sistema de Gestión Ambiental ISO 14001, realizando las siguientes tareas: • Apoyo en la gestión de residuos: DARI, SDR, DAE. • Soporte en la gestión de la EDAR. • Revisión y apoyo en el cumplimiento legal MA/PRL. • Soporte en la gestión de instalaciones con riesgo de legionela. • Apoyo en la revisión de kits de emergencia.\n\n 2. Prevención de Riesgos Laborales (PRL) Soporte en la gestión del Sistema de Gestión de PRL ISO 45001, con las siguientes tareas: • Revisión y entrega de EPIs. • Soporte en gestión documental de CAE. • Revisión de botiquine",
     "benefits": [
       "Convenio oficial UNIR",
@@ -7127,8 +7007,7 @@
     "skills_required": [
       "Engineering",
       "Logistics and Supply Chain",
-      "Product",
-      "Remote"
+      "Product"
     ],
     "description": "<p>Searoutes makes the emissions data that shippers use to run and reduce their<br>logistics. It is an operational problem before it is an environmental one, and<br>in our hands it is mostly an engineering one.</p><p></p><p>We are hiring a&nbsp;<strong>senior engineer</strong>&nb...",
     "benefits": [
@@ -7265,9 +7144,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Customer Care"
-    ],
+    "skills_required": [],
     "description": "<p style=\"min-height:1.5em\"><strong>About Us</strong><br /><br />Perk (formerly TravelPerk) is the intelligent platform for travel and spend management. Built to tackle the time-consuming, manual work that gets in the way of real work, our tools automate everything from travel bo...",
     "benefits": [
       "Trabajo en remoto",
@@ -7288,9 +7165,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Customer Care"
-    ],
+    "skills_required": [],
     "description": "<p style=\"min-height:1.5em\"><strong>About Us</strong><br /><br />Perk (formerly TravelPerk) is the intelligent platform for travel and spend management. Built to tackle the time-consuming, manual work that gets in the way of real work, our tools automate everything from travel bo...",
     "benefits": [
       "Trabajo en remoto",
@@ -7334,9 +7209,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Tech"
-    ],
+    "skills_required": [],
     "description": "<p style=\"min-height:1.5em\">Our goal is to have a solar system on every roof, a storage unit in every house, and an electric car in every garage. Enpal makes this possible with an integrated total solution for decentralized energy—from solar systems and battery storage to wall bo...",
     "benefits": [
       "Trabajo en remoto",
@@ -7403,8 +7276,7 @@
     "currency": "EUR",
     "experience_required": "Sin Experiencia",
     "skills_required": [
-      "Bases de datos",
-      "Excel"
+      "SQL / Bases de Datos"
     ],
     "description": "¡Únete a nuestro equipo de Sostenibilidad!\n\nEn SanLucar, la sostenibilidad y los estándares ESG desempeñan un papel esencial en nuestra forma de hacer negocios. Hemos desarrollado una estrategia global de sostenibilidad centrada en objetivos medioambientales y sociales, contribuyendo positivamente a la sociedad y minimizando nuestro impacto ambiental.\n\nFormarás parte de un entorno internacional y multidisciplinar dentro del departamento de Quality & Sustainability, donde adquirirás experiencia práctica en sostenibilidad corporativa y prácticas ESG dentro del sector agroalimentario.\n\nTu pasión,",
     "benefits": [
@@ -7428,9 +7300,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Customer Success"
-    ],
+    "skills_required": [],
     "description": "<p style=\"min-height:1.5em\">SoSafe has the ambition to become the leading human risk management provider in Europe. Our award-winning awareness platform triggers behavioural change by providing effective and engaging training and simulations on cybersecurity and data protection. ...",
     "benefits": [
       "Trabajo en remoto",
@@ -7498,8 +7368,7 @@
     "experience_required": "Junior / Mid",
     "date_posted": "Hoy (Live API)",
     "skills_required": [
-      "Customer Cluster Justice",
-      "Remote"
+      "Customer Cluster Justice"
     ],
     "description": "<p>Als IT-Dienstleister treiben wir die Digitalisierung des öffentlichen Sektors voran und schaffen echten Mehrwert für Millionen Menschen in Deutschland. Wir können vieles richtig gut, aber eben noch nicht alles. Darum suchen wir immer wieder neue Kolleg:innen, die mit ihren Ide...",
     "benefits": [
@@ -7613,9 +7482,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Tech"
-    ],
+    "skills_required": [],
     "description": "<h2>Aus Europa, für Europa – wir entwickeln Europas Business-KI.</h2><p style=\"min-height:1.5em\">Wir sind das größte KI-Start-up in Aachen.</p><p style=\"min-height:1.5em\">Mittelständische Unternehmen profitieren davon, wenn internes Wissen sofort nutzbar wird und intelligente Age...",
     "benefits": [
       "Trabajo en remoto",
@@ -7820,9 +7687,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "adjoe"
-    ],
+    "skills_required": [],
     "description": "<p style=\"min-height:1.5em\">adjoe builds the technologies behind mobile apps growth and monetization. <strong>adjoe Ads</strong> is our programmatic in-app advertising platform that seamlessly connects advertisers and publishers through direct integration of our Android and iOS S...",
     "benefits": [
       "Trabajo en remoto",
@@ -7845,9 +7710,8 @@
     "skills_required": [
       "Java",
       "Python",
-      "SQL",
-      "Git",
-      "Bases de datos",
+      "SQL / Bases de Datos",
+      "Git & GitHub",
       "Cloud"
     ],
     "description": "MISIÓN:\n\nDar soporte en la gestión, integración y análisis de datos corporativos, colaborando en el desarrollo de soluciones tecnológicas que faciliten la automatización de procesos, la optimización de sistemas y la toma de decisiones basada en datos en un entorno multinacional.\n\nFUNCIONES:\n\nApoyo en la recopilación, integración y consolidación de datos procedentes de diferentes sistemas y filiales internacionales.\nColaboración en el desarrollo y mantenimiento de bases de datos y procesos de tratamiento de información.\nSoporte en la elaboración y actualización de informes, dashboards e indicad",
@@ -7988,9 +7852,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "International"
-    ],
+    "skills_required": [],
     "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;strong&gt;ABOUT QUINCE&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;Quince is a destination for builders, creators, innovators, and operators who want to come toget...",
     "benefits": [
       "Trabajo en remoto",
@@ -8011,9 +7873,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "International"
-    ],
+    "skills_required": [],
     "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;strong&gt;ABOUT QUINCE&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;Quince is a destination for builders, creators, innovators, and operators who want to come toget...",
     "benefits": [
       "Trabajo en remoto",
@@ -8106,7 +7966,7 @@
     "date_posted": "Hoy (Live API)",
     "skills_required": [
       "Java",
-      "Git",
+      "Git & GitHub",
       "REST APIs"
     ],
     "description": "<h2><strong>DACH Enterprise Account Executive – SAP Ecosystem &amp; Digital Transformation (m/f/d)</strong></h2>\n<h2><strong>Position Summary:&nbsp;</strong></h2>\n<p>We are looking for an Enterprise Account Executive, reporting to the VP of Global GTM. We are seeking an elite, hi...",
@@ -8453,7 +8313,7 @@
     "date_posted": "Hoy (Live API)",
     "skills_required": [
       "Java",
-      "Git",
+      "Git & GitHub",
       "REST APIs"
     ],
     "description": "<p class=\"MsoNormal\">At Quantum Systems, we develop advanced autonomous systems for defense and security across multiple domains, combining unmanned platforms with integrated software and AI. As <strong>Senior Manager Business Ethics, Speak-up &amp; Investigations</strong>, you w...",
@@ -8478,7 +8338,7 @@
     "date_posted": "Hoy (Live API)",
     "skills_required": [
       "Java",
-      "Git",
+      "Git & GitHub",
       "REST APIs"
     ],
     "description": "<p class=\"MsoNormal\">At Quantum Systems, we develop advanced autonomous systems for defense and security across multiple domains, combining unmanned platforms with integrated software and AI. &nbsp;</p><p class=\"MsoNormal\">As <strong>Senior Manager Compliance Governance &amp; Reg...",
@@ -8525,8 +8385,7 @@
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
     "skills_required": [
-      "Technical Migration",
-      "Remote"
+      "Technical Migration"
     ],
     "description": "<p class=\"Paragraph SCXW237473271 BCX8\"><span style=\"color:#121317\">Als </span><strong><span style=\"color:#121317\">(Senior) SAP ABAP Developer /Architect – Technical Migration (m/w/d) </span></strong><span style=\"color:#121317\">bist du Treiber unserer digitalen Transformationspro...",
     "benefits": [
@@ -8549,8 +8408,7 @@
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
     "skills_required": [
-      "Product Development",
-      "Remote"
+      "Product Development"
     ],
     "description": "<p><span style=\"color:#121317\">Als </span><strong><span style=\"color:#121317\">(Senior) SAP ABAP Developer/Architect – Produktentwicklung (m/w/d) </span></strong><span style=\"color:#121317\">gestaltest du die Zukunft unserer Produktfamilie und Transformationsplattform Natuvion DCS ...",
     "benefits": [
@@ -8825,9 +8683,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Tech"
-    ],
+    "skills_required": [],
     "description": "<p style=\"min-height:1.5em\">Our goal is to have a solar system on every roof, a storage unit in every house, and an electric car in every garage. Enpal makes this possible with an integrated total solution for decentralized energy—from solar systems and battery storage to wall bo...",
     "benefits": [
       "Trabajo en remoto",
@@ -8918,7 +8774,6 @@
     "experience_required": "Junior / Mid",
     "date_posted": "Hoy (Live API)",
     "skills_required": [
-      "Remote",
       "Web Development"
     ],
     "description": "<h3>About Tracium</h3><p>https://www.linkedin.com/company/tracium/</p><p>Tracium builds AI-assisted technical documentation software for teams working with complex manuals and engineering information. Our platform combines document intelligence with S1000D authoring, initially se...",
@@ -8988,9 +8843,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Customer Success"
-    ],
+    "skills_required": [],
     "description": "<p style=\"min-height:1.5em\">SoSafe has the ambition to become the leading human risk management provider in Europe. Our award-winning awareness platform triggers behavioural change by providing effective and engaging training and simulations on cybersecurity and data protection. ...",
     "benefits": [
       "Trabajo en remoto",
@@ -9011,9 +8864,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Customer Success"
-    ],
+    "skills_required": [],
     "description": "<p style=\"min-height:1.5em\">Wir bei SoSafe haben das Ziel, der führende Anbieter für Human Risk Management Lösungen in Europa zu werden. Unsere preisgekrönte Awareness-Plattform unterstützt Unternehmen dabei, nachhaltige Verhaltensänderungen durch effektive, interaktive Trainings...",
     "benefits": [
       "Trabajo en remoto",
@@ -9057,8 +8908,7 @@
     "currency": "EUR",
     "experience_required": "Sin Experiencia",
     "skills_required": [
-      "ERP",
-      "Excel"
+      "ERP"
     ],
     "description": "Tus principales responsabilidades incluirán:\n\nApoyo en la gestión y seguimiento de los procesos logísticos relacionados con el suministro de materiales y componentes aeronáuticos.\nColaboración en la planificación, coordinación y control de las necesidades de aprovisionamiento de materiales para las operaciones de mantenimiento aeronáutico.\nActualización y seguimiento de inventarios, entradas y salidas de materiales mediante los sistemas internos de gestión (ERP/MRP).\nParticipación en el análisis y control de niveles de stock, identificando posibles necesidades de reposición y oportunidades de ",
     "benefits": [
@@ -9082,9 +8932,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Tech"
-    ],
+    "skills_required": [],
     "description": "<h2>Your mission</h2><p style=\"min-height:1.5em\">Join our Engineering team and own features from the problem to the shipped product, in a platform used by thousands of construction professionals.</p><ul style=\"min-height:1.5em\"><li><p style=\"min-height:1.5em\">Own problems end to ...",
     "benefits": [
       "Trabajo en remoto",
@@ -9175,9 +9023,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "International"
-    ],
+    "skills_required": [],
     "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;strong&gt;ABOUT QUINCE&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;Quince is a destination for builders, creators, innovators, and operators who want to come toget...",
     "benefits": [
       "Trabajo en remoto",
@@ -9198,9 +9044,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "International"
-    ],
+    "skills_required": [],
     "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;&lt;strong&gt;ABOUT QUINCE&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;Quince is a destination for builders, creators, innovators, and operators who want to come toget...",
     "benefits": [
       "Trabajo en remoto",
@@ -9220,10 +9064,7 @@
     "salary_max": null,
     "currency": "EUR",
     "experience_required": "Sin Experiencia",
-    "skills_required": [
-      "Ofimática",
-      "Excel"
-    ],
+    "skills_required": [],
     "description": "Buscamos estudiante de Ingeniería Industrial proactivo, analítico y con alta orientación a resultados. Apoyarás en la optimización de procesos operativos, el levantamiento de información y la gestión estratégica orientada al cumplimiento de metas organizacionales.\n\nRequisitos\nConocimientos:\nTecnologia\nOfimática\nExcel\nMicrosoft Office\nGestión de proyectos\nLean Manufacturing\nTitulaciones:\n\nLa empresa solicita que el candidato cuente con al menos una de estas titulaciones:\n\nGrado en Ingeniería Electrónica Industrial y Automática\nGrado en Ingeniería en Organización Industrial\nDuración de las práct",
     "benefits": [
       "Convenio oficial UNIR",
@@ -9245,9 +9086,7 @@
     "salary_max": 400,
     "currency": "EUR",
     "experience_required": "Sin Experiencia",
-    "skills_required": [
-      "Excel"
-    ],
+    "skills_required": [],
     "description": "Prácticas en Banca Comercial, Empresas o Privada | Deutsche Bank\n\n¿Te imaginas dar tus primeros pasos en banca dentro de una entidad líder e innovadora? En Deutsche Bank tendrás la oportunidad de aprender cómo funciona una oficina bancaria mientras desarrollas tu carrera en un entorno dinámico y cercano al cliente.\n\nEn Deutsche Bank fomentamos un entorno de trabajo inclusivo y accesible, donde todas las personas puedan desarrollarse plenamente. En línea con nuestro compromiso con la diversidad y de conformidad con la Ley General de Discapacidad (LGD) en España, animamos a presentar su solicitu",
     "benefits": [
       "Convenio oficial UNIR",
@@ -9386,9 +9225,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Technology"
-    ],
+    "skills_required": [],
     "description": "<h2><strong>About Eye Security</strong></h2><p style=\"min-height:1.5em\">Eye Security is providing cybersecurity with embedded cyber insurance solutions for organizations in Europe. Headquartered in the Netherlands, we are already over 190 FTEs and continue to grow internationally...",
     "benefits": [
       "Trabajo en remoto",
@@ -9431,10 +9268,7 @@
     "salary_max": null,
     "currency": "EUR",
     "experience_required": "Sin Experiencia",
-    "skills_required": [
-      "Ofimática",
-      "Excel"
-    ],
+    "skills_required": [],
     "description": "REALIZAR EVALUACIONES DE RIEGO\n\nFORMACION TECNICA EN MATERIA DE PRL\n\nRequisitos\nConocimientos:\nOfimática\nExcel\nMicrosoft Office\nRiesgos laborales\nPrevención de riesgos laborales\nPRL\nIdiomas\nEspañol\nNivel:Nativo\nTitulaciones:\n\nLa empresa solicita que el candidato cuente con al menos una de estas titulaciones:\n\nMáster Universitario en Prevención de Riesgos Laborales\nMáster Universitario en Sistemas Integrados de Gestión de la Prevención de Riesgos Laborales, la Calidad, el Medio Ambiente y la Responsabilidad Social Corporativa\nDuración de las prácticas:\n3 a 6 meses\nInscríbete\nTu afinidad con la ",
     "benefits": [
       "Convenio oficial UNIR",
@@ -9456,9 +9290,7 @@
     "salary_max": 400,
     "currency": "EUR",
     "experience_required": "Sin Experiencia",
-    "skills_required": [
-      "Excel"
-    ],
+    "skills_required": [],
     "description": "Prácticas en Banca Comercial, Empresas o Privada | Deutsche Bank\n\n¿Te imaginas dar tus primeros pasos en banca dentro de una entidad líder e innovadora? En Deutsche Bank tendrás la oportunidad de aprender cómo funciona una oficina bancaria mientras desarrollas tu carrera en un entorno dinámico y cercano al cliente.\n\nEn Deutsche Bank fomentamos un entorno de trabajo inclusivo y accesible, donde todas las personas puedan desarrollarse plenamente. En línea con nuestro compromiso con la diversidad y de conformidad con la Ley General de Discapacidad (LGD) en España, animamos a presentar su solicitu",
     "benefits": [
       "Convenio oficial UNIR",
@@ -9481,8 +9313,7 @@
     "currency": "EUR",
     "experience_required": "Sin Experiencia",
     "skills_required": [
-      "Bases de datos",
-      "Ofimática"
+      "SQL / Bases de Datos"
     ],
     "description": "Buscamos una persona con el título de Biblioteconomía y Documentación para liderar y gestionar la biblioteca escolar de nuestro centro educativo. La persona seleccionada será responsable de transformar la biblioteca en un centro activo de indagación, investigación y aprendizaje, garantizando el cumplimiento de los estándares del Bachillerato Internacional (IB) en sus distintas etapas: PEP (Programa de la Escuela Primaria), PAI (Programa de los Años Intermedios) y DP (Programa del Diploma).\n\nRequisitos\nConocimientos:\nAdministración de bases de datos\nOfimática\nGESTION DOCUMENTAL\nClasificación, r",
     "benefits": [
@@ -9531,7 +9362,6 @@
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
     "skills_required": [
-      "Remote",
       "Software Development"
     ],
     "description": "<h2>Kurzprofil der Rolle</h2><p>Wir suchen eine:n Senior Full Stack Software Engineer (w/m/d) mit starkem Fokus auf Web-Produktentwicklung und AI/LLM-Integration. Du baust unser Team langfristig technisch mit auf und gestaltest unsere GovTech-Plattform für öffentliche Verwaltunge...",
@@ -9624,8 +9454,7 @@
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
     "skills_required": [
-      "Engineering",
-      "Remote"
+      "Engineering"
     ],
     "description": "<p><strong>Who are we?<br><br></strong></p><p>Recare is one of the leading digital startups in the German healthcare industry and has set itself the task of rethinking healthcare with a platform for digital care coordination. We search, find and coordinate capacities so that the ...",
     "benefits": [
@@ -9648,7 +9477,6 @@
     "experience_required": "Junior / Mid",
     "date_posted": "Hoy (Live API)",
     "skills_required": [
-      "Remote",
       "System and Network Administration"
     ],
     "description": "<p><strong><em>Du bist ein technischer Experte mit starken Grundlagen in Linux- und Container-basierten Systemen. Du hast eine \"Hands-on\"-Mentalität und gehst proaktiv auf Probleme zu, um diese zu lösen? Dann bist du bei uns richtig!</em></strong></p><h2>Aufgaben</h2><p><strong>D...",
@@ -9765,7 +9593,6 @@
     "experience_required": "Junior / Mid",
     "date_posted": "Hoy (Live API)",
     "skills_required": [
-      "Remote",
       "Software Development"
     ],
     "description": "<p><strong>Willkommen bei easybill.</strong></p>\n<p>22.000+ Unternehmen verlassen sich auf easybill. Wir sorgen dafür, dass Rechnungen, Prozesse und Integrationen im Alltag einfach laufen. Mit easybill-mobile bringen wir zentrale Funktionen unserer Plattform auf iOS und Android –...",
@@ -9788,9 +9615,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Customer Success"
-    ],
+    "skills_required": [],
     "description": "<p style=\"min-height:1.5em\">Camunda is <strong>the enterprise platform for agentic orchestration</strong>, enabling organizations to coordinate <strong>AI agents, people, and systems </strong>across complex, end-to-end business processes. With built-in governance, auditability, a...",
     "benefits": [
       "Trabajo en remoto",
@@ -9834,9 +9659,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Customer Success"
-    ],
+    "skills_required": [],
     "description": "<p style=\"min-height:1.5em\">Camunda is <strong>the enterprise platform for agentic orchestration</strong>, enabling organizations to coordinate <strong>AI agents, people, and systems </strong>across complex, end-to-end business processes. With built-in governance, auditability, a...",
     "benefits": [
       "Trabajo en remoto",
@@ -9880,9 +9703,7 @@
     "currency": "EUR",
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
-    "skills_required": [
-      "Finance"
-    ],
+    "skills_required": [],
     "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;span style=&quot;font-size: 12pt; font-family: helvetica, arial, sans-serif;&quot;&gt;At Stark, we forge the future of European and national security through cutting-edge, AI-driven technology and unmatched engineering preci...",
     "benefits": [
       "Trabajo en remoto",
@@ -10066,7 +9887,7 @@
     "date_posted": "Hoy (Live API)",
     "skills_required": [
       "Java",
-      "Git",
+      "Git & GitHub",
       "REST APIs"
     ],
     "description": "<p><span style=\"color:#77838F\">Du möchtest deine Expertise als&nbsp;</span><strong><span style=\"font-size:0.9em\">Fachinformatiker für Systemintegration</span></strong><span style=\"color:#77838F\">&nbsp;in einem engagierten Team einbringen oder deine Karriere starten? Dann ist das ...",
@@ -10113,7 +9934,6 @@
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
     "skills_required": [
-      "Remote",
       "Software Development"
     ],
     "description": "<h2>Was wir suchen</h2>\n<p>Jedes Unternehmen braucht laufend neue Kunden – und genau dieses Problem lösen wir. Mit Interlead bauen wir die #1 Plattform für Leads, Termine und Aufträge und machen die Kundengewinnung für unsere Partner damit einfacher, transparenter und planbarer.<...",
@@ -10291,7 +10111,7 @@
     "date_posted": "Hoy (Live API)",
     "skills_required": [
       "Java",
-      "Git",
+      "Git & GitHub",
       "REST APIs"
     ],
     "description": "<br><strong>Das erwartet Dich</strong><p><span style=\"font-family:Arial, Helvetica, sans-serif;\">Du begeisterst Dich für Daten, moderne Technologien und skalierbare Datenarchitekturen? Dann werde Teil unseres <strong>Data &amp; Analytics Teams Northern Europe</strong>. Als <stron...",
@@ -10363,8 +10183,7 @@
     "currency": "EUR",
     "experience_required": "1 año",
     "skills_required": [
-      "Bases de datos",
-      "Ofimática"
+      "SQL / Bases de Datos"
     ],
     "description": "Se busca Auxiliar de sistemas para una planta de produccion de detergentes\n\nFunciones\n\nGestionar el mantenimiento y actualización de sistemas informáticos.\n\nCoordinar con técnicos para la resolución de problemas técnicos.\n\nRealizar informes de actividades y seguimiento de proyectos.\n\nMantenimiento preventivo y correctivo\n\nRequisitos\n\nSe requiere experiencia demostrable en soporte técnico.\n\nSe valorará conocimientos en gestión de bases de datos.\n\nExperiencia en el uso de herramientas de gestión de sistemas.\n\nExperiencia en cable estructurado y camaras\n\nSe solicita tecnico o tecnologo en sistema",
     "benefits": [
@@ -10389,7 +10208,6 @@
     "experience_required": "Prácticas / Beca",
     "date_posted": "Hoy (Live API)",
     "skills_required": [
-      "Remote",
       "Software Development"
     ],
     "description": "<h2>Your mission</h2>\n<ul>\n<li>Analyse requirements and user stories and identify gaps, edge cases, and risks early in the development process</li>\n<li>Design and maintain test documentation, including test plans, test cases, checklists, and requirement traceability</li>\n<li>Perf...",
@@ -10436,7 +10254,6 @@
     "experience_required": "Junior / Mid",
     "date_posted": "Hoy (Live API)",
     "skills_required": [
-      "Remote",
       "Software Development"
     ],
     "description": "<p>Nicht jede Heldentat ist laut. 22.000+ Unternehmen verlassen sich auf <strong>easybill,</strong> oft ohne es zu merken. Wir sorgen dafür, dass Rechnungen, Prozesse und Integrationen im Alltag einfach laufen. Remote-first, technisch anspruchsvoll, mit viel Ownership. Wenn du Sy...",
