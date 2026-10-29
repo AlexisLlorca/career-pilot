@@ -473,85 +473,85 @@ def index_html():
       x-data="careerPilotApp()" x-init="initApp()">
 
   <!-- TOP BAR -->
-  <header class="glass sticky top-0 z-40 border-b border-gray-800/80 px-4 md:px-6 py-2.5 flex items-center justify-between gap-3 overflow-x-auto lg:overflow-visible">
-    <div class="flex items-center space-x-2.5 shrink-0">
-      <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-600 via-indigo-600 to-fuchsia-600 flex items-center justify-center shadow-lg shadow-cyan-500/20 shrink-0">
-        <i class="fa-solid fa-bolt text-white text-base"></i>
+  <header class="glass sticky top-0 z-40 border-b border-gray-800/80 px-6 py-3.5 flex items-center justify-between gap-4 overflow-x-auto lg:overflow-visible">
+    <div class="flex items-center space-x-3 shrink-0">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-600 via-indigo-600 to-fuchsia-600 flex items-center justify-center shadow-lg shadow-cyan-500/20 shrink-0">
+        <i class="fa-solid fa-bolt text-white text-lg"></i>
       </div>
       <div>
-        <div class="flex items-center space-x-1.5">
-          <span class="font-extrabold text-base lg:text-lg tracking-tight bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400 bg-clip-text text-transparent">CAREERPILOT</span>
-          <span class="text-[10px] px-1.5 py-0.2 rounded-full bg-cyan-950/70 border border-cyan-800/60 text-cyan-300 font-medium">v1.0 AI</span>
+        <div class="flex items-center space-x-2">
+          <span class="font-black text-lg tracking-tight bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400 bg-clip-text text-transparent">CAREERPILOT</span>
+          <span class="text-[11px] px-2 py-0.5 rounded-full bg-cyan-950/80 border border-cyan-800/70 text-cyan-300 font-semibold">v1.0 AI</span>
         </div>
-        <p class="text-[11px] text-gray-400 hidden xl:block" x-text="profile.personal?.headline || 'Copiloto de Empleabilidad & Mock Interview'"></p>
+        <p class="text-xs text-gray-400 hidden xl:block" x-text="profile.personal?.headline || 'Copiloto de Empleabilidad & Mock Interview'"></p>
       </div>
     </div>
 
     <!-- NAVEGACIÓN PRINCIPAL -->
-    <nav class="hidden md:flex items-center space-x-1 bg-gray-900/90 p-1 rounded-xl border border-gray-800 shrink-0">
+    <nav class="hidden md:flex items-center space-x-1.5 bg-gray-900/90 p-1.5 rounded-xl border border-gray-800 shrink-0">
       <button @click="activeTab = 'radar'"
               :class="activeTab === 'radar' ? 'bg-cyan-600 text-white shadow-md shadow-cyan-600/30 font-semibold' : 'text-gray-400 hover:text-gray-200 hover:bg-gray-800/60'"
-              class="px-2.5 lg:px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-150 flex items-center space-x-1.5 whitespace-nowrap shrink-0">
-        <i class="fa-solid fa-radar text-xs"></i>
+              class="px-3.5 py-2 rounded-lg text-sm font-semibold transition-all duration-150 flex items-center space-x-2 whitespace-nowrap shrink-0">
+        <i class="fa-solid fa-radar text-sm"></i>
         <span>Radar</span>
-        <span class="ml-1 px-1.5 py-0.2 text-[10px] rounded-full bg-black/40 font-mono" x-text="jobs.length"></span>
+        <span class="ml-1 px-2 py-0.5 text-xs rounded-full bg-black/40 font-mono" x-text="jobs.length"></span>
       </button>
 
       <button @click="activeTab = 'kanban'"
               :class="activeTab === 'kanban' ? 'bg-amber-600 text-white shadow-md shadow-amber-600/30 font-semibold' : 'text-gray-400 hover:text-gray-200 hover:bg-gray-800/60'"
-              class="px-2.5 lg:px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-150 flex items-center space-x-1.5 whitespace-nowrap shrink-0">
-        <i class="fa-solid fa-list-check text-xs"></i>
+              class="px-3.5 py-2 rounded-lg text-sm font-semibold transition-all duration-150 flex items-center space-x-2 whitespace-nowrap shrink-0">
+        <i class="fa-solid fa-list-check text-sm"></i>
         <span>Candidaturas</span>
-        <span class="ml-1 px-1.5 py-0.2 text-[10px] rounded-full bg-black/40 font-mono" x-text="applications.length"></span>
+        <span class="ml-1 px-2 py-0.5 text-xs rounded-full bg-black/40 font-mono" x-text="applications.length"></span>
       </button>
 
       <button @click="activeTab = 'market'"
               :class="activeTab === 'market' ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30 font-semibold' : 'text-gray-400 hover:text-gray-200 hover:bg-gray-800/60'"
-              class="px-2.5 lg:px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-150 flex items-center space-x-1.5 whitespace-nowrap shrink-0">
-        <i class="fa-solid fa-chart-line text-xs"></i>
+              class="px-3.5 py-2 rounded-lg text-sm font-semibold transition-all duration-150 flex items-center space-x-2 whitespace-nowrap shrink-0">
+        <i class="fa-solid fa-chart-line text-sm"></i>
         <span>Market Insights</span>
       </button>
 
       <button @click="activeTab = 'interview'"
               :class="activeTab === 'interview' ? 'bg-fuchsia-600 text-white shadow-md shadow-fuchsia-600/30 font-semibold' : 'text-gray-400 hover:text-gray-200 hover:bg-gray-800/60'"
-              class="px-2.5 lg:px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-150 flex items-center space-x-1.5 whitespace-nowrap shrink-0 relative">
-        <i class="fa-solid fa-microphone-lines text-xs"></i>
+              class="px-3.5 py-2 rounded-lg text-sm font-semibold transition-all duration-150 flex items-center space-x-2 whitespace-nowrap shrink-0 relative">
+        <i class="fa-solid fa-microphone-lines text-sm"></i>
         <span>Simulador Voz</span>
-        <span class="w-1.5 h-1.5 rounded-full bg-fuchsia-400 animate-ping absolute -top-0.5 -right-0.5"></span>
+        <span class="w-2 h-2 rounded-full bg-fuchsia-400 animate-ping absolute -top-0.5 -right-0.5"></span>
       </button>
 
       <button @click="activeTab = 'sources'"
               :class="activeTab === 'sources' ? 'bg-teal-600 text-white shadow-md shadow-teal-600/30 font-semibold' : 'text-gray-400 hover:text-gray-200 hover:bg-gray-800/60'"
-              class="px-2.5 lg:px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-150 flex items-center space-x-1.5 whitespace-nowrap shrink-0">
-        <i class="fa-solid fa-network-wired text-xs"></i>
+              class="px-3.5 py-2 rounded-lg text-sm font-semibold transition-all duration-150 flex items-center space-x-2 whitespace-nowrap shrink-0">
+        <i class="fa-solid fa-network-wired text-sm"></i>
         <span>Fuentes</span>
-        <span class="ml-1 px-1.5 py-0.2 text-[10px] rounded-full bg-black/40 font-mono" x-text="sourcesList.length"></span>
+        <span class="ml-1 px-2 py-0.5 text-xs rounded-full bg-black/40 font-mono" x-text="sourcesList.length"></span>
       </button>
 
       <button @click="activeTab = 'profile'"
               :class="activeTab === 'profile' ? 'bg-gray-700 text-white font-semibold' : 'text-gray-400 hover:text-gray-200 hover:bg-gray-800/60'"
-              class="px-2.5 lg:px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-150 flex items-center space-x-1.5 whitespace-nowrap shrink-0">
-        <i class="fa-solid fa-user-shield text-xs"></i>
+              class="px-3.5 py-2 rounded-lg text-sm font-semibold transition-all duration-150 flex items-center space-x-2 whitespace-nowrap shrink-0">
+        <i class="fa-solid fa-user-shield text-sm"></i>
         <span>Perfil & ATS</span>
       </button>
     </nav>
 
     <!-- ESTADO CANDIDATO / GEMINI / AUTO-ESCANEO -->
-    <div class="flex items-center space-x-2 shrink-0">
+    <div class="flex items-center space-x-3 shrink-0">
       <!-- BOTÓN AUTO-ESCANEO PROGRAMADO -->
       <button @click="openSchedulerModal = true"
-              class="px-2.5 py-1.5 rounded-xl border flex items-center space-x-1.5 text-xs transition whitespace-nowrap shrink-0"
+              class="px-3.5 py-2 rounded-xl border flex items-center space-x-2 text-xs transition whitespace-nowrap shrink-0"
               :class="schedulerConfig.enabled ? 'bg-emerald-950/70 border-emerald-700/60 text-emerald-300 hover:border-emerald-500' : 'bg-gray-800 border-gray-700 text-gray-400'">
         <span class="w-2 h-2 rounded-full shrink-0" :class="schedulerConfig.enabled ? 'bg-emerald-400 animate-pulse' : 'bg-gray-500'"></span>
-        <span class="font-medium hidden lg:inline" x-text="schedulerConfig.enabled ? 'Auto-Escaneo: ' + schedulerConfig.interval_hours + 'h' : 'Auto-Escaneo: Pausado'"></span>
+        <span class="font-semibold hidden lg:inline" x-text="schedulerConfig.enabled ? 'Auto-Escaneo: ' + schedulerConfig.interval_hours + 'h' : 'Auto-Escaneo: Pausado'"></span>
         <i class="fa-solid fa-clock text-xs shrink-0"></i>
       </button>
 
-      <div class="text-right hidden 2xl:block shrink-0">
-        <p class="text-xs font-semibold text-gray-200" x-text="profile.personal?.name || 'Alexis Llorca'"></p>
-        <p class="text-[10px] text-cyan-400 font-mono">DAM · Ciberseguridad</p>
+      <div class="text-right hidden sm:block shrink-0">
+        <p class="text-xs font-bold text-gray-100" x-text="profile.personal?.name || 'Alexis Llorca'"></p>
+        <p class="text-[11px] text-cyan-400 font-mono">DAM · Ciberseguridad</p>
       </div>
-      <button @click="openApiKeyModal = true" class="w-8 h-8 rounded-lg bg-gray-800 border border-gray-700 flex items-center justify-center hover:border-cyan-500 transition text-gray-300 hover:text-cyan-400 shrink-0" title="Configurar Gemini API">
+      <button @click="openApiKeyModal = true" class="w-9 h-9 rounded-xl bg-gray-800 border border-gray-700 flex items-center justify-center hover:border-cyan-500 transition text-gray-300 hover:text-cyan-400 shrink-0" title="Configurar Gemini API">
         <i class="fa-solid fa-key text-xs"></i>
       </button>
     </div>
