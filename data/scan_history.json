@@ -1,146 +1,285 @@
 [
   {
-    "timestamp": "2026-10-10 22:46:27",
-    "new_jobs_found": 0,
-    "details": [
-      "No se encontraron nuevas ofertas duplicadas"
-    ],
-    "total_jobs_in_db": 20,
-    "status": "success"
-  },
-  {
-    "timestamp": "2026-10-10 22:48:13",
-    "new_jobs_found": 0,
-    "details": [
-      "No se encontraron nuevas ofertas duplicadas"
-    ],
-    "total_jobs_in_db": 20,
-    "status": "success"
-  },
-  {
-    "timestamp": "2026-10-10 22:48:20",
-    "new_jobs_found": 0,
-    "details": [
-      "No se encontraron nuevas ofertas duplicadas"
-    ],
-    "total_jobs_in_db": 20,
-    "status": "success"
-  },
-  {
-    "timestamp": "2026-10-10 22:51:04",
-    "new_jobs_found": 0,
-    "details": [
-      "No se encontraron nuevas ofertas duplicadas"
-    ],
-    "total_jobs_in_db": 20,
-    "status": "success"
-  },
-  {
-    "timestamp": "2026-10-10 22:55:00",
-    "new_jobs_found": 0,
-    "details": [
-      "No se encontraron nuevas ofertas duplicadas"
-    ],
-    "total_jobs_in_db": 20,
-    "status": "success"
-  },
-  {
-    "timestamp": "2026-10-10 22:55:12",
-    "new_jobs_found": 0,
-    "details": [
-      "No se encontraron nuevas ofertas duplicadas"
-    ],
-    "total_jobs_in_db": 20,
-    "status": "success"
-  },
-  {
-    "timestamp": "2026-10-10 22:55:19",
-    "new_jobs_found": 0,
-    "details": [
-      "No se encontraron nuevas ofertas duplicadas"
-    ],
-    "total_jobs_in_db": 20,
-    "status": "success"
-  },
-  {
-    "timestamp": "2026-10-10 22:55:27",
-    "new_jobs_found": 0,
-    "details": [
-      "No se encontraron nuevas ofertas duplicadas"
-    ],
-    "total_jobs_in_db": 20,
-    "status": "success"
-  },
-  {
-    "timestamp": "2026-10-10 22:56:04",
-    "new_jobs_found": 0,
-    "details": [
-      "No se encontraron nuevas ofertas duplicadas"
-    ],
-    "total_jobs_in_db": 20,
-    "status": "success"
-  },
-  {
-    "timestamp": "2026-10-10 22:56:42",
-    "new_jobs_found": 0,
-    "details": [
-      "No se encontraron nuevas ofertas duplicadas"
-    ],
-    "total_jobs_in_db": 20,
-    "status": "success"
-  },
-  {
-    "timestamp": "2026-10-10 22:57:05",
-    "new_jobs_found": 0,
-    "details": [
-      "No se encontraron nuevas ofertas duplicadas"
-    ],
-    "total_jobs_in_db": 20,
-    "status": "success"
-  },
-  {
-    "timestamp": "2026-10-10 22:57:17",
-    "new_jobs_found": 0,
-    "details": [
-      "No se encontraron nuevas ofertas duplicadas"
-    ],
-    "total_jobs_in_db": 20,
-    "status": "success"
-  },
-  {
-    "timestamp": "2026-10-10 22:57:55",
-    "new_jobs_found": 0,
-    "details": [
-      "No se encontraron nuevas ofertas duplicadas"
-    ],
-    "total_jobs_in_db": 20,
-    "status": "success"
-  },
-  {
-    "timestamp": "2026-10-10 22:58:02",
-    "new_jobs_found": 0,
-    "details": [
-      "No se encontraron nuevas ofertas duplicadas"
-    ],
-    "total_jobs_in_db": 20,
-    "status": "success"
-  },
-  {
-    "timestamp": "2026-10-10 23:22:01",
+    "timestamp": "2026-10-21 12:00:04",
     "new_jobs_found": 2,
     "details": [
-      "2 ofertas de Bolsa de Empleo UNIR"
+      "2 ofertas nuevas para 'java'"
     ],
-    "total_jobs_in_db": 49,
+    "total_jobs_in_db": 264,
     "status": "success"
   },
   {
-    "timestamp": "2026-10-10 23:22:42",
+    "timestamp": "2026-10-21 18:19:09",
+    "new_jobs_found": 7,
+    "details": [
+      "5 ofertas nuevas para 'prácticas'",
+      "2 ofertas de Bolsa de Empleo UNIR"
+    ],
+    "total_jobs_in_db": 271,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-22 00:00:05",
+    "new_jobs_found": 2,
+    "details": [
+      "2 ofertas nuevas para 'java'"
+    ],
+    "total_jobs_in_db": 273,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-22 09:45:18",
+    "new_jobs_found": 13,
+    "details": [
+      "8 ofertas nuevas para 'prácticas'",
+      "3 ofertas nuevas para 'kotlin'",
+      "2 ofertas de Bolsa de Empleo UNIR"
+    ],
+    "total_jobs_in_db": 286,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-22 12:00:56",
+    "new_jobs_found": 6,
+    "details": [
+      "6 ofertas nuevas para 'java'"
+    ],
+    "total_jobs_in_db": 292,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-22 23:13:37",
+    "new_jobs_found": 12,
+    "details": [
+      "11 ofertas nuevas para 'prácticas'",
+      "1 ofertas de Bolsa de Empleo UNIR"
+    ],
+    "total_jobs_in_db": 304,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-23 00:00:01",
+    "new_jobs_found": 8,
+    "details": [
+      "8 ofertas nuevas para 'java'"
+    ],
+    "total_jobs_in_db": 312,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-23 06:00:01",
+    "new_jobs_found": 4,
+    "details": [
+      "4 ofertas nuevas para 'java'"
+    ],
+    "total_jobs_in_db": 316,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-23 12:00:12",
+    "new_jobs_found": 7,
+    "details": [
+      "5 ofertas nuevas para 'java'",
+      "1 ofertas nuevas para 'kotlin'",
+      "1 ofertas de Bolsa de Empleo UNIR"
+    ],
+    "total_jobs_in_db": 323,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-23 23:21:46",
+    "new_jobs_found": 9,
+    "details": [
+      "8 ofertas nuevas para 'prácticas'",
+      "1 ofertas de Bolsa de Empleo UNIR"
+    ],
+    "total_jobs_in_db": 332,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-24 00:00:33",
+    "new_jobs_found": 9,
+    "details": [
+      "9 ofertas nuevas para 'java'"
+    ],
+    "total_jobs_in_db": 341,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-24 09:55:26",
+    "new_jobs_found": 13,
+    "details": [
+      "13 ofertas nuevas para 'prácticas'"
+    ],
+    "total_jobs_in_db": 354,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-24 12:00:23",
+    "new_jobs_found": 12,
+    "details": [
+      "12 ofertas nuevas para 'java'"
+    ],
+    "total_jobs_in_db": 366,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-24 18:00:49",
+    "new_jobs_found": 9,
+    "details": [
+      "8 ofertas nuevas para 'java'",
+      "1 ofertas de Bolsa de Empleo UNIR"
+    ],
+    "total_jobs_in_db": 375,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-26 08:38:01",
+    "new_jobs_found": 8,
+    "details": [
+      "6 ofertas nuevas para 'prácticas'",
+      "2 ofertas de Bolsa de Empleo UNIR"
+    ],
+    "total_jobs_in_db": 383,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-26 12:00:15",
+    "new_jobs_found": 5,
+    "details": [
+      "5 ofertas nuevas para 'java'"
+    ],
+    "total_jobs_in_db": 388,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-26 18:21:06",
+    "new_jobs_found": 6,
+    "details": [
+      "2 ofertas nuevas para 'prácticas'",
+      "4 ofertas de Bolsa de Empleo UNIR"
+    ],
+    "total_jobs_in_db": 394,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-27 11:12:37",
     "new_jobs_found": 0,
     "details": [
       "No se encontraron nuevas ofertas duplicadas"
     ],
-    "total_jobs_in_db": 49,
+    "total_jobs_in_db": 394,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-27 12:00:00",
+    "new_jobs_found": 7,
+    "details": [
+      "7 ofertas nuevas para 'java'"
+    ],
+    "total_jobs_in_db": 401,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-27 20:29:26",
+    "new_jobs_found": 4,
+    "details": [
+      "3 ofertas nuevas para 'prácticas'",
+      "1 ofertas nuevas para 'kotlin'"
+    ],
+    "total_jobs_in_db": 405,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-28 09:22:11",
+    "new_jobs_found": 11,
+    "details": [
+      "11 ofertas nuevas para 'prácticas'"
+    ],
+    "total_jobs_in_db": 416,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-28 12:00:37",
+    "new_jobs_found": 2,
+    "details": [
+      "2 ofertas nuevas para 'java'"
+    ],
+    "total_jobs_in_db": 418,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-28 22:03:32",
+    "new_jobs_found": 7,
+    "details": [
+      "4 ofertas nuevas para 'prácticas'",
+      "3 ofertas de Bolsa de Empleo UNIR"
+    ],
+    "total_jobs_in_db": 425,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-29 08:27:00",
+    "new_jobs_found": 5,
+    "details": [
+      "3 ofertas nuevas para 'prácticas'",
+      "2 ofertas de Bolsa de Empleo UNIR"
+    ],
+    "total_jobs_in_db": 430,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-29 08:38:06",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 430,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-29 12:00:14",
+    "new_jobs_found": 1,
+    "details": [
+      "1 ofertas nuevas para 'java'"
+    ],
+    "total_jobs_in_db": 431,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-29 14:05:03",
+    "new_jobs_found": 2,
+    "details": [
+      "2 ofertas nuevas para 'java'"
+    ],
+    "total_jobs_in_db": 433,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-29 14:09:24",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 433,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-29 14:33:48",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 433,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-29 14:34:14",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 433,
     "status": "success"
   }
 ]

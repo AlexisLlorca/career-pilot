@@ -32,7 +32,7 @@ AUTH_DIR.mkdir(parents=True, exist_ok=True)
 # Parámetros del servidor y Gemini
 DEFAULT_PORT = int(os.getenv("PORT", "8001"))
 DEFAULT_HOST = os.getenv("HOST", "0.0.0.0")
-DEFAULT_GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+DEFAULT_GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-3-flash-preview")
 
 
 def get_gemini_api_key() -> str:

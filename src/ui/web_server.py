@@ -1196,48 +1196,60 @@ def index_html():
         </button>
       </div>
 
-      <!-- PREGUNTAS CLAVE -->
-      <div class="space-y-3">
-        <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider">Preguntas Más Probables & Enfoque Recomendado:</h4>
-        <template x-for="(item, idx) in cheatSheetData.probable_questions" :key="idx">
-          <div class="p-3.5 rounded-xl bg-gray-900/90 border border-gray-800 space-y-1.5">
-            <p class="text-xs font-bold text-gray-100 flex items-start">
-              <span class="text-cyan-400 mr-2 font-mono" x-text="'Q' + (idx+1) + ':'"></span>
-              <span x-text="item.q"></span>
-            </p>
-            <p class="text-xs text-cyan-300/90 pl-6 border-l-2 border-cyan-500/50" x-text="'💡 Tip: ' + item.tip"></p>
-          </div>
-        </template>
+      <!-- ESTADO DE CARGA -->
+      <div x-show="cheatSheetLoading" class="py-12 flex flex-col items-center justify-center space-y-4">
+        <i class="fa-solid fa-circle-notch fa-spin text-4xl text-cyan-400"></i>
+        <div class="text-center space-y-1">
+          <p class="text-sm font-semibold text-gray-200">Generando Cheat Sheet personalizada con IA...</p>
+          <p class="text-xs text-gray-400">Analizando el stack técnico de la vacante frente a tus competencias de DAM y Ciberseguridad.</p>
+        </div>
       </div>
 
-      <!-- DESTACADOS DE TU BACKGROUND -->
-      <div class="space-y-2">
-        <h4 class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Puntos Fuertes de tu Perfil para Enfatizar:</h4>
-        <ul class="space-y-1.5 text-xs text-gray-300">
-          <template x-for="h in cheatSheetData.portfolio_highlights" :key="h">
-            <li class="flex items-start space-x-2">
-              <i class="fa-solid fa-check text-emerald-400 mt-0.5"></i>
-              <span x-text="h"></span>
-            </li>
+      <!-- CONTENIDO DE LA FICHA -->
+      <div x-show="!cheatSheetLoading" class="space-y-5">
+        <!-- PREGUNTAS CLAVE -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider">Preguntas Más Probables & Enfoque Recomendado:</h4>
+          <template x-for="(item, idx) in cheatSheetData.probable_questions" :key="idx">
+            <div class="p-3.5 rounded-xl bg-gray-900/90 border border-gray-800 space-y-1.5">
+              <p class="text-xs font-bold text-gray-100 flex items-start">
+                <span class="text-cyan-400 mr-2 font-mono" x-text="'Q' + (idx+1) + ':'"></span>
+                <span x-text="item.q"></span>
+              </p>
+              <p class="text-xs text-cyan-300/90 pl-6 border-l-2 border-cyan-500/50" x-text="'💡 Tip: ' + item.tip"></p>
+            </div>
           </template>
-        </ul>
-      </div>
+        </div>
 
-      <!-- PREGUNTAS PARA HACER AL FINAL -->
-      <div class="space-y-2">
-        <h4 class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Preguntas Inteligentes que Deberías Hacerles Tú:</h4>
-        <ul class="space-y-1.5 text-xs text-gray-300">
-          <template x-for="q in cheatSheetData.questions_to_ask_them" :key="q">
-            <li class="flex items-start space-x-2">
-              <i class="fa-solid fa-arrow-right text-indigo-400 mt-0.5"></i>
-              <span x-text="q"></span>
-            </li>
-          </template>
-        </ul>
-      </div>
+        <!-- DESTACADOS DE TU BACKGROUND -->
+        <div class="space-y-2">
+          <h4 class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Puntos Fuertes de tu Perfil para Enfatizar:</h4>
+          <ul class="space-y-1.5 text-xs text-gray-300">
+            <template x-for="h in cheatSheetData.portfolio_highlights" :key="h">
+              <li class="flex items-start space-x-2">
+                <i class="fa-solid fa-check text-emerald-400 mt-0.5"></i>
+                <span x-text="h"></span>
+              </li>
+            </template>
+          </ul>
+        </div>
 
-      <div class="pt-2 flex justify-end">
-        <button @click="openCheatModal = false" class="px-5 py-2 rounded-xl bg-cyan-600 text-white font-semibold text-xs">Cerrar Ficha</button>
+        <!-- PREGUNTAS PARA HACER AL FINAL -->
+        <div class="space-y-2">
+          <h4 class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Preguntas Inteligentes que Deberías Hacerles Tú:</h4>
+          <ul class="space-y-1.5 text-xs text-gray-300">
+            <template x-for="q in cheatSheetData.questions_to_ask_them" :key="q">
+              <li class="flex items-start space-x-2">
+                <i class="fa-solid fa-arrow-right text-indigo-400 mt-0.5"></i>
+                <span x-text="q"></span>
+              </li>
+            </template>
+          </ul>
+        </div>
+
+        <div class="pt-2 flex justify-end">
+          <button @click="openCheatModal = false" class="px-5 py-2 rounded-xl bg-cyan-600 text-white font-semibold text-xs hover:bg-cyan-500 transition">Cerrar Ficha</button>
+        </div>
       </div>
     </div>
   </div>
@@ -1582,6 +1594,7 @@ def index_html():
 
         // Modales
         openCheatModal: false,
+        cheatSheetLoading: false,
         cheatSheetData: {},
         openApiKeyModal: false,
         apiKeyInput: '',
@@ -1703,12 +1716,17 @@ def index_html():
         },
 
         async openCheatSheetModal(job) {
+          this.cheatSheetData = { job_title: job.title, company: job.company };
+          this.cheatSheetLoading = true;
+          this.openCheatModal = true;
           try {
             const res = await fetch(`/api/jobs/${job.id}/cheat-sheet`);
             this.cheatSheetData = await res.json();
-            this.openCheatModal = true;
           } catch (e) {
+            console.error('Error cargando cheat sheet:', e);
             alert('No se pudo cargar la Cheat Sheet');
+          } finally {
+            this.cheatSheetLoading = false;
           }
         },
 

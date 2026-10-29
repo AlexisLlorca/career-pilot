@@ -4,6 +4,7 @@ Soporta roles de Reclutador RRHH y Lead Técnico con análisis de respuestas y e
 """
 
 import json
+import os
 from typing import Dict, Any, List, Optional
 from google import genai
 from google.genai import types
@@ -24,6 +25,7 @@ class AIInterviewer:
         self.profile_mgr = profile_manager
         self.model_name = model_name or DEFAULT_GEMINI_MODEL
         self._client: Optional[genai.Client] = None
+        self._cheat_sheet_cache: Dict[str, Dict[str, Any]] = {}
 
     def _get_client(self) -> Optional[genai.Client]:
         """Inicializa de forma perezosa el cliente de Gemini."""
@@ -212,8 +214,13 @@ class AIInterviewer:
 
     def generate_cheat_sheet(self, job: Dict[str, Any]) -> Dict[str, Any]:
         """Genera una ficha de preparación específica para la vacante."""
+        job_key = job.get("id") or job.get("title")
+        if job_key and job_key in self._cheat_sheet_cache:
+            return self._cheat_sheet_cache[job_key]
+
         client = self._get_client()
         profile = self.profile_mgr.get_profile()
+        model_to_use = os.getenv("GEMINI_MODEL") or self.model_name or DEFAULT_GEMINI_MODEL
 
         if not client:
             return {
@@ -264,14 +271,17 @@ class AIInterviewer:
 
         try:
             response = client.models.generate_content(
-                model=self.model_name,
+                model=model_to_use,
                 contents=prompt,
                 config=types.GenerateContentConfig(
                     response_mime_type="application/json",
                     temperature=0.4,
                 ),
             )
-            return json.loads(response.text)
+            result = json.loads(response.text)
+            if job_key:
+                self._cheat_sheet_cache[job_key] = result
+            return result
         except Exception as e:
             console.print(f"[yellow]Error generando Cheat Sheet con Gemini: {e}[/yellow]")
             return {
