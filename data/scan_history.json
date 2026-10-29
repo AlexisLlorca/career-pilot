@@ -1,149 +1,5 @@
 [
   {
-    "timestamp": "2026-10-21 12:00:04",
-    "new_jobs_found": 2,
-    "details": [
-      "2 ofertas nuevas para 'java'"
-    ],
-    "total_jobs_in_db": 264,
-    "status": "success"
-  },
-  {
-    "timestamp": "2026-10-21 18:19:09",
-    "new_jobs_found": 7,
-    "details": [
-      "5 ofertas nuevas para 'prácticas'",
-      "2 ofertas de Bolsa de Empleo UNIR"
-    ],
-    "total_jobs_in_db": 271,
-    "status": "success"
-  },
-  {
-    "timestamp": "2026-10-22 00:00:05",
-    "new_jobs_found": 2,
-    "details": [
-      "2 ofertas nuevas para 'java'"
-    ],
-    "total_jobs_in_db": 273,
-    "status": "success"
-  },
-  {
-    "timestamp": "2026-10-22 09:45:18",
-    "new_jobs_found": 13,
-    "details": [
-      "8 ofertas nuevas para 'prácticas'",
-      "3 ofertas nuevas para 'kotlin'",
-      "2 ofertas de Bolsa de Empleo UNIR"
-    ],
-    "total_jobs_in_db": 286,
-    "status": "success"
-  },
-  {
-    "timestamp": "2026-10-22 12:00:56",
-    "new_jobs_found": 6,
-    "details": [
-      "6 ofertas nuevas para 'java'"
-    ],
-    "total_jobs_in_db": 292,
-    "status": "success"
-  },
-  {
-    "timestamp": "2026-10-22 23:13:37",
-    "new_jobs_found": 12,
-    "details": [
-      "11 ofertas nuevas para 'prácticas'",
-      "1 ofertas de Bolsa de Empleo UNIR"
-    ],
-    "total_jobs_in_db": 304,
-    "status": "success"
-  },
-  {
-    "timestamp": "2026-10-23 00:00:01",
-    "new_jobs_found": 8,
-    "details": [
-      "8 ofertas nuevas para 'java'"
-    ],
-    "total_jobs_in_db": 312,
-    "status": "success"
-  },
-  {
-    "timestamp": "2026-10-23 06:00:01",
-    "new_jobs_found": 4,
-    "details": [
-      "4 ofertas nuevas para 'java'"
-    ],
-    "total_jobs_in_db": 316,
-    "status": "success"
-  },
-  {
-    "timestamp": "2026-10-23 12:00:12",
-    "new_jobs_found": 7,
-    "details": [
-      "5 ofertas nuevas para 'java'",
-      "1 ofertas nuevas para 'kotlin'",
-      "1 ofertas de Bolsa de Empleo UNIR"
-    ],
-    "total_jobs_in_db": 323,
-    "status": "success"
-  },
-  {
-    "timestamp": "2026-10-23 23:21:46",
-    "new_jobs_found": 9,
-    "details": [
-      "8 ofertas nuevas para 'prácticas'",
-      "1 ofertas de Bolsa de Empleo UNIR"
-    ],
-    "total_jobs_in_db": 332,
-    "status": "success"
-  },
-  {
-    "timestamp": "2026-10-24 00:00:33",
-    "new_jobs_found": 9,
-    "details": [
-      "9 ofertas nuevas para 'java'"
-    ],
-    "total_jobs_in_db": 341,
-    "status": "success"
-  },
-  {
-    "timestamp": "2026-10-24 09:55:26",
-    "new_jobs_found": 13,
-    "details": [
-      "13 ofertas nuevas para 'prácticas'"
-    ],
-    "total_jobs_in_db": 354,
-    "status": "success"
-  },
-  {
-    "timestamp": "2026-10-24 12:00:23",
-    "new_jobs_found": 12,
-    "details": [
-      "12 ofertas nuevas para 'java'"
-    ],
-    "total_jobs_in_db": 366,
-    "status": "success"
-  },
-  {
-    "timestamp": "2026-10-24 18:00:49",
-    "new_jobs_found": 9,
-    "details": [
-      "8 ofertas nuevas para 'java'",
-      "1 ofertas de Bolsa de Empleo UNIR"
-    ],
-    "total_jobs_in_db": 375,
-    "status": "success"
-  },
-  {
-    "timestamp": "2026-10-26 08:38:01",
-    "new_jobs_found": 8,
-    "details": [
-      "6 ofertas nuevas para 'prácticas'",
-      "2 ofertas de Bolsa de Empleo UNIR"
-    ],
-    "total_jobs_in_db": 383,
-    "status": "success"
-  },
-  {
     "timestamp": "2026-10-26 12:00:15",
     "new_jobs_found": 5,
     "details": [
@@ -280,6 +136,141 @@
       "No se encontraron nuevas ofertas duplicadas"
     ],
     "total_jobs_in_db": 433,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-29 14:39:31",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 433,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-29 14:40:45",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 433,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-29 14:41:19",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 433,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-29 14:41:48",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 433,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-29 14:42:09",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 433,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-29 14:43:52",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 433,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-29 14:44:34",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 433,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-29 14:45:16",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 433,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-29 14:46:26",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 433,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-29 14:48:47",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 436,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-29 14:49:17",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 436,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-29 14:49:48",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 436,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-29 14:50:07",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 436,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-29 14:50:35",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 436,
+    "status": "success"
+  },
+  {
+    "timestamp": "2026-10-29 14:52:26",
+    "new_jobs_found": 0,
+    "details": [
+      "No se encontraron nuevas ofertas duplicadas"
+    ],
+    "total_jobs_in_db": 436,
     "status": "success"
   }
 ]

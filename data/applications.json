@@ -1,0 +1,32 @@
+[
+  {
+    "id": "app-001",
+    "job_id": "job-001",
+    "title": "Junior / Mid Java Backend Developer & Security Advocate",
+    "company": "SecureFintech Solutions",
+    "location": "Madrid / Remoto",
+    "modality": "Remoto",
+    "salary": "28.000 - 34.000 EUR",
+    "source": "LinkedIn",
+    "status": "interview",
+    "match_percentage": 94,
+    "date_applied": "2026-10-29",
+    "updated_at": "2026-10-29 14:41",
+    "notes": "Entrevista técnica de Java y seguridad agendada para el viernes. Revisar Cheat Sheet."
+  },
+  {
+    "id": "app-002",
+    "job_id": "job-033",
+    "title": "Business Process Management",
+    "company": "INETUM ESPAÑA S.A.",
+    "location": "Madrid",
+    "modality": "Presencial",
+    "salary": "650 EUR / mes",
+    "source": "Bolsa de Empleo UNIR",
+    "status": "applied",
+    "match_percentage": 85,
+    "date_applied": "2026-10-29",
+    "updated_at": "2026-10-29 14:41",
+    "notes": "Solicitud cursada a través del portal de empleo UNIR para convenio oficial FFE."
+  }
+]

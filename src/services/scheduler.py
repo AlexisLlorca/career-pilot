@@ -134,7 +134,23 @@ class CareerScannerScheduler:
         self.save_config(config)
 
         console.print(f"[bold green]✔ Escaneo completado:[/bold green] {total_new_imported} nuevas ofertas incorporadas.")
+        if total_new_imported > 0:
+            self._send_desktop_notification(
+                title="🎯 CareerPilot: Nuevas Ofertas Detectadas",
+                message=f"Se han incorporado {total_new_imported} nuevas ofertas compatibles ({', '.join(details[:2])})."
+            )
         return result
+
+    def _send_desktop_notification(self, title: str, message: str):
+        """Envía una notificación nativa al escritorio Linux usando notify-send."""
+        try:
+            subprocess.run(
+                ["notify-send", "-a", "CareerPilot", "-i", "briefcase", title, message],
+                check=False,
+                timeout=5
+            )
+        except Exception:
+            pass
 
     def _record_scan_history(self, entry: Dict[str, Any]):
         """Añade una entrada al historial de escaneos."""

@@ -22,6 +22,7 @@ PROFILE_FILE = DATA_DIR / "profile.json"
 JOBS_FILE = DATA_DIR / "job_offers.json"
 MARKET_STATS_FILE = DATA_DIR / "market_stats.json"
 INTERVIEWS_FILE = DATA_DIR / "interview_history.json"
+APPLICATIONS_FILE = DATA_DIR / "applications.json"
 AUTH_DIR = BASE_DIR / "auth"
 SESSION_STATE_FILE = AUTH_DIR / "session_state.json"
 

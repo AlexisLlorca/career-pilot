@@ -26,6 +26,8 @@ class AIInterviewer:
         self.model_name = model_name or DEFAULT_GEMINI_MODEL
         self._client: Optional[genai.Client] = None
         self._cheat_sheet_cache: Dict[str, Dict[str, Any]] = {}
+        self._cover_letter_cache: Dict[str, Dict[str, Any]] = {}
+        self._challenge_cache: Dict[str, Dict[str, Any]] = {}
 
     def _get_client(self) -> Optional[genai.Client]:
         """Inicializa de forma perezosa el cliente de Gemini."""
@@ -292,6 +294,166 @@ class AIInterviewer:
                 ],
                 "portfolio_highlights": ["Tu combinación de DAM + Ciberseguridad."],
                 "questions_to_ask_them": ["¿Qué planes de crecimiento tiene el equipo?"]
+            }
+
+    def generate_cover_letter(self, job: Dict[str, Any]) -> Dict[str, Any]:
+        """Genera una carta de presentación y motivación personalizada con IA."""
+        job_key = job.get("id") or job.get("title")
+        if job_key and job_key in self._cover_letter_cache:
+            return self._cover_letter_cache[job_key]
+
+        client = self._get_client()
+        profile = self.profile_mgr.get_profile()
+        personal = profile.get("personal", {})
+        cand_name = personal.get("name", "Alexis Emmanuel Llorca")
+        company = job.get("company", "la empresa")
+        title = job.get("title", "Desarrollador")
+        model_to_use = os.getenv("GEMINI_MODEL") or self.model_name or DEFAULT_GEMINI_MODEL
+
+        if not client:
+            full = (
+                f"Estimado/a responsable de selección de {company},\n\n"
+                f"Le escribo con gran entusiasmo para presentar mi candidatura al puesto de {title}. "
+                f"Actualmente curso el 2º año de Desarrollo de Aplicaciones Multiplataforma (DAM) en la UNIR, "
+                f"complementado con un Máster en Ciberseguridad.\n\n"
+                f"Mi perfil aúna sólidas competencias en Java, desarrollo de APIs REST y arquitectura de software, "
+                f"junto con un enfoque proactivo de seguridad (Security by Design y directrices defensivas OWASP).\n\n"
+                f"Quedo a su entera disposición para mantener una entrevista y ampliar cualquier detalle sobre cómo puedo sumar valor a su equipo.\n\n"
+                f"Atentamente,\n{cand_name}"
+            )
+            res = {
+                "subject": f"Candidatura {title} - {cand_name} (DAM UNIR & Ciberseguridad)",
+                "company": company,
+                "job_title": title,
+                "opening": f"Me dirijo a ustedes para expresar mi firme interés en la posición de {title} en {company}.",
+                "core_strengths": "Formación técnica avanzada en DAM UNIR (Java, Kotlin, SQL, Spring Boot) y mentalidad defensiva en ciberseguridad.",
+                "unique_value": "Capacidad para aportar código seguro, testeable y alineado con arquitecturas modernas desde el primer día.",
+                "full_text": full
+            }
+            if job_key:
+                self._cover_letter_cache[job_key] = res
+            return res
+
+        prompt = f"""
+        Actúa como un redactor profesional de cartas de presentación para perfiles tecnológicos.
+        Candidato: {cand_name}
+        Titular: {personal.get('headline')}
+        Biografía: {personal.get('bio')}
+        Habilidades del candidato: {profile.get('skills')}
+        
+        Oferta de empleo:
+        Puesto: {title}
+        Empresa: {company}
+        Ubicación: {job.get('location')} ({job.get('modality')})
+        Requisitos de la oferta: {job.get('skills_required')}
+        Descripción del puesto: {job.get('description')}
+        
+        Redacta una carta de presentación y motivación atractiva, profesional y personalizada.
+        Puntos clave a destacar:
+        1. Formación en curso en 2º DAM UNIR y total disponibilidad para convenio educativo FFE/FCT o contrato laboral.
+        2. Dominio práctico del stack requerido por la empresa (Java, SQL, APIs, etc.).
+        3. Su Máster en Ciberseguridad como valor diferencial que garantiza código seguro y de calidad.
+        
+        Devuelve ÚNICAMENTE un JSON con:
+        {{
+          "subject": "Asunto profesional para el email o solicitud",
+          "company": "{company}",
+          "job_title": "{title}",
+          "opening": "Párrafo inicial personalizado",
+          "core_strengths": "Párrafo destacando el encaje con las tecnologías solicitadas",
+          "unique_value": "Párrafo destacando la seguridad y buenas prácticas",
+          "full_text": "Texto íntegro de la carta de presentación con párrafos bien estructurados"
+        }}
+        """
+
+        try:
+            response = client.models.generate_content(
+                model=model_to_use,
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    response_mime_type="application/json",
+                    temperature=0.3,
+                ),
+            )
+            res = json.loads(response.text)
+            if job_key:
+                self._cover_letter_cache[job_key] = res
+            return res
+        except Exception as e:
+            console.print(f"[yellow]Error generando carta con IA: {e}[/yellow]")
+            return {
+                "subject": f"Candidatura {title} - {cand_name}",
+                "company": company,
+                "job_title": title,
+                "opening": f"Estimado equipo de {company},",
+                "core_strengths": "Desarrollador DAM UNIR especializado en Java y bases de datos.",
+                "unique_value": "Especialización en Ciberseguridad y desarrollo robusto.",
+                "full_text": f"Estimado equipo de {company},\n\nPresento mi candidatura para la vacante de {title}.\n\nCuento con formación de 2º DAM en UNIR y Máster en Ciberseguridad, aportando desarrollo en Java, APIs y mentalidad de software seguro.\n\nAtentamente,\n{cand_name}"
+            }
+
+    def generate_technical_challenge(self, job: Dict[str, Any]) -> Dict[str, Any]:
+        """Genera un reto técnico práctico o revisión de código adaptado a la vacante."""
+        job_key = job.get("id") or job.get("title")
+        if job_key and job_key in self._challenge_cache:
+            return self._challenge_cache[job_key]
+
+        client = self._get_client()
+        model_to_use = os.getenv("GEMINI_MODEL") or self.model_name or DEFAULT_GEMINI_MODEL
+
+        if not client:
+            return {
+                "title": "Detección de Inyección SQL y Fuga de Conexiones en Java",
+                "language": "java",
+                "scenario": "El Lead Tech te muestra este método de un servicio de autenticación que presenta vulnerabilidades críticas.",
+                "code_snippet": "public User authenticate(String user, String pass) {\n    Connection conn = DriverManager.getConnection(DB_URL);\n    Statement stmt = conn.createStatement();\n    String query = \"SELECT * FROM users WHERE username = '\" + user + \"' AND password = '\" + pass + \"'\";\n    ResultSet rs = stmt.executeQuery(query);\n    if (rs.next()) return new User(rs.getString(\"username\"));\n    return null;\n}",
+                "question": "¿Qué dos problemas críticos identificas en este código y cómo lo solucionarías?",
+                "hint": "Fíjate en la concatenación de parámetros de la consulta y en el ciclo de vida de los objetos Connection/Statement.",
+                "solution": "1. SQL Injection: Se debe usar PreparedStatement con marcadores de posición '?' y almacenar hashes seguros (BCrypt).\n2. Resource Leak: Los recursos deben cerrarse usando la estructura try-with-resources de Java 7+."
+            }
+
+        prompt = f"""
+        Actúa como Lead Technical Architect evaluando a un desarrollador de software DAM.
+        Oferta: {job.get('title')} en {job.get('company')}
+        Stack requerido: {job.get('skills_required')}
+        
+        Crea un reto técnico de revisión de código ('Bug Hunt') adaptado al stack de la oferta (Java, SQL, Spring, Kotlin o Seguridad).
+        El código debe tener entre 6 y 14 líneas y contener 1 o 2 fallos realistas de seguridad, concurrencia o buenas prácticas.
+        
+        Devuelve ÚNICAMENTE un JSON con:
+        {{
+          "title": "Título descriptivo del reto",
+          "language": "java/sql/kotlin/python/javascript",
+          "scenario": "Contexto realista del problema en la empresa",
+          "code_snippet": "Código fuente formateado con el error",
+          "question": "Pregunta concreta del entrevistador",
+          "hint": "Pista orientativa",
+          "solution": "Explicación clara del error y el código refactorizado correcto"
+        }}
+        """
+
+        try:
+            response = client.models.generate_content(
+                model=model_to_use,
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    response_mime_type="application/json",
+                    temperature=0.3,
+                ),
+            )
+            res = json.loads(response.text)
+            if job_key:
+                self._challenge_cache[job_key] = res
+            return res
+        except Exception as e:
+            console.print(f"[yellow]Error generando reto técnico con IA: {e}[/yellow]")
+            return {
+                "title": "Control de Inyección JPQL en Spring Boot",
+                "language": "java",
+                "scenario": "Un endpoint REST recibe parámetros sin validar en una consulta JPA.",
+                "code_snippet": "@GetMapping(\"/search\")\npublic List<Item> search(@RequestParam String term) {\n    return entityManager.createQuery(\"SELECT i FROM Item i WHERE i.name LIKE '%\" + term + \"%'\").getResultList();\n}",
+                "question": "¿Qué problema de seguridad presenta y cómo lo refactorizas?",
+                "hint": "Usa parámetros vinculados (:term).",
+                "solution": "Debe utilizarse un parámetro con nombre para evitar JPQL Injection: createQuery(\"... LIKE :term\").setParameter(\"term\", \"%\" + term + \"%\")."
             }
 
     def _build_system_prompt(self, job: Dict[str, Any], interviewer_type: str) -> str:

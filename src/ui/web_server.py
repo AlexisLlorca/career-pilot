@@ -34,6 +34,7 @@ from src.services.market_radar import MarketRadar
 from src.services.ai_interviewer import AIInterviewer
 from src.services.scheduler import CareerScannerScheduler
 from src.services.source_manager import SourceManager
+from src.services.application_tracker import ApplicationTracker
 
 # Inicialización de servicios
 profile_mgr = ProfileManager()
@@ -43,6 +44,7 @@ market_radar = MarketRadar(profile_mgr)
 ai_interviewer = AIInterviewer(profile_mgr)
 scanner_scheduler = CareerScannerScheduler()
 source_mgr = SourceManager()
+app_tracker = ApplicationTracker()
 
 app = FastAPI(title="CareerPilot — AI Career & Interview Agent", version="1.0.0")
 
@@ -119,6 +121,21 @@ class AddSourceRequest(BaseModel):
 
 class ToggleSourceRequest(BaseModel):
     enabled: bool
+
+
+class AddApplicationRequest(BaseModel):
+    job_id: str
+    status: Optional[str] = "saved"
+    notes: Optional[str] = ""
+
+
+class UpdateApplicationStatusRequest(BaseModel):
+    status: str
+    notes: Optional[str] = None
+
+
+class UpdateApplicationNotesRequest(BaseModel):
+    notes: str
 
 
 # --- API ENDPOINTS ---
@@ -207,6 +224,74 @@ def api_cheat_sheet(job_id: str):
     if not job:
         raise HTTPException(status_code=404, detail="Oferta no encontrada")
     return ai_interviewer.generate_cheat_sheet(job)
+
+
+@app.get("/api/jobs/{job_id}/cover-letter")
+def api_cover_letter(job_id: str):
+    """Genera una carta de presentación y motivación adaptada a la oferta."""
+    job = job_fetcher.get_job_by_id(job_id)
+    if not job:
+        raise HTTPException(status_code=404, detail="Oferta no encontrada")
+    return ai_interviewer.generate_cover_letter(job)
+
+
+@app.get("/api/jobs/{job_id}/technical-challenge")
+def api_technical_challenge(job_id: str):
+    """Genera un reto técnico / Bug Hunt adaptado a la vacante."""
+    job = job_fetcher.get_job_by_id(job_id)
+    if not job:
+        raise HTTPException(status_code=404, detail="Oferta no encontrada")
+    return ai_interviewer.generate_technical_challenge(job)
+
+
+@app.get("/api/applications")
+def api_get_applications(status: Optional[str] = None):
+    """Retorna el listado de candidaturas y métricas del Kanban."""
+    return {
+        "applications": app_tracker.get_all(status),
+        "metrics": app_tracker.get_metrics()
+    }
+
+
+@app.post("/api/applications")
+def api_add_application(req: AddApplicationRequest):
+    """Añade una oferta al tracker de candidaturas."""
+    job = job_fetcher.get_job_by_id(req.job_id)
+    if not job:
+        raise HTTPException(status_code=404, detail="Oferta no encontrada")
+    app_entry = app_tracker.add_or_update(
+        job=job,
+        status=req.status or "saved",
+        notes=req.notes or ""
+    )
+    return {"status": "ok", "application": app_entry}
+
+
+@app.put("/api/applications/{app_id}/status")
+def api_update_app_status(app_id: str, req: UpdateApplicationStatusRequest):
+    """Actualiza la fase Kanban de una candidatura."""
+    success = app_tracker.update_status(app_id, req.status, req.notes)
+    if not success:
+        raise HTTPException(status_code=404, detail="Candidatura no encontrada")
+    return {"status": "ok", "app_id": app_id, "new_status": req.status}
+
+
+@app.put("/api/applications/{app_id}/notes")
+def api_update_app_notes(app_id: str, req: UpdateApplicationNotesRequest):
+    """Actualiza las notas personales de una candidatura."""
+    success = app_tracker.update_notes(app_id, req.notes)
+    if not success:
+        raise HTTPException(status_code=404, detail="Candidatura no encontrada")
+    return {"status": "ok", "app_id": app_id, "notes": req.notes}
+
+
+@app.delete("/api/applications/{app_id}")
+def api_delete_application(app_id: str):
+    """Elimina una candidatura del tracker."""
+    success = app_tracker.delete_application(app_id)
+    if not success:
+        raise HTTPException(status_code=404, detail="Candidatura no encontrada")
+    return {"status": "ok", "message": "Candidatura eliminada"}
 
 
 @app.post("/api/interview/start")
@@ -412,6 +497,14 @@ def index_html():
         <span class="ml-1 px-1.5 py-0.2 text-xs rounded-full bg-black/30" x-text="jobs.length"></span>
       </button>
 
+      <button @click="activeTab = 'kanban'"
+              :class="activeTab === 'kanban' ? 'bg-amber-600 text-white shadow-md shadow-amber-600/30 font-semibold' : 'text-gray-400 hover:text-gray-200 hover:bg-gray-800/60'"
+              class="px-4 py-2 rounded-lg text-sm transition-all duration-150 flex items-center space-x-2">
+        <i class="fa-solid fa-list-check"></i>
+        <span>Mis Candidaturas</span>
+        <span class="ml-1 px-1.5 py-0.2 text-xs rounded-full bg-black/30 font-mono" x-text="applications.length"></span>
+      </button>
+
       <button @click="activeTab = 'market'"
               :class="activeTab === 'market' ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30 font-semibold' : 'text-gray-400 hover:text-gray-200 hover:bg-gray-800/60'"
               class="px-4 py-2 rounded-lg text-sm transition-all duration-150 flex items-center space-x-2">
@@ -476,7 +569,7 @@ def index_html():
         <div class="flex flex-col md:flex-row gap-4 justify-between items-center">
           <div class="relative w-full md:w-96">
             <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-gray-400 text-sm"></i>
-            <input type="text" x-model="searchQuery" placeholder="Buscar por rol, tecnología (Java, OWASP...)..."
+            <input type="text" x-model="searchQuery" @input="applyClientSearch()" placeholder="Buscar por rol, empresa o skill (Java, SQL, Indra...)..."
                    class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-gray-900/90 border border-gray-700 focus:border-cyan-500 focus:outline-none text-sm text-gray-100 placeholder-gray-500">
           </div>
 
@@ -519,6 +612,32 @@ def index_html():
               <i class="fa-solid fa-arrows-rotate text-xs"></i>
             </button>
           </div>
+        </div>
+
+        <!-- CHIPS DE FILTRO RÁPIDO -->
+        <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-gray-800/60">
+          <span class="text-xs text-gray-400 font-semibold mr-1">Filtros directos:</span>
+          <button @click="setQuickFilter('all')" :class="quickFilter === 'all' ? 'bg-cyan-600 text-white font-bold shadow-sm' : 'bg-gray-900 text-gray-400 hover:text-gray-200 border border-gray-800'" class="px-3 py-1 rounded-lg text-xs transition">Todas (<span x-text="jobs.length"></span>)</button>
+          <button @click="setQuickFilter('unir')" :class="quickFilter === 'unir' ? 'bg-fuchsia-600 text-white font-bold shadow-sm shadow-fuchsia-600/30' : 'bg-gray-900 text-gray-300 hover:text-fuchsia-300 border border-gray-800'" class="px-3 py-1 rounded-lg text-xs transition flex items-center space-x-1.5">
+            <i class="fa-solid fa-graduation-cap text-xs"></i>
+            <span>🎓 Bolsa UNIR</span>
+          </button>
+          <button @click="setQuickFilter('internship')" :class="quickFilter === 'internship' ? 'bg-violet-600 text-white font-bold shadow-sm' : 'bg-gray-900 text-gray-300 hover:text-violet-300 border border-gray-800'" class="px-3 py-1 rounded-lg text-xs transition flex items-center space-x-1.5">
+            <i class="fa-solid fa-file-signature text-xs"></i>
+            <span>Convenios FFE/FCT</span>
+          </button>
+          <button @click="setQuickFilter('cyber')" :class="quickFilter === 'cyber' ? 'bg-emerald-600 text-white font-bold shadow-sm' : 'bg-gray-900 text-gray-300 hover:text-emerald-300 border border-gray-800'" class="px-3 py-1 rounded-lg text-xs transition flex items-center space-x-1.5">
+            <i class="fa-solid fa-shield-halved text-xs"></i>
+            <span>Ciberseguridad</span>
+          </button>
+          <button @click="setQuickFilter('java')" :class="quickFilter === 'java' ? 'bg-amber-600 text-white font-bold shadow-sm' : 'bg-gray-900 text-gray-300 hover:text-amber-300 border border-gray-800'" class="px-3 py-1 rounded-lg text-xs transition flex items-center space-x-1.5">
+            <i class="fa-brands fa-java text-xs"></i>
+            <span>Java & Spring</span>
+          </button>
+          <button @click="setQuickFilter('remote')" :class="quickFilter === 'remote' ? 'bg-sky-600 text-white font-bold shadow-sm' : 'bg-gray-900 text-gray-300 hover:text-sky-300 border border-gray-800'" class="px-3 py-1 rounded-lg text-xs transition flex items-center space-x-1.5">
+            <i class="fa-solid fa-house-laptop text-xs"></i>
+            <span>100% Remoto</span>
+          </button>
         </div>
 
         <!-- RESUMEN DE COMPATIBILIDAD -->
@@ -620,18 +739,26 @@ def index_html():
                 <span>Ver Cheat Sheet</span>
               </button>
 
-              <!-- ESTADO DE LA POSTULACIÓN -->
-              <div class="pt-2 text-center">
-                <span class="text-[11px] text-gray-400 block mb-1">Estado de tu candidatura:</span>
-                <select :value="job.status" @change="updateJobStatus(job.id, $event.target.value)"
-                        class="w-full py-1.5 px-2 rounded-lg bg-gray-900 border border-gray-700 text-xs text-gray-300 focus:outline-none">
-                  <option value="new">🆕 Por revisar</option>
-                  <option value="saved">⭐ Guardada</option>
-                  <option value="applied">📨 Postulado</option>
-                  <option value="interviewing">🎙️ En proceso</option>
-                  <option value="discarded">❌ Descartada</option>
-                </select>
-              </div>
+              <!-- BOTÓN CARTA DE PRESENTACIÓN -->
+              <button @click="openCoverLetterModal(job)"
+                      class="w-full py-2 px-4 rounded-xl bg-cyan-950/70 hover:bg-cyan-900/90 border border-cyan-800/60 text-cyan-300 text-xs font-medium transition flex items-center justify-center space-x-2">
+                <i class="fa-solid fa-pen-nib text-cyan-400"></i>
+                <span>Carta de Presentación</span>
+              </button>
+
+              <!-- BOTÓN RETO TÉCNICO -->
+              <button @click="openTechnicalChallenge(job)"
+                      class="w-full py-2 px-4 rounded-xl bg-amber-950/60 hover:bg-amber-900/80 border border-amber-800/50 text-amber-300 text-xs font-medium transition flex items-center justify-center space-x-2">
+                <i class="fa-solid fa-code text-amber-400"></i>
+                <span>Reto Técnico (Bug Hunt)</span>
+              </button>
+
+              <!-- BOTÓN TRACK EN KANBAN -->
+              <button @click="trackInKanban(job, 'saved')"
+                      class="w-full py-1.5 px-3 rounded-xl bg-gray-900 hover:bg-gray-800 border border-gray-700/80 text-gray-300 text-xs transition flex items-center justify-center space-x-1.5">
+                <i class="fa-solid fa-clipboard-check text-amber-400"></i>
+                <span>Seguir en Kanban</span>
+              </button>
             </div>
 
           </div>
@@ -641,7 +768,275 @@ def index_html():
 
 
     <!-- ============================================================== -->
-    <!-- TAB 2: MARKET INSIGHTS & RADAR DE TECNOLOGÍAS -->
+    <!-- TAB KANBAN: SEGUIMIENTO DE CANDIDATURAS (APPLICATION TRACKER) -->
+    <!-- ============================================================== -->
+    <div x-show="activeTab === 'kanban'" x-cloak class="space-y-6">
+      <!-- HEADER & METRICS SUMMARY -->
+      <div class="glass p-6 rounded-2xl flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div>
+          <h2 class="text-xl font-bold text-amber-400 flex items-center space-x-2.5">
+            <i class="fa-solid fa-list-check"></i>
+            <span>Seguimiento de Candidaturas & Pipeline</span>
+          </h2>
+          <p class="text-xs text-gray-400 mt-1">
+            Gestiona tu embudo de empleo: desde ofertas guardadas hasta entrevistas y convenios de prácticas.
+          </p>
+        </div>
+
+        <div class="flex items-center gap-2 flex-wrap">
+          <div class="px-3.5 py-1.5 rounded-xl bg-gray-900/90 border border-gray-800 text-xs text-gray-300">
+            Total: <strong class="text-amber-400 ml-1 font-mono" x-text="appMetrics.total || applications.length"></strong>
+          </div>
+          <div class="px-3.5 py-1.5 rounded-xl bg-amber-950/40 border border-amber-800/60 text-xs text-amber-300">
+            Guardadas: <strong class="ml-1 font-mono" x-text="appMetrics.saved || 0"></strong>
+          </div>
+          <div class="px-3.5 py-1.5 rounded-xl bg-sky-950/40 border border-sky-800/60 text-xs text-sky-300">
+            Postuladas: <strong class="ml-1 font-mono" x-text="appMetrics.applied || 0"></strong>
+          </div>
+          <div class="px-3.5 py-1.5 rounded-xl bg-fuchsia-950/40 border border-fuchsia-800/60 text-xs text-fuchsia-300">
+            Entrevistas: <strong class="ml-1 font-mono" x-text="appMetrics.interview || 0"></strong>
+          </div>
+          <div class="px-3.5 py-1.5 rounded-xl bg-emerald-950/40 border border-emerald-800/60 text-xs text-emerald-300">
+            Ofertas: <strong class="ml-1 font-mono" x-text="appMetrics.offered || 0"></strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- KANBAN BOARD (4 COLUMNAS) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+
+        <!-- COLUMNA 1: GUARDADAS -->
+        <div class="glass p-4 rounded-2xl flex flex-col space-y-3.5 border-t-2 border-t-amber-500">
+          <div class="flex items-center justify-between pb-2 border-b border-gray-800">
+            <h3 class="text-xs font-bold text-amber-300 uppercase tracking-wider flex items-center space-x-2">
+              <i class="fa-regular fa-bookmark"></i>
+              <span>1. Guardadas</span>
+            </h3>
+            <span class="px-2 py-0.5 text-xs rounded-full bg-amber-950/60 text-amber-300 font-mono"
+                  x-text="applications.filter(a => a.status === 'saved').length"></span>
+          </div>
+
+          <div class="space-y-3 flex-1 overflow-y-auto max-h-[70vh]">
+            <template x-for="app in applications.filter(a => a.status === 'saved')" :key="app.id">
+              <div class="p-4 rounded-xl bg-gray-900/90 border border-gray-800 hover:border-gray-700 transition space-y-2.5">
+                <div class="flex items-start justify-between gap-2">
+                  <h4 class="text-xs font-bold text-gray-100 line-clamp-2" x-text="app.title"></h4>
+                  <span class="text-[10px] px-1.5 py-0.5 rounded bg-amber-950 border border-amber-800/60 text-amber-300 font-mono" x-text="app.match_percentage + '%'"></span>
+                </div>
+                <p class="text-[11px] text-gray-400 font-medium" x-text="app.company + ' · ' + app.modality"></p>
+                <div class="text-[11px] text-cyan-400 font-mono" x-text="app.salary"></div>
+
+                <!-- NOTAS EDITABLES -->
+                <div class="pt-1.5 border-t border-gray-800 text-[11px]">
+                  <template x-if="editingNoteAppId !== app.id">
+                    <p class="text-gray-400 italic cursor-pointer hover:text-gray-200" @click="startEditingNote(app)">
+                      <i class="fa-solid fa-note-sticky text-amber-400/80 mr-1"></i>
+                      <span x-text="app.notes || 'Añadir nota...'"></span>
+                    </p>
+                  </template>
+                  <template x-if="editingNoteAppId === app.id">
+                    <div class="space-y-1.5">
+                      <input type="text" x-model="editingNoteText" class="w-full px-2 py-1 bg-gray-950 border border-gray-700 rounded text-xs text-gray-100">
+                      <div class="flex justify-end space-x-1">
+                        <button @click="editingNoteAppId = null" class="px-2 py-0.5 text-[10px] bg-gray-800 text-gray-400 rounded">Cancelar</button>
+                        <button @click="saveAppNote(app.id)" class="px-2 py-0.5 text-[10px] bg-amber-600 text-white rounded">Guardar</button>
+                      </div>
+                    </div>
+                  </template>
+                </div>
+
+                <!-- ACCIONES DE TRANSICIÓN -->
+                <div class="flex items-center justify-between pt-2 border-t border-gray-800/80">
+                  <button @click="deleteApp(app.id)" class="text-gray-500 hover:text-rose-400 text-xs" title="Eliminar">
+                    <i class="fa-regular fa-trash-can"></i>
+                  </button>
+                  <button @click="moveApplication(app.id, 'applied')"
+                          class="px-2.5 py-1 rounded-lg bg-sky-600/80 hover:bg-sky-500 text-white text-[11px] font-semibold transition flex items-center space-x-1">
+                    <span>Postulado</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </button>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+
+        <!-- COLUMNA 2: POSTULADO -->
+        <div class="glass p-4 rounded-2xl flex flex-col space-y-3.5 border-t-2 border-t-sky-500">
+          <div class="flex items-center justify-between pb-2 border-b border-gray-800">
+            <h3 class="text-xs font-bold text-sky-300 uppercase tracking-wider flex items-center space-x-2">
+              <i class="fa-solid fa-paper-plane"></i>
+              <span>2. Solicitud Enviada</span>
+            </h3>
+            <span class="px-2 py-0.5 text-xs rounded-full bg-sky-950/60 text-sky-300 font-mono"
+                  x-text="applications.filter(a => a.status === 'applied').length"></span>
+          </div>
+
+          <div class="space-y-3 flex-1 overflow-y-auto max-h-[70vh]">
+            <template x-for="app in applications.filter(a => a.status === 'applied')" :key="app.id">
+              <div class="p-4 rounded-xl bg-gray-900/90 border border-gray-800 hover:border-gray-700 transition space-y-2.5">
+                <div class="flex items-start justify-between gap-2">
+                  <h4 class="text-xs font-bold text-gray-100 line-clamp-2" x-text="app.title"></h4>
+                  <span class="text-[10px] px-1.5 py-0.5 rounded bg-sky-950 border border-sky-800/60 text-sky-300 font-mono" x-text="app.match_percentage + '%'"></span>
+                </div>
+                <p class="text-[11px] text-gray-400 font-medium" x-text="app.company + ' · ' + app.modality"></p>
+                <div class="text-[11px] text-gray-400 font-mono" x-text="'Enviada: ' + (app.date_applied || 'Hoy')"></div>
+
+                <!-- NOTAS EDITABLES -->
+                <div class="pt-1.5 border-t border-gray-800 text-[11px]">
+                  <template x-if="editingNoteAppId !== app.id">
+                    <p class="text-gray-400 italic cursor-pointer hover:text-gray-200" @click="startEditingNote(app)">
+                      <i class="fa-solid fa-note-sticky text-sky-400/80 mr-1"></i>
+                      <span x-text="app.notes || 'Añadir nota...'"></span>
+                    </p>
+                  </template>
+                  <template x-if="editingNoteAppId === app.id">
+                    <div class="space-y-1.5">
+                      <input type="text" x-model="editingNoteText" class="w-full px-2 py-1 bg-gray-950 border border-gray-700 rounded text-xs text-gray-100">
+                      <div class="flex justify-end space-x-1">
+                        <button @click="editingNoteAppId = null" class="px-2 py-0.5 text-[10px] bg-gray-800 text-gray-400 rounded">Cancelar</button>
+                        <button @click="saveAppNote(app.id)" class="px-2 py-0.5 text-[10px] bg-sky-600 text-white rounded">Guardar</button>
+                      </div>
+                    </div>
+                  </template>
+                </div>
+
+                <!-- ACCIONES DE TRANSICIÓN -->
+                <div class="flex items-center justify-between pt-2 border-t border-gray-800/80">
+                  <button @click="moveApplication(app.id, 'saved')" class="text-gray-400 hover:text-gray-200 text-[11px] flex items-center space-x-1">
+                    <i class="fa-solid fa-arrow-left text-[10px]"></i>
+                    <span>Volver</span>
+                  </button>
+                  <button @click="moveApplication(app.id, 'interview')"
+                          class="px-2.5 py-1 rounded-lg bg-fuchsia-600/80 hover:bg-fuchsia-500 text-white text-[11px] font-semibold transition flex items-center space-x-1">
+                    <span>A Entrevista</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </button>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+
+        <!-- COLUMNA 3: ENTREVISTA -->
+        <div class="glass p-4 rounded-2xl flex flex-col space-y-3.5 border-t-2 border-t-fuchsia-500">
+          <div class="flex items-center justify-between pb-2 border-b border-gray-800">
+            <h3 class="text-xs font-bold text-fuchsia-300 uppercase tracking-wider flex items-center space-x-2">
+              <i class="fa-solid fa-headset"></i>
+              <span>3. En Entrevistas</span>
+            </h3>
+            <span class="px-2 py-0.5 text-xs rounded-full bg-fuchsia-950/60 text-fuchsia-300 font-mono"
+                  x-text="applications.filter(a => a.status === 'interview').length"></span>
+          </div>
+
+          <div class="space-y-3 flex-1 overflow-y-auto max-h-[70vh]">
+            <template x-for="app in applications.filter(a => a.status === 'interview')" :key="app.id">
+              <div class="p-4 rounded-xl bg-gray-900/90 border border-fuchsia-900/40 hover:border-fuchsia-700/60 transition space-y-2.5 shadow-lg shadow-fuchsia-950/20">
+                <div class="flex items-start justify-between gap-2">
+                  <h4 class="text-xs font-bold text-gray-100 line-clamp-2" x-text="app.title"></h4>
+                  <span class="text-[10px] px-1.5 py-0.5 rounded bg-fuchsia-950 border border-fuchsia-800/60 text-fuchsia-300 font-mono" x-text="app.match_percentage + '%'"></span>
+                </div>
+                <p class="text-[11px] text-fuchsia-300/90 font-medium" x-text="app.company + ' · ' + app.modality"></p>
+
+                <!-- BOTÓN DIRECTO DE SIMULACIÓN -->
+                <button @click="startMockInterview({ id: app.job_id, title: app.title, company: app.company })"
+                        class="w-full py-1.5 rounded-lg bg-gradient-to-r from-fuchsia-600 to-indigo-600 text-white font-semibold text-[11px] flex items-center justify-center space-x-1.5 shadow">
+                  <i class="fa-solid fa-microphone-lines text-xs"></i>
+                  <span>Entrenar Entrevista Ahora</span>
+                </button>
+
+                <!-- NOTAS EDITABLES -->
+                <div class="pt-1.5 border-t border-gray-800 text-[11px]">
+                  <template x-if="editingNoteAppId !== app.id">
+                    <p class="text-gray-400 italic cursor-pointer hover:text-gray-200" @click="startEditingNote(app)">
+                      <i class="fa-solid fa-note-sticky text-fuchsia-400/80 mr-1"></i>
+                      <span x-text="app.notes || 'Añadir nota...'"></span>
+                    </p>
+                  </template>
+                  <template x-if="editingNoteAppId === app.id">
+                    <div class="space-y-1.5">
+                      <input type="text" x-model="editingNoteText" class="w-full px-2 py-1 bg-gray-950 border border-gray-700 rounded text-xs text-gray-100">
+                      <div class="flex justify-end space-x-1">
+                        <button @click="editingNoteAppId = null" class="px-2 py-0.5 text-[10px] bg-gray-800 text-gray-400 rounded">Cancelar</button>
+                        <button @click="saveAppNote(app.id)" class="px-2 py-0.5 text-[10px] bg-fuchsia-600 text-white rounded">Guardar</button>
+                      </div>
+                    </div>
+                  </template>
+                </div>
+
+                <!-- ACCIONES DE TRANSICIÓN -->
+                <div class="flex items-center justify-between pt-2 border-t border-gray-800/80">
+                  <button @click="moveApplication(app.id, 'applied')" class="text-gray-400 hover:text-gray-200 text-[11px] flex items-center space-x-1">
+                    <i class="fa-solid fa-arrow-left text-[10px]"></i>
+                    <span>Volver</span>
+                  </button>
+                  <button @click="moveApplication(app.id, 'offered')"
+                          class="px-2.5 py-1 rounded-lg bg-emerald-600/80 hover:bg-emerald-500 text-white text-[11px] font-semibold transition flex items-center space-x-1">
+                    <span>¡Oferta! 🏆</span>
+                  </button>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+
+        <!-- COLUMNA 4: OFERTAS RECIBIDAS -->
+        <div class="glass p-4 rounded-2xl flex flex-col space-y-3.5 border-t-2 border-t-emerald-500">
+          <div class="flex items-center justify-between pb-2 border-b border-gray-800">
+            <h3 class="text-xs font-bold text-emerald-300 uppercase tracking-wider flex items-center space-x-2">
+              <i class="fa-solid fa-trophy"></i>
+              <span>4. Oferta / Convenio</span>
+            </h3>
+            <span class="px-2 py-0.5 text-xs rounded-full bg-emerald-950/60 text-emerald-300 font-mono"
+                  x-text="applications.filter(a => a.status === 'offered').length"></span>
+          </div>
+
+          <div class="space-y-3 flex-1 overflow-y-auto max-h-[70vh]">
+            <template x-for="app in applications.filter(a => a.status === 'offered')" :key="app.id">
+              <div class="p-4 rounded-xl bg-gray-900/90 border border-emerald-900/50 hover:border-emerald-600 transition space-y-2.5 shadow-lg shadow-emerald-950/30">
+                <div class="flex items-start justify-between gap-2">
+                  <h4 class="text-xs font-bold text-emerald-200 line-clamp-2" x-text="app.title"></h4>
+                  <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-950 border border-emerald-700 text-emerald-300 font-mono font-bold">¡OFERTA!</span>
+                </div>
+                <p class="text-[11px] text-gray-300 font-medium" x-text="app.company + ' · ' + app.modality"></p>
+                <div class="text-[11px] text-emerald-400 font-mono font-semibold" x-text="app.salary"></div>
+
+                <!-- NOTAS EDITABLES -->
+                <div class="pt-1.5 border-t border-gray-800 text-[11px]">
+                  <template x-if="editingNoteAppId !== app.id">
+                    <p class="text-gray-300 italic cursor-pointer hover:text-white" @click="startEditingNote(app)">
+                      <i class="fa-solid fa-note-sticky text-emerald-400/80 mr-1"></i>
+                      <span x-text="app.notes || 'Añadir nota...'"></span>
+                    </p>
+                  </template>
+                  <template x-if="editingNoteAppId === app.id">
+                    <div class="space-y-1.5">
+                      <input type="text" x-model="editingNoteText" class="w-full px-2 py-1 bg-gray-950 border border-gray-700 rounded text-xs text-gray-100">
+                      <div class="flex justify-end space-x-1">
+                        <button @click="editingNoteAppId = null" class="px-2 py-0.5 text-[10px] bg-gray-800 text-gray-400 rounded">Cancelar</button>
+                        <button @click="saveAppNote(app.id)" class="px-2 py-0.5 text-[10px] bg-emerald-600 text-white rounded">Guardar</button>
+                      </div>
+                    </div>
+                  </template>
+                </div>
+
+                <!-- ACCIONES DE TRANSICIÓN -->
+                <div class="flex items-center justify-between pt-2 border-t border-gray-800/80">
+                  <button @click="moveApplication(app.id, 'interview')" class="text-gray-400 hover:text-gray-200 text-[11px] flex items-center space-x-1">
+                    <i class="fa-solid fa-arrow-left text-[10px]"></i>
+                    <span>Volver</span>
+                  </button>
+                  <button @click="deleteApp(app.id)" class="text-rose-400 hover:text-rose-300 text-xs" title="Archivar / Eliminar">
+                    <i class="fa-regular fa-trash-can"></i>
+                  </button>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+
+      </div>
+    </div>
     <!-- ============================================================== -->
     <div x-show="activeTab === 'market'" x-cloak class="space-y-6">
       <!-- HEADER ANALÍTICAS -->
@@ -808,7 +1203,12 @@ def index_html():
           </div>
         </div>
 
-        <div class="pt-2 flex justify-end">
+        <div class="pt-2 flex flex-wrap justify-end gap-3">
+          <button @click="openTechnicalChallenge()"
+                  class="px-5 py-3 rounded-xl bg-amber-950/80 hover:bg-amber-900/90 border border-amber-600/50 text-amber-300 font-bold text-xs transition flex items-center space-x-2">
+            <i class="fa-solid fa-code text-amber-400"></i>
+            <span>Resolver Reto Técnico / Bug Hunt</span>
+          </button>
           <button @click="startInterviewSession()" :disabled="interviewLoading"
                   class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-fuchsia-600 to-indigo-600 hover:from-fuchsia-500 hover:to-indigo-500 text-white font-bold text-sm shadow-xl shadow-fuchsia-600/30 transition flex items-center space-x-2">
             <i class="fa-solid fa-phone" x-show="!interviewLoading"></i>
@@ -1256,6 +1656,180 @@ def index_html():
 
 
   <!-- ============================================================== -->
+  <!-- MODAL: CARTA DE PRESENTACIÓN & MOTIVACIÓN (IA) -->
+  <!-- ============================================================== -->
+  <div x-show="openCoverModal" x-cloak class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+    <div class="glass max-w-2xl w-full rounded-2xl p-6 md:p-8 space-y-5 max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+        <div>
+          <h3 class="text-lg font-bold text-cyan-400 flex items-center space-x-2">
+            <i class="fa-solid fa-pen-nib"></i>
+            <span>Carta de Presentación & Motivación</span>
+          </h3>
+          <p class="text-xs text-gray-300 mt-0.5" x-text="coverLetterData.job_title + ' @ ' + coverLetterData.company"></p>
+        </div>
+        <button @click="openCoverModal = false" class="text-gray-400 hover:text-gray-200 text-lg">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- ESTADO DE CARGA -->
+      <div x-show="coverLetterLoading" class="py-12 flex flex-col items-center justify-center space-y-3">
+        <i class="fa-solid fa-circle-notch fa-spin text-4xl text-cyan-400"></i>
+        <p class="text-sm font-semibold text-gray-200">Redactando carta de motivación con IA...</p>
+        <p class="text-xs text-gray-400">Alineando tu perfil de 2º DAM UNIR + Máster Ciberseguridad con los requisitos de la vacante.</p>
+      </div>
+
+      <!-- CONTENIDO DE LA CARTA -->
+      <div x-show="!coverLetterLoading" class="space-y-4">
+        <!-- ASUNTO RECOMENDADO -->
+        <div class="p-3.5 rounded-xl bg-gray-900/90 border border-cyan-800/50 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+          <div class="space-y-0.5">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-cyan-400">Asunto para el Email o Formulario:</span>
+            <p class="text-xs font-mono text-gray-200 select-all" x-text="coverLetterData.subject"></p>
+          </div>
+          <button @click="navigator.clipboard.writeText(coverLetterData.subject); alert('Asunto copiado al portapapeles')"
+                  class="px-2.5 py-1 rounded-lg bg-cyan-950 hover:bg-cyan-900 border border-cyan-700/60 text-cyan-300 text-[11px] font-medium shrink-0 flex items-center space-x-1">
+            <i class="fa-regular fa-copy"></i>
+            <span>Copiar Asunto</span>
+          </button>
+        </div>
+
+        <!-- PUNTOS FUERTES DESTACADOS -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="p-3 rounded-xl bg-gray-900/70 border border-gray-800">
+            <span class="text-[11px] font-bold text-gray-400 uppercase tracking-wider block mb-1">Encaje Técnico Principal</span>
+            <p class="text-xs text-gray-300" x-text="coverLetterData.core_strengths"></p>
+          </div>
+          <div class="p-3 rounded-xl bg-gray-900/70 border border-gray-800">
+            <span class="text-[11px] font-bold text-emerald-400 uppercase tracking-wider block mb-1">Valor Diferencial (Seguridad)</span>
+            <p class="text-xs text-gray-300" x-text="coverLetterData.unique_value"></p>
+          </div>
+        </div>
+
+        <!-- CUERPO COMPLETO DE LA CARTA -->
+        <div>
+          <label class="block text-xs font-bold text-gray-300 mb-1.5 uppercase tracking-wider">Texto Completo de la Carta:</label>
+          <div class="p-4 rounded-xl bg-gray-900 border border-gray-800 text-xs text-gray-200 whitespace-pre-line leading-relaxed font-sans select-all max-h-72 overflow-y-auto"
+               x-text="coverLetterData.full_text"></div>
+        </div>
+
+        <!-- ACCIONES -->
+        <div class="pt-3 border-t border-gray-800 flex flex-wrap justify-between items-center gap-2">
+          <button @click="openCoverModal = false" class="px-4 py-2 rounded-xl bg-gray-800 hover:bg-gray-700 text-xs font-semibold text-gray-300">Cerrar</button>
+          <div class="flex items-center space-x-2">
+            <button @click="copyCoverLetter()"
+                    class="px-4 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 font-bold text-xs text-white transition flex items-center space-x-1.5 shadow-md shadow-cyan-600/30">
+              <i class="fa-solid" :class="coverCopied ? 'fa-check text-emerald-300' : 'fa-copy'"></i>
+              <span x-text="coverCopied ? '¡Carta Copiada!' : 'Copiar Carta'"></span>
+            </button>
+            <button @click="downloadCoverLetter()"
+                    class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 font-bold text-xs text-white transition flex items-center space-x-1.5 shadow-md shadow-indigo-600/30">
+              <i class="fa-solid fa-download"></i>
+              <span>Descargar .md</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================== -->
+  <!-- MODAL: RETO TÉCNICO INTERACTIVO / BUG HUNT -->
+  <!-- ============================================================== -->
+  <div x-show="openChallengeModal" x-cloak class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+    <div class="glass max-w-2xl w-full rounded-2xl p-6 md:p-8 space-y-5 max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+        <div>
+          <h3 class="text-lg font-bold text-amber-400 flex items-center space-x-2">
+            <i class="fa-solid fa-code"></i>
+            <span>Reto Técnico Práctico & Bug Hunt</span>
+          </h3>
+          <p class="text-xs text-gray-300 mt-0.5" x-text="challengeData.title + (challengeData.company ? ' — ' + challengeData.company : '')"></p>
+        </div>
+        <button @click="openChallengeModal = false" class="text-gray-400 hover:text-gray-200 text-lg">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- ESTADO DE CARGA -->
+      <div x-show="challengeLoading" class="py-12 flex flex-col items-center justify-center space-y-3">
+        <i class="fa-solid fa-circle-notch fa-spin text-4xl text-amber-400"></i>
+        <p class="text-sm font-semibold text-gray-200">Generando caso técnico real con IA...</p>
+        <p class="text-xs text-gray-400">Creando un escenario realista de código con fallo de concurrencia o vulnerabilidad OWASP.</p>
+      </div>
+
+      <!-- CONTENIDO DEL RETO -->
+      <div x-show="!challengeLoading" class="space-y-4">
+        <!-- ESCENARIO -->
+        <div class="p-3.5 rounded-xl bg-amber-950/40 border border-amber-800/40 text-xs text-amber-200 flex items-start space-x-2.5">
+          <i class="fa-solid fa-circle-info text-amber-400 mt-0.5"></i>
+          <div>
+            <strong class="font-bold">Contexto de la prueba técnica:</strong>
+            <p class="mt-0.5 text-gray-300" x-text="challengeData.scenario"></p>
+          </div>
+        </div>
+
+        <!-- SNIPPET DE CÓDIGO CON ERROR -->
+        <div class="rounded-xl overflow-hidden border border-gray-800 bg-gray-950">
+          <div class="px-4 py-2 bg-gray-900 border-b border-gray-800 flex justify-between items-center text-xs">
+            <span class="font-mono text-gray-400 flex items-center space-x-1.5">
+              <i class="fa-solid fa-terminal text-cyan-400"></i>
+              <span>Fragmento de Código Bajo Revisión</span>
+            </span>
+            <span class="font-mono text-[11px] uppercase px-2 py-0.5 rounded bg-gray-800 text-amber-300 font-bold" x-text="challengeData.language || 'code'"></span>
+          </div>
+          <pre class="p-4 text-xs font-mono text-rose-300 overflow-x-auto leading-relaxed select-all" x-text="challengeData.code_snippet"></pre>
+        </div>
+
+        <!-- PREGUNTA / MISIÓN -->
+        <div class="p-3.5 rounded-xl bg-gray-900 border border-gray-800 space-y-1">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-fuchsia-400 flex items-center space-x-1.5">
+            <i class="fa-solid fa-circle-question"></i>
+            <span>Pregunta del Entrevistador Técnico:</span>
+          </span>
+          <p class="text-xs font-semibold text-gray-100" x-text="challengeData.question"></p>
+        </div>
+
+        <!-- PISTA TOGGLE -->
+        <div class="space-y-2">
+          <button @click="showChallengeHint = !showChallengeHint"
+                  class="text-xs font-semibold text-cyan-400 hover:text-cyan-300 flex items-center space-x-1.5">
+            <i class="fa-regular fa-lightbulb"></i>
+            <span x-text="showChallengeHint ? 'Ocultar Pista' : '💡 ¿Necesitas una pista? (Click para mostrar)'"></span>
+          </button>
+          <div x-show="showChallengeHint" class="p-3 rounded-xl bg-cyan-950/50 border border-cyan-800/40 text-xs text-cyan-200">
+            <strong class="font-bold">Pista:</strong> <span x-text="challengeData.hint"></span>
+          </div>
+        </div>
+
+        <!-- SOLUCIÓN & REFACTOR TOGGLE -->
+        <div class="space-y-2 pt-1">
+          <button @click="showChallengeSolution = !showChallengeSolution"
+                  class="px-3.5 py-1.5 rounded-lg bg-gray-800 hover:bg-gray-700 text-xs font-bold text-emerald-400 flex items-center space-x-1.5 transition">
+            <i class="fa-solid fa-key"></i>
+            <span x-text="showChallengeSolution ? 'Ocultar Solución' : '🔓 Revelar Solución & Refactor'"></span>
+          </button>
+          <div x-show="showChallengeSolution" class="p-4 rounded-xl bg-emerald-950/40 border border-emerald-800/50 space-y-2 text-xs">
+            <span class="font-bold text-emerald-300 flex items-center space-x-1.5">
+              <i class="fa-solid fa-circle-check"></i>
+              <span>Diagnóstico & Corrección Recomendada:</span>
+            </span>
+            <div class="text-gray-200 whitespace-pre-line leading-relaxed font-mono text-[11.5px]" x-text="challengeData.solution"></div>
+          </div>
+        </div>
+
+        <!-- ACCIONES -->
+        <div class="pt-3 border-t border-gray-800 flex justify-end">
+          <button @click="openChallengeModal = false" class="px-5 py-2 rounded-xl bg-gray-800 hover:bg-gray-700 text-xs font-semibold text-gray-200">Cerrar Reto</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================== -->
   <!-- MODAL: CLAVE GEMINI API -->
   <!-- ============================================================== -->
   <div x-show="openApiKeyModal" x-cloak class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
@@ -1575,9 +2149,16 @@ def index_html():
         marketData: {},
         profile: { personal: {}, skills: {} },
         searchQuery: '',
+        quickFilter: 'all',
         selectedModality: 'todos',
         selectedExperience: 'todos',
         sortBy: 'match',
+
+        // Candidaturas / Kanban Tracker
+        applications: [],
+        appMetrics: { total: 0, saved: 0, applied: 0, interview: 0, offered: 0, rejected: 0 },
+        editingNoteAppId: null,
+        editingNoteText: '',
 
         // Simulación de Entrevista
         interviewActive: false,
@@ -1596,6 +2177,15 @@ def index_html():
         openCheatModal: false,
         cheatSheetLoading: false,
         cheatSheetData: {},
+        openCoverModal: false,
+        coverLetterLoading: false,
+        coverLetterData: {},
+        coverCopied: false,
+        openChallengeModal: false,
+        challengeLoading: false,
+        challengeData: {},
+        showChallengeHint: false,
+        showChallengeSolution: false,
         openApiKeyModal: false,
         apiKeyInput: '',
         openImportModal: false,
@@ -1632,6 +2222,7 @@ def index_html():
           await this.loadMarketInsights();
           await this.loadSchedulerStatus();
           await this.loadSources();
+          await this.loadApplications();
           this.initSpeechRecognition();
         },
 
@@ -1679,17 +2270,173 @@ def index_html():
           }
         },
 
+        setQuickFilter(f) {
+          this.quickFilter = f;
+          this.applyClientSearch();
+        },
+
         applyClientSearch() {
-          if (!this.searchQuery.trim()) {
-            this.filteredJobs = this.jobs;
-            return;
+          let list = this.jobs || [];
+
+          // Filtro Rápido (Chips)
+          if (this.quickFilter === 'unir') {
+            list = list.filter(j => (j.source || '').toLowerCase().includes('unir'));
+          } else if (this.quickFilter === 'internship') {
+            list = list.filter(j => {
+              const exp = (j.experience_required || '').toLowerCase();
+              return exp.includes('práctica') || exp.includes('practica') || exp.includes('beca') || exp.includes('sin experiencia');
+            });
+          } else if (this.quickFilter === 'cyber') {
+            list = list.filter(j => {
+              const text = (j.title + ' ' + (j.skills_required || []).join(' ') + ' ' + (j.description || '')).toLowerCase();
+              return text.includes('ciberseguridad') || text.includes('seguridad') || text.includes('owasp') || text.includes('siem') || text.includes('firewall');
+            });
+          } else if (this.quickFilter === 'java') {
+            list = list.filter(j => {
+              const text = (j.title + ' ' + (j.skills_required || []).join(' ')).toLowerCase();
+              return text.includes('java') || text.includes('spring');
+            });
+          } else if (this.quickFilter === 'remote') {
+            list = list.filter(j => (j.modality || '').toLowerCase().includes('remoto'));
           }
-          const q = this.searchQuery.toLowerCase();
-          this.filteredJobs = this.jobs.filter(j => 
-            j.title.toLowerCase().includes(q) ||
-            j.company.toLowerCase().includes(q) ||
-            (j.skills_required && j.skills_required.some(s => s.toLowerCase().includes(q)))
-          );
+
+          // Búsqueda de texto libre en tiempo real
+          if (this.searchQuery && this.searchQuery.trim()) {
+            const q = this.searchQuery.toLowerCase().trim();
+            list = list.filter(j => 
+              j.title.toLowerCase().includes(q) ||
+              j.company.toLowerCase().includes(q) ||
+              (j.location || '').toLowerCase().includes(q) ||
+              (j.source || '').toLowerCase().includes(q) ||
+              (j.skills_required && j.skills_required.some(s => s.toLowerCase().includes(q)))
+            );
+          }
+
+          this.filteredJobs = list;
+        },
+
+        // --- GESTIÓN DE CANDIDATURAS (KANBAN) ---
+        async loadApplications() {
+          try {
+            const res = await fetch('/api/applications');
+            const data = await res.json();
+            this.applications = data.applications || [];
+            this.appMetrics = data.metrics || { total: 0, saved: 0, applied: 0, interview: 0, offered: 0 };
+          } catch (e) {
+            console.error('Error cargando candidaturas:', e);
+          }
+        },
+
+        async trackInKanban(job, status = 'saved') {
+          try {
+            const res = await fetch('/api/applications', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ job_id: job.id, status: status })
+            });
+            if (res.ok) {
+              await this.loadApplications();
+              alert('✓ Oferta añadida al tablero de Candidaturas');
+            }
+          } catch (e) {
+            alert('Error al añadir candidatura');
+          }
+        },
+
+        async moveApplication(appId, newStatus) {
+          try {
+            await fetch(`/api/applications/${appId}/status`, {
+              method: 'PUT',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ status: newStatus })
+            });
+            await this.loadApplications();
+          } catch (e) {
+            alert('Error al mover candidatura');
+          }
+        },
+
+        async deleteApp(appId) {
+          if (!confirm('¿Deseas eliminar esta candidatura de tu seguimiento?')) return;
+          try {
+            await fetch(`/api/applications/${appId}`, { method: 'DELETE' });
+            await this.loadApplications();
+          } catch (e) {
+            alert('Error al eliminar candidatura');
+          }
+        },
+
+        startEditingNote(app) {
+          this.editingNoteAppId = app.id;
+          this.editingNoteText = app.notes || '';
+        },
+
+        async saveAppNote(appId) {
+          try {
+            await fetch(`/api/applications/${appId}/notes`, {
+              method: 'PUT',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ notes: this.editingNoteText })
+            });
+            this.editingNoteAppId = null;
+            await this.loadApplications();
+          } catch (e) {
+            alert('Error al guardar nota');
+          }
+        },
+
+        // --- CARTA DE PRESENTACIÓN INTELIGENTE ---
+        async openCoverLetterModal(job) {
+          this.coverLetterData = { job_title: job.title, company: job.company };
+          this.coverLetterLoading = true;
+          this.openCoverModal = true;
+          this.coverCopied = false;
+          try {
+            const res = await fetch(`/api/jobs/${job.id}/cover-letter`);
+            this.coverLetterData = await res.json();
+          } catch (e) {
+            alert('No se pudo generar la carta de presentación');
+          } finally {
+            this.coverLetterLoading = false;
+          }
+        },
+
+        copyCoverLetter() {
+          if (!this.coverLetterData.full_text) return;
+          navigator.clipboard.writeText(this.coverLetterData.full_text);
+          this.coverCopied = true;
+          setTimeout(() => { this.coverCopied = false; }, 2500);
+        },
+
+        downloadCoverLetter() {
+          const comp = (this.coverLetterData.company || 'Empresa').replace(/\\s+/g, '_');
+          const content = `# CARTA DE MOTIVACIÓN & PRESENTACIÓN\n**Puesto:** ${this.coverLetterData.job_title}\n**Empresa:** ${this.coverLetterData.company}\n**Asunto:** ${this.coverLetterData.subject || ''}\n\n---\n\n${this.coverLetterData.full_text}`;
+          const blob = new Blob([content], { type: 'text/markdown;charset=utf-8;' });
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = `Carta_Presentacion_${comp}.md`;
+          link.click();
+          URL.revokeObjectURL(url);
+        },
+
+        // --- RETO TÉCNICO INTERACTIVO / BUG HUNT ---
+        async openTechnicalChallenge(job) {
+          const targetJob = job || (this.selectedInterviewJobId ? this.jobs.find(j => j.id === this.selectedInterviewJobId) : this.jobs[0]);
+          if (!targetJob) return;
+          this.challengeData = { title: 'Cargando caso práctico...', company: targetJob.company };
+          this.challengeLoading = true;
+          this.openChallengeModal = true;
+          this.showChallengeHint = false;
+          this.showChallengeSolution = false;
+          try {
+            const res = await fetch(`/api/jobs/${targetJob.id}/technical-challenge`);
+            this.challengeData = await res.json();
+          } catch (e) {
+            alert('No se pudo generar el reto técnico');
+          } finally {
+            this.challengeLoading = false;
+          }
         },
 
         async updateJobStatus(jobId, newStatus) {

@@ -10447,5 +10447,74 @@
     "source": "Arbeitnow Live API",
     "status": "new",
     "applied_date": null
+  },
+  {
+    "id": "job-434",
+    "title": "Senior Systems Software Engineer, GPU Compute",
+    "company": "Nebius",
+    "location": "",
+    "modality": "Híbrido",
+    "salary_min": 10000,
+    "salary_max": 13000,
+    "currency": "EUR",
+    "experience_required": "Prácticas / Beca",
+    "date_posted": "Hoy (Live API)",
+    "skills_required": [
+      "System Engineers"
+    ],
+    "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;About Nebius:&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Nebius is leading a new era in cloud infrastructure for the global AI economy. We are building a full-stack AI cloud platform that supports developers and enterprises...",
+    "benefits": [
+      "Trabajo en remoto",
+      "Equipo internacional"
+    ],
+    "source": "Arbeitnow Live API",
+    "status": "new",
+    "applied_date": null
+  },
+  {
+    "id": "job-435",
+    "title": "Revenue Enablement Manager (m/f/d), Just-in-Time Enablement",
+    "company": "SoSafe",
+    "location": "Cologne",
+    "modality": "Híbrido",
+    "salary_min": 30000,
+    "salary_max": 42000,
+    "currency": "EUR",
+    "experience_required": "Junior / Mid",
+    "date_posted": "Hoy (Live API)",
+    "skills_required": [
+      "Sales"
+    ],
+    "description": "<p style=\"min-height:1.5em\">SoSafe has the ambition to become the leading human risk management provider in Europe. Our award-winning awareness platform triggers behavioural change by providing effective and engaging training and simulations on cybersecurity and data protection. ...",
+    "benefits": [
+      "Trabajo en remoto",
+      "Equipo internacional"
+    ],
+    "source": "Arbeitnow Live API",
+    "status": "new",
+    "applied_date": null
+  },
+  {
+    "id": "job-436",
+    "title": "Working Student - Backend Development Product Creation & Assignment (m|w|d)",
+    "company": "idealo internet GmbH",
+    "location": "Berlin, Berlin, Deutschland",
+    "modality": "Híbrido",
+    "salary_min": 10000,
+    "salary_max": 13000,
+    "currency": "EUR",
+    "experience_required": "Prácticas / Beca",
+    "date_posted": "Hoy (Live API)",
+    "skills_required": [
+      "Career Starters"
+    ],
+    "description": "<p class=\"Paragraph SCXW7827552 BCX0\">Are you in your first year of your Master's degree and looking for a working student role where you can contribute to real production systems, learn from experienced engineers, and explore the intersection of backend development, data enginee...",
+    "benefits": [
+      "Trabajo en remoto",
+      "Equipo internacional"
+    ],
+    "source": "Arbeitnow Live API",
+    "status": "new",
+    "applied_date": null
   }
 ]

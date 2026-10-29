@@ -3,6 +3,7 @@ Punto de Entrada Principal para CareerPilot.
 Lanza el servidor web interactivo con el dashboard y simulador de entrevistas.
 """
 
+import os
 import sys
 from pathlib import Path
 import uvicorn
@@ -32,11 +33,12 @@ def main():
     """
     console.print(Panel.fit(banner, border_style="cyan"))
 
+    is_dev = not os.getenv("RENDER") and not os.getenv("SPACE_ID") and os.getenv("ENVIRONMENT") != "production"
     uvicorn.run(
         "src.ui.web_server:app",
         host=DEFAULT_HOST,
         port=DEFAULT_PORT,
-        reload=True
+        reload=is_dev
     )
 
 
